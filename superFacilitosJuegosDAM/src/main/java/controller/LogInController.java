@@ -44,10 +44,9 @@ public class LogInController {
     	stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     	
     	scene=new Scene(root);
-    	
+
     	
     	stage.setScene(scene);
-    	stage.initModality(Modality.APPLICATION_MODAL);
     	
     	stage.show();
     }
