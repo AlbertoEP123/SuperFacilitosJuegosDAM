@@ -94,6 +94,6 @@
          </children>
       </Pane>
       <Button fx:id="btonRegistro" layoutX="66.0" layoutY="448.0" mnemonicParsing="false" onAction="#actionRegister" prefHeight="31.0" prefWidth="97.0" style="-fx-background-radius: 20;" text="Registrar" textAlignment="JUSTIFY" />
-      <Button layoutX="364.0" layoutY="448.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="67.0" style="-fx-background-radius: 20;" text="Salir" />
+      <Button layoutX="364.0" layoutY="448.0" mnemonicParsing="false" onAction="#salirAction" prefHeight="31.0" prefWidth="67.0" style="-fx-background-radius: 20;" text="Salir" />
    </children>
 </AnchorPane>

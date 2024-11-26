@@ -1,5 +1,6 @@
 package controller;
 
+import app.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -43,6 +44,12 @@ public class RegistroController {
     @FXML
     void actionRegister(ActionEvent event) {
 
+    }
+
+    @FXML
+    void salirAction(ActionEvent event) {
+    	
+    	
     }
 
 }

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import app.Metodos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +34,24 @@ public class LogInController {
 
     @FXML
     void actionButtonEnterLogIn(ActionEvent event) {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Home.fxml"));
+    	try {
+			root = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	
+    	scene=new Scene(root);
+
+    	
+    	stage.setScene(scene);
+    	
+    	stage.show();
+    //	Metodos.cambiarVentana(event, "/view/Home.fxml");
+    	
 
     }
 
