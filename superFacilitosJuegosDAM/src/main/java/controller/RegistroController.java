@@ -1,9 +1,10 @@
 package controller;
 
-import app.MainApp;
+import java.io.IOException;
+
+import app.Metodos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,9 +17,6 @@ public class RegistroController {
 
     @FXML
     private DatePicker FechaNacId;
-
-    @FXML
-    private Button btonRegistro;
 
     @FXML
     private PasswordField confirmarContraseñaId;
@@ -42,14 +40,24 @@ public class RegistroController {
     private AnchorPane pane;
 
     @FXML
-    void actionRegister(ActionEvent event) {
+    void btonCancelar(ActionEvent event) {
+    	try {
+			Metodos.cambiarEscena(event, "/view/LogIn.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
     }
 
     @FXML
-    void salirAction(ActionEvent event) {
-    	
-    	
+    void btonRegistro(ActionEvent event) {
+    	try {
+			Metodos.cambiarEscena(event, "/view/LogIn.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 }

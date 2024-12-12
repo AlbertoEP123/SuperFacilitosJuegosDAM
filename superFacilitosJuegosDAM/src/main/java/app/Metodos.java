@@ -7,32 +7,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Metodos {
 
 	
-		public static void cambiarVentana(ActionEvent event,String resource) {
-			Parent root;
-			Scene scene;
-			Stage stage;
-			
-			try {
-				root = FXMLLoader.load(MainApp.class.getResource(resource));
-				 scene = new Scene(root);
-				 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			    	
-			    	scene=new Scene(root);
+	 public static void cambiarEscena(ActionEvent event, String fxmlFile) throws IOException {
 
-			    	
-			    	stage.setScene(scene);
-			    	
-			    	stage.show();
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
+		 	FXMLLoader loader = new FXMLLoader(Metodos.class.getResource(fxmlFile));
+	       
+		 	Pane root = loader.load();
+	        
+	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	        
+	        Scene scene = new Scene(root);
+	        
+	        stage.setScene(scene);
+	        
+	        stage.show();
+	    }
+		
+		
 }

@@ -34,40 +34,25 @@ public class LogInController {
 
     @FXML
     void actionButtonEnterLogIn(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Home.fxml"));
     	try {
-			root = loader.load();
+			Metodos.cambiarEscena(event, "/view/Home.fxml");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
-    	stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	
-    	scene=new Scene(root);
 
-    	
-    	stage.setScene(scene);
-    	
-    	stage.show();
-    //	Metodos.cambiarVentana(event, "/view/Home.fxml");
     	
 
     }
 
     @FXML
-    void actionButtonRegister(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Registro.fxml"));
-    	root = loader.load();
-    	
-    	stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	
-    	scene=new Scene(root);
-
-    	
-    	stage.setScene(scene);
-    	
-    	stage.show();
+    void actionButtonRegister(ActionEvent event) {
+    	try {
+			Metodos.cambiarEscena(event, "/view/Registro.fxml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 }
