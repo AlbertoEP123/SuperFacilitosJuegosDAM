@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="581.0" prefWidth="528.0" style="-fx-background-color: #1B94E0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistroController">
+<BorderPane minHeight="686.0" minWidth="513.0" style="-fx-background-color: #1B94E0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistroController">
    <bottom>
-      <GridPane prefHeight="38.0" prefWidth="501.0" BorderPane.alignment="CENTER">
+      <GridPane BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,7 +25,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#btonRegistro" style="-fx-background-radius: 20; -fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #8E24AA;" text="Registro" textOverrun="CLIP">
+            <Button mnemonicParsing="false" onAction="#btonRegistro" style="-fx-background-radius: 20; -fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #8E24AA;" text="Registrarse" textOverrun="CLIP">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font></Button>
@@ -58,9 +58,9 @@
       </FlowPane>
    </top>
    <center>
-      <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="396.0" prefWidth="472.0" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
+      <Pane minHeight="396.0" minWidth="472.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
          <children>
-            <GridPane alignment="CENTER" hgap="25.0" layoutY="18.0" prefHeight="325.0" prefWidth="462.0" style="-fx-background-color: #1B94E0;" vgap="25.0">
+            <GridPane alignment="CENTER" hgap="25.0" layoutY="18.0" minHeight="325.0" minWidth="462.0" style="-fx-background-color: #1B94E0;" vgap="25.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="166.0" minWidth="0.0" prefWidth="31.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="0.0" prefWidth="44.0" />
@@ -136,9 +136,9 @@
       </Pane>
    </center>
    <left>
-      <Pane prefHeight="416.0" prefWidth="34.0" BorderPane.alignment="CENTER" />
+      <Pane BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <Pane prefHeight="392.0" prefWidth="34.0" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER" />
+      <Pane style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>
