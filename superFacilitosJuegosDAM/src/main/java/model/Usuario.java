@@ -7,14 +7,14 @@ public class Usuario {
 
 	private String nombre;
 	private String apellidos;
-	private Date fechaNac;
+	private String fechaNac;
 	private String nickname;
 	private String email;
 	private String confEmail;
 	private String contraseña;
 	private String confContraseña;
-	private ArrayList<Usuario> usuariosRegistrados;
-	public Usuario(String nombre, String apellidos, Date fechaNac, String nickname, String email, String confEmail,
+    private static ArrayList<Usuario> usuariosRegistrados = new ArrayList<>();
+	public Usuario(String nombre, String apellidos, String fechaNac, String nickname, String email, String confEmail,
 			String contraseña, String confContraseña) {
 		super();
 		this.nombre = nombre;
@@ -27,7 +27,7 @@ public class Usuario {
 		this.confContraseña = confContraseña;
 	}
 
-	public ArrayList<Usuario> getUsuariosRegistrados() {
+	public static ArrayList<Usuario> getUsuariosRegistrados() {
 		return usuariosRegistrados;
 	}
 
@@ -47,10 +47,10 @@ public class Usuario {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public Date getFechaNac() {
+	public String getFechaNac() {
 		return fechaNac;
 	}
-	public void setFechaNac(Date fechaNac) {
+	public void setFechaNac(String fechaNac) {
 		this.fechaNac = fechaNac;
 	}
 	public String getNickname() {
@@ -83,6 +83,16 @@ public class Usuario {
 	public void setConfContraseña(String confContraseña) {
 		this.confContraseña = confContraseña;
 	}
+	  public static void add(Usuario user) {
+	        try {
+	            if (usuariosRegistrados == null) {
+	                usuariosRegistrados = new ArrayList<>();
+	            }
+	            usuariosRegistrados.add(user);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
 	
 	
 }

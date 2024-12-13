@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -15,116 +14,131 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistroController">
-   <children>
-      <BorderPane prefHeight="500.0" prefWidth="500.0">
-         <center>
-            <GridPane hgap="25.0" prefHeight="500.0" prefWidth="500.0" vgap="25.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="166.0" minWidth="0.0" prefWidth="31.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="0.0" prefWidth="44.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<BorderPane prefHeight="581.0" prefWidth="528.0" style="-fx-background-color: #1B94E0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistroController">
+   <bottom>
+      <GridPane prefHeight="38.0" prefWidth="501.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#btonRegistro" style="-fx-background-radius: 20; -fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #8E24AA;" text="Registro" textOverrun="CLIP">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#btonCancelar" style="-fx-background-radius: 20; -fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #8E24AA;" text="Cancelar" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </bottom>
+   <top>
+      <FlowPane prefWidth="500.0" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="87.0" prefWidth="464.0" style="-fx-background-color: #1A5989; -fx-background-radius: 20px;">
+               <children>
+                  <Label alignment="CENTER" layoutX="179.0" layoutY="22.0" text="Registro">
+                     <font>
+                        <Font name="Cambria Bold" size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+               <FlowPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </FlowPane.margin>
+            </Pane>
+         </children>
+      </FlowPane>
+   </top>
+   <center>
+      <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="396.0" prefWidth="472.0" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane alignment="CENTER" hgap="25.0" layoutY="18.0" prefHeight="325.0" prefWidth="462.0" style="-fx-background-color: #1B94E0;" vgap="25.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="166.0" minWidth="0.0" prefWidth="31.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="0.0" prefWidth="44.0" />
+               </columnConstraints>
+               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
                   <Label text="Nombre">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
                   <Label text="Apellidos" GridPane.rowIndex="1">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
                   <Label text="Email" GridPane.rowIndex="4">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
                   <Label text="Confirmar Email" GridPane.rowIndex="5">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nombreId" prefHeight="26.0" prefWidth="283.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="ApellidosId" prefHeight="25.0" prefWidth="293.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="nicknameId" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="emailId" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="nombreId" prefHeight="26.0" prefWidth="283.0" style="-fx-background-radius: 25;" GridPane.columnIndex="1" />
+                  <TextField fx:id="ApellidosId" prefHeight="25.0" prefWidth="293.0" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="nicknameId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="emailId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="Fecha de Nacimiento" GridPane.rowIndex="2">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
                   <Label text="Nickname" GridPane.rowIndex="3">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="confirmarEmailId" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <DatePicker fx:id="FechaNacId" prefHeight="25.0" prefWidth="285.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="confirmarEmailId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <DatePicker fx:id="FechaNacId" prefHeight="25.0" prefWidth="285.0" style="-fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Contraseña" GridPane.rowIndex="6">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
                   <Label text="Confirmar Contraseña" GridPane.rowIndex="7">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Cambria" size="16.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="contraseñaId" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <PasswordField fx:id="confirmarContraseñaId" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <PasswordField fx:id="contraseñaId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <PasswordField fx:id="confirmarContraseñaId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                </children>
                <padding>
-                  <Insets bottom="20.0" top="20.0" />
+                  <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
                </padding>
-               <BorderPane.margin>
-                  <Insets left="20.0" right="20.0" />
-               </BorderPane.margin>
             </GridPane>
-         </center>
-         <bottom>
-            <GridPane prefWidth="500.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button mnemonicParsing="false" onAction="#btonRegistro" text="Registro" />
-                  <Button mnemonicParsing="false" onAction="#btonCancelar" text="Cancelar" GridPane.columnIndex="1" />
-               </children>
-            </GridPane>
-         </bottom>
-         <top>
-            <FlowPane prefWidth="500.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Pane prefHeight="87.0" prefWidth="464.0" style="-fx-background-color: gray; -fx-background-radius: 20px;">
-                     <children>
-                        <Label alignment="CENTER" layoutX="197.0" layoutY="22.0" text="Registro">
-                           <font>
-                              <Font size="29.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <FlowPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </FlowPane.margin>
-                  </Pane>
-               </children>
-            </FlowPane>
-         </top>
-      </BorderPane>
-   </children>
-</AnchorPane>
+         </children>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Pane>
+   </center>
+   <left>
+      <Pane prefHeight="416.0" prefWidth="34.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="392.0" prefWidth="34.0" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -27,6 +28,21 @@ public class Metodos {
 	        
 	        stage.show();
 	    }
+	 public static void mostrarMensajeError(String mensaje) {
+		    Alert alert = new Alert(Alert.AlertType.ERROR);
+		    alert.setTitle("Error");
+		    alert.setHeaderText(null);
+		    alert.setContentText(mensaje);
+		    alert.showAndWait();
+		}
+	 public static void mostrarMensajeConfirmacion(String mensaje) {
+		    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		    alert.setTitle("Confirmado");
+		    alert.setHeaderText(null);
+		    alert.setContentText(mensaje);
+		    alert.showAndWait();
+		}
+
 		
 		
 }
