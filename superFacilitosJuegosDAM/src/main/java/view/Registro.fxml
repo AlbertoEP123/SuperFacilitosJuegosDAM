@@ -40,9 +40,9 @@
       </GridPane>
    </bottom>
    <top>
-      <FlowPane prefWidth="500.0" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
+      <FlowPane style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="87.0" prefWidth="464.0" style="-fx-background-color: #1A5989; -fx-background-radius: 20px;">
+            <Pane minHeight="87.0" minWidth="464.0" style="-fx-background-color: #1A5989; -fx-background-radius: 20px;">
                <children>
                   <Label alignment="CENTER" layoutX="179.0" layoutY="22.0" text="Registro">
                      <font>
@@ -58,7 +58,7 @@
       </FlowPane>
    </top>
    <center>
-      <Pane minHeight="396.0" minWidth="472.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
+      <Pane nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
          <children>
             <GridPane alignment="CENTER" hgap="25.0" layoutY="18.0" minHeight="325.0" minWidth="462.0" style="-fx-background-color: #1B94E0;" vgap="25.0">
                <columnConstraints>
