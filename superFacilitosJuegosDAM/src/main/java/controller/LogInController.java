@@ -50,7 +50,7 @@ public class LogInController {
         
         if (loginSuccess) {
         	Metodos.mostrarMensajeConfirmacion("Te has logueado "+username);
-            Metodos.cambiarEscena(event, "/view/Home.fxml");
+            Metodos.cambiarEscena(event, "/view/Home.fxml", "home");
         } else {
             Metodos.mostrarMensajeError("Usuario o contraseña incorrectos.");
         }
@@ -58,7 +58,7 @@ public class LogInController {
 
     @FXML
     void actionButtonRegister(ActionEvent event) {
-    	Metodos.cambiarEscena(event, "/view/Registro.fxml");
+    	Metodos.cambiarEscena(event, "/view/Registro.fxml", "Registro");
 
     }
 

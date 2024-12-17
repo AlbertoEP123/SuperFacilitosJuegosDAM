@@ -14,17 +14,15 @@ import javafx.stage.Stage;
 public class Metodos {
 
 	
-	public static void cambiarEscena(ActionEvent event, String fxmlFile) {
+	public static void cambiarEscena(ActionEvent event, String fxmlFile, String nombreVentana) {
 	    try {
 	        FXMLLoader loader = new FXMLLoader(Metodos.class.getResource(fxmlFile));
 	        
 	        Pane root = loader.load();
 	        
 	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	        stage.setTitle(nombreVentana);
 	        
-	        if (stage == null) {
-	            throw new NullPointerException("El Stage es null.");
-	        }
 	        
 	        Scene scene = new Scene(root);
 	        stage.setScene(scene);

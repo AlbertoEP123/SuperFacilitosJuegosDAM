@@ -11,6 +11,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Usuario;
 
 public class RegistroController {
@@ -40,10 +41,12 @@ public class RegistroController {
     private TextField nombreId;
 
     
-    
+   
+
+   
     @FXML
     void btonCancelar(ActionEvent event) {
-    	Metodos.cambiarEscena(event, "/view/LogIn.fxml");
+    	Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
 
     }
 
@@ -86,7 +89,7 @@ public class RegistroController {
         
         Usuario.add(usuario);
         Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario "+ nombreId.getText());
-        Metodos.cambiarEscena(event, "/view/LogIn.fxml");
+        Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
     }
 
  
