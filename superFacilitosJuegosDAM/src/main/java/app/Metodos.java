@@ -14,20 +14,30 @@ import javafx.stage.Stage;
 public class Metodos {
 
 	
-	 public static void cambiarEscena(ActionEvent event, String fxmlFile) throws IOException {
-
-		 	FXMLLoader loader = new FXMLLoader(Metodos.class.getResource(fxmlFile));
-	       
-		 	Pane root = loader.load();
+	public static void cambiarEscena(ActionEvent event, String fxmlFile) {
+	    try {
+	        FXMLLoader loader = new FXMLLoader(Metodos.class.getResource(fxmlFile));
+	        
+	        Pane root = loader.load();
 	        
 	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	        
+	        if (stage == null) {
+	            throw new NullPointerException("El Stage es null.");
+	        }
+	        
 	        Scene scene = new Scene(root);
-	        
 	        stage.setScene(scene);
-	        
 	        stage.show();
+	    } catch (IOException e) {
+	        System.err.println("Error al cargar el archivo FXML: " + e.getMessage());
+	        e.printStackTrace();
+	    } catch (NullPointerException e) {
+	        System.err.println("Error de NullPointer: " + e.getMessage());
+	        e.printStackTrace();
 	    }
+	}
+
 	 public static void mostrarMensajeError(String mensaje) {
 		    Alert alert = new Alert(Alert.AlertType.ERROR);
 		    alert.setTitle("Error");

@@ -5,6 +5,7 @@ import java.io.IOException;
 import app.Metodos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -49,11 +50,7 @@ public class LogInController {
         
         if (loginSuccess) {
         	Metodos.mostrarMensajeConfirmacion("Te has logueado "+username);
-            try {
-                Metodos.cambiarEscena(event, "/view/Home.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Metodos.cambiarEscena(event, "/view/Home.fxml");
         } else {
             Metodos.mostrarMensajeError("Usuario o contraseña incorrectos.");
         }
@@ -61,12 +58,8 @@ public class LogInController {
 
     @FXML
     void actionButtonRegister(ActionEvent event) {
-    	try {
-			Metodos.cambiarEscena(event, "/view/Registro.fxml");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	Metodos.cambiarEscena(event, "/view/Registro.fxml");
+
     }
 
 }
