@@ -14,6 +14,16 @@ public class Usuario {
 	private String contraseña;
 	private String confContraseña;
     private static ArrayList<Usuario> usuariosRegistrados = new ArrayList<>();
+    
+    public Usuario(String nombre, String apellidos, String nickname, String email,
+			String contraseña) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.nickname = nickname;
+		this.email = email;
+		this.contraseña = contraseña;
+	}
+
 	public Usuario(String nombre, String apellidos, String fechaNac, String nickname, String email, String confEmail,
 			String contraseña, String confContraseña) {
 		super();
@@ -31,8 +41,8 @@ public class Usuario {
 		return usuariosRegistrados;
 	}
 
-	public void setUsuariosRegistrados(ArrayList<Usuario> usuariosRegistrados) {
-		this.usuariosRegistrados = usuariosRegistrados;
+	public static void setUsuariosRegistrados(ArrayList<Usuario> usuariosRegistrados) {
+		Usuario.usuariosRegistrados = usuariosRegistrados;
 	}
 
 	public String getNombre() {
