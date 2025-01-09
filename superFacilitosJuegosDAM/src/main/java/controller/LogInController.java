@@ -16,7 +16,7 @@ public class LogInController {
 	Parent root;
 	Scene scene;
 	Stage stage;
-	
+	 public static Usuario loggedInUser = null;
     @FXML
     private Button buttonEnterLogIn;
 
@@ -32,6 +32,7 @@ public class LogInController {
     @FXML
     void actionButtonEnterLogIn(ActionEvent event) {
         String username = texFieldUsername.getText();
+        
         String password = passwordField.getText();
         
         boolean loginSuccess = false;
@@ -39,6 +40,7 @@ public class LogInController {
 			for (Usuario user : Usuario.getUsuariosRegistrados()) {
 			    if (user.getNickname().equals(username) && user.getContraseña().equals(password)) {
 			        loginSuccess = true;
+			        loggedInUser = user;
 			        break;
 			    }
 			}

@@ -2,66 +2,134 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
-   <children>
-      <GridPane hgap="5.0" layoutX="10.0" layoutY="10.0" vgap="5.0">
-         <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="97.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="254.0" minWidth="10.0" prefWidth="89.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="87.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="294.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+<BorderPane prefHeight="585.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+   <left>
+      <Pane prefHeight="340.0" prefWidth="77.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="490.0" prefWidth="45.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Categoria" GridPane.columnIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label prefHeight="27.0" prefWidth="95.0" text="Categoria">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label text="Categoria" GridPane.columnIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="idBuscador" alignment="CENTER" promptText="Buscador" GridPane.columnIndex="3" />
+            <ScrollBar fx:id="scrollVideojuegosHome" layoutX="16.0" orientation="VERTICAL" prefHeight="469.0" prefWidth="14.0" />
          </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </GridPane>
-      <GridPane layoutX="43.0" layoutY="109.0" prefHeight="355.0" prefWidth="501.0">
+      </Pane>
+   </right>
+   <bottom>
+      <Pane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <GridPane prefHeight="421.0" prefWidth="645.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="65.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="242.0" minWidth="10.0" prefWidth="65.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="65.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="65.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="102.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="102.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-family: Cambria;" text="Terror" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-family: Cambria;" text="Puzles" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-family: Cambria;" text="FPS" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="searchField" prefHeight="25.0" prefWidth="114.0" promptText="Buscar" style="-fx-border-radius: 100px; -fx-background-color: gray;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="2.0" right="2.0" />
+               </GridPane.margin>
+            </TextField>
+            <ImageView fx:id="imageView1" fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+            <ImageView fx:id="imageView2" fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fx:id="imageView3" fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fx:id="imageView4" fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+            <ImageView fx:id="imageView5" fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ImageView fx:id="imageView6" fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ImageView fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ImageView fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
+            <ImageView fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ImageView fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ImageView fitHeight="90.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Pane opacity="0.5" prefHeight="40.0" prefWidth="138.0" style="-fx-background-color: gray;" GridPane.rowIndex="1" />
+            <Pane opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Pane opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Pane onKeyPressed="#textFieldBusqueda" opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+         <opaqueInsets>
+            <Insets top="20.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <top>
+      <GridPane prefHeight="83.0" prefWidth="797.0" style="-fx-background-color: #1A5989; -fx-border-color: black;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="557.0" minWidth="10.0" prefWidth="557.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="113.0" />
+        </columnConstraints>
+        <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="107.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="107.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-            <ImageView fitHeight="107.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-            <ImageView fitHeight="107.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ImageView fitHeight="107.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-            <ImageView fitHeight="107.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="45.0" />
+               </GridPane.margin>
+               <children>
+                  <Label fx:id="labelUsuario" layoutX="7.0" layoutY="21.0" style="-fx-font-family: Cambria;" text="usuario">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="panelCerrarSesion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#click" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15px; -fx-background-color: WHITE;">
+               <children>
+                  <Label layoutX="11.0" layoutY="12.0" style="-fx-font-family: Cambria;" text="S">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="26.0" layoutY="21.0" style="-fx-font-family: Cambria;" text="F">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="44.0" layoutY="26.0" style="-fx-font-family: Cambria;" text="J">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets left="75.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets bottom="5.0" />
+               </opaqueInsets>
+            </Pane>
          </children>
       </GridPane>
-   </children>
-</AnchorPane>
+   </top>
+</BorderPane>
