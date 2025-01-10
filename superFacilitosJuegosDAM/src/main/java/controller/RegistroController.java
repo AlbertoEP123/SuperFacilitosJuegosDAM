@@ -87,6 +87,7 @@ public class RegistroController {
             confirmarContraseñaId.getText()
         );
         
+      
         Usuario.add(usuario);
         Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario "+ nombreId.getText());
         Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
