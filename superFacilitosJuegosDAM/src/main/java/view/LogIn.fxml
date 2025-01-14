@@ -106,16 +106,16 @@
    <center>
       <GridPane prefHeight="162.0" prefWidth="206.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="61.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="326.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="62.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="151.0" minWidth="10.0" prefWidth="61.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="326.0" minWidth="10.0" prefWidth="326.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="113.0" minWidth="10.0" prefWidth="62.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="332.0" minHeight="10.0" prefHeight="136.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="380.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="382.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="157.0" minHeight="0.0" prefHeight="83.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="103.0" minHeight="0.0" prefHeight="103.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="332.0" minHeight="10.0" prefHeight="136.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="380.0" minHeight="10.0" prefHeight="107.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="382.0" minHeight="10.0" prefHeight="107.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="157.0" minHeight="0.0" prefHeight="83.0" valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="103.0" minHeight="0.0" prefHeight="103.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
             <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Password" style="-fx-background-radius: 20px; -fx-padding: 10px; -fx-font-size: 16px; -fx-background-color: #F1F1F1;" GridPane.columnIndex="1" GridPane.rowIndex="2">

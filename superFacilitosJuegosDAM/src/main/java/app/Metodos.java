@@ -64,6 +64,8 @@ public class Metodos {
 		    alert.setContentText(mensaje);
 		    alert.showAndWait();
 		}
+	
+
 	 public static void mostrarMensajeConfirmacion(String mensaje) {
 		    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		    alert.setTitle("Confirmado");

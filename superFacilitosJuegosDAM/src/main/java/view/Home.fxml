@@ -99,16 +99,16 @@
       <GridPane prefHeight="100.0" prefWidth="1122.0" style="-fx-background-color: #1A5989; -fx-border-color: black;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="557.0" />
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="113.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="113.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="248.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="147.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets right="45.0" />
+                  <Insets />
                </GridPane.margin>
                <children>
                   <Label fx:id="labelUsuario" layoutX="7.0" layoutY="21.0" style="-fx-font-family: Cambria;" text="usuario">
@@ -155,7 +155,7 @@
          <children>
             <ScrollPane prefHeight="674.0" prefWidth="22.0">
               <content>
-                <AnchorPane prefHeight="674.0" prefWidth="38.0" />
+                <AnchorPane prefHeight="657.0" prefWidth="38.0" />
               </content>
             </ScrollPane>
          </children>

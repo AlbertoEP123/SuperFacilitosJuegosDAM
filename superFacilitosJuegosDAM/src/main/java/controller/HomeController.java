@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import api.RawgApiClient;
 import app.Metodos;
+import excepcion.PersonalizedNullPointerException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
@@ -149,7 +150,7 @@ public class HomeController {
 
     }
 /*
- * CORREGIR: SCROLLBAR, CAMBIAR LOGO, TEXFIELD SEARCH NO FUNCIONA A VECES, GENEROS
+ * CORREGIR: SCROLLBAR,  GENEROS
  */
 
 
@@ -161,7 +162,7 @@ public class HomeController {
         	labelUsuario.setText(LogInController.loggedInUser.getNickname());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
 
 
@@ -211,6 +212,13 @@ public class HomeController {
         if (games != null && !games.isEmpty()) {
             updateGameView(games);
             updateGameTittle(games);
+        }else {
+            // Lanza la excepción personalizada, pero también muestra un mensaje al usuario
+            try {
+                throw new PersonalizedNullPointerException("Null pointer, no se encuentra el juego");
+            } catch (PersonalizedNullPointerException e) {
+            	Metodos.mostrarMensajeError(e.getMessage());
+            }
         }
     }
 
@@ -251,6 +259,8 @@ public class HomeController {
 		}
  	    if (size > 12) {
 			setImageWithFixedSize(imageView12, games.get(11).getImageUrl());
+		} else {
+			// Scroll y cargar nuevas imagenes con las existentes
 		}
     }
     private void updateGameTittle(List<Games> games) {
@@ -298,9 +308,11 @@ public class HomeController {
     private void setImageWithFixedSize(ImageView imageView, String imageUrl) {
         Image image = new Image(imageUrl);
 
-        imageView.setImage(image);
+        imageView.setImage(image);        
         imageView.setFitWidth(200); // Establece el ancho deseado
         imageView.setFitHeight(200); // Establece el alto deseado
+        
+        imageView.setPreserveRatio(true);
     }
 
     private ScrollPane imprimirJuegos(List<Games> juegos) throws IOException {
