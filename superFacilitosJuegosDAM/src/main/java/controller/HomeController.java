@@ -1,19 +1,11 @@
 package controller;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import api.RawgApiClient;
 import app.Metodos;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
@@ -28,11 +20,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.Games;
-import model.Usuario;
-import api.RawgApiClient;
 
 public class HomeController {
-	
+
 	private RawgApiClient client;
 
 
@@ -41,7 +31,7 @@ public class HomeController {
 
     @FXML
     private URL location;
-    
+
 
     @FXML
     private Label tituloJuego1;
@@ -127,9 +117,9 @@ public class HomeController {
     private TextField searchField;
     @FXML
     private ScrollPane scrollGame;
-    
+
     private int currentPage = 1;
-    private static final int GAMES_PER_PAGE = 12; 
+    private static final int GAMES_PER_PAGE = 12;
 
 
     // Este método maneja la búsqueda
@@ -159,17 +149,22 @@ public class HomeController {
 
     }
 /*
- * CORREGIR: SCROLLBAR, CAMBIAR LOGO, TEXFIELD SEARCH NO FUNCIONA A VECES, GENEROS 
+ * CORREGIR: SCROLLBAR, CAMBIAR LOGO, TEXFIELD SEARCH NO FUNCIONA A VECES, GENEROS
  */
-    
-    
-    
+
+
+
     @FXML
     void initialize() {
 
-    	labelUsuario.setText(LogInController.loggedInUser.getNickname());
-    	
-    	
+    	try {
+        	labelUsuario.setText(LogInController.loggedInUser.getNickname());
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+
     	 assert imageView1 != null : "fx:id=\"imageView1\" was not injected: check your FXML file 'Home.fxml'.";
          assert imageView10 != null : "fx:id=\"imageView10\" was not injected: check your FXML file 'Home.fxml'.";
          assert imageView11 != null : "fx:id=\"imageView11\" was not injected: check your FXML file 'Home.fxml'.";
@@ -191,7 +186,7 @@ public class HomeController {
 
     }
 
-  
+
     private void clearImageViews() {
         for (int i = 0; i < 4; i++) {
             ImageView targetImageView = getImageView(i);
@@ -221,43 +216,91 @@ public class HomeController {
 
     private void updateGameView(List<Games> games) {
     	int size = games.size();
-    	if (size > 1) setImageWithFixedSize(imageView1, games.get(4).getImageUrl());
- 	    if (size > 2) setImageWithFixedSize(imageView2, games.get(5).getImageUrl());
- 	    if (size > 3) setImageWithFixedSize(imageView3, games.get(6).getImageUrl());
- 	    if (size > 4) setImageWithFixedSize(imageView4, games.get(7).getImageUrl());
- 	    if (size > 5) setImageWithFixedSize(imageView5, games.get(0).getImageUrl());
- 	    if (size > 6) setImageWithFixedSize(imageView6, games.get(1).getImageUrl());
- 	    if (size > 7) setImageWithFixedSize(imageView7, games.get(2).getImageUrl());
- 	    if (size > 8) setImageWithFixedSize(imageView8, games.get(3).getImageUrl());
- 	    if (size > 9) setImageWithFixedSize(imageView9, games.get(8).getImageUrl());
- 	    if (size > 10) setImageWithFixedSize(imageView10, games.get(9).getImageUrl());
- 	    if (size > 11) setImageWithFixedSize(imageView11, games.get(10).getImageUrl());
- 	    if (size > 12) setImageWithFixedSize(imageView12, games.get(11).getImageUrl());
+    	if (size > 1) {
+			setImageWithFixedSize(imageView1, games.get(4).getImageUrl());
+		}
+ 	    if (size > 2) {
+			setImageWithFixedSize(imageView2, games.get(5).getImageUrl());
+		}
+ 	    if (size > 3) {
+			setImageWithFixedSize(imageView3, games.get(6).getImageUrl());
+		}
+ 	    if (size > 4) {
+			setImageWithFixedSize(imageView4, games.get(7).getImageUrl());
+		}
+ 	    if (size > 5) {
+			setImageWithFixedSize(imageView5, games.get(0).getImageUrl());
+		}
+ 	    if (size > 6) {
+			setImageWithFixedSize(imageView6, games.get(1).getImageUrl());
+		}
+ 	    if (size > 7) {
+			setImageWithFixedSize(imageView7, games.get(2).getImageUrl());
+		}
+ 	    if (size > 8) {
+			setImageWithFixedSize(imageView8, games.get(3).getImageUrl());
+		}
+ 	    if (size > 9) {
+			setImageWithFixedSize(imageView9, games.get(8).getImageUrl());
+		}
+ 	    if (size > 10) {
+			setImageWithFixedSize(imageView10, games.get(9).getImageUrl());
+		}
+ 	    if (size > 11) {
+			setImageWithFixedSize(imageView11, games.get(10).getImageUrl());
+		}
+ 	    if (size > 12) {
+			setImageWithFixedSize(imageView12, games.get(11).getImageUrl());
+		}
     }
     private void updateGameTittle(List<Games> games) {
         int size = games.size();
-        
-        if (size > 0) tituloJuego1.setText(games.get(0).getTitle());
-        if (size > 1) tituloJuego2.setText(games.get(1).getTitle());
-        if (size > 2) tituloJuego3.setText(games.get(2).getTitle());
-        if (size > 3) tituloJuego4.setText(games.get(3).getTitle());
-        if (size > 4) tituloJuego5.setText(games.get(4).getTitle());
-        if (size > 5) tituloJuego6.setText(games.get(5).getTitle());
-        if (size > 6) tituloJuego7.setText(games.get(6).getTitle());
-        if (size > 7) tituloJuego8.setText(games.get(7).getTitle());
-        if (size > 8) tituloJuego9.setText(games.get(8).getTitle());
-        if (size > 9) tituloJuego10.setText(games.get(9).getTitle());
-        if (size > 10) tituloJuego11.setText(games.get(10).getTitle());
-        if (size > 11) tituloJuego12.setText(games.get(11).getTitle());
+
+        if (size > 0) {
+			tituloJuego1.setText(games.get(0).getTitle());
+		}
+        if (size > 1) {
+			tituloJuego2.setText(games.get(1).getTitle());
+		}
+        if (size > 2) {
+			tituloJuego3.setText(games.get(2).getTitle());
+		}
+        if (size > 3) {
+			tituloJuego4.setText(games.get(3).getTitle());
+		}
+        if (size > 4) {
+			tituloJuego5.setText(games.get(4).getTitle());
+		}
+        if (size > 5) {
+			tituloJuego6.setText(games.get(5).getTitle());
+		}
+        if (size > 6) {
+			tituloJuego7.setText(games.get(6).getTitle());
+		}
+        if (size > 7) {
+			tituloJuego8.setText(games.get(7).getTitle());
+		}
+        if (size > 8) {
+			tituloJuego9.setText(games.get(8).getTitle());
+		}
+        if (size > 9) {
+			tituloJuego10.setText(games.get(9).getTitle());
+		}
+        if (size > 10) {
+			tituloJuego11.setText(games.get(10).getTitle());
+		}
+        if (size > 11) {
+			tituloJuego12.setText(games.get(11).getTitle());
+		}
     }
 
 
     private void setImageWithFixedSize(ImageView imageView, String imageUrl) {
         Image image = new Image(imageUrl);
-        
+
         imageView.setImage(image);
-        imageView.setFitWidth(160); // Establece el ancho deseado
-        imageView.setFitHeight(160); // Establece el alto deseado
+        imageView.setFitWidth(200); // Establece el ancho deseado
+        imageView.setFitHeight(200); // Establece el alto deseado
     }
 
     private ScrollPane imprimirJuegos(List<Games> juegos) throws IOException {
@@ -292,7 +335,7 @@ public class HomeController {
 
         return scrollGame;
     }
-   
+
 
     // Método para obtener el ImageView correspondiente basado en el índice.
     private ImageView getImageView(int index) {
@@ -301,7 +344,7 @@ public class HomeController {
             case 1: return imageView2;
             case 2: return imageView3;
             case 3: return imageView4;
-         
+
             default: return null;
         }
     }

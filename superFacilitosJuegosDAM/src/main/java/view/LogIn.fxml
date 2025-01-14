@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -109,28 +111,29 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="62.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="332.0" minHeight="10.0" prefHeight="136.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="380.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="382.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="157.0" minHeight="0.0" prefHeight="83.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="103.0" minHeight="0.0" prefHeight="103.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Password" style="-fx-background-radius: 20px; -fx-padding: 10px; -fx-font-size: 16px; -fx-background-color: #F1F1F1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Password" style="-fx-background-radius: 20px; -fx-padding: 10px; -fx-font-size: 16px; -fx-background-color: #F1F1F1;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
             </PasswordField>
-            <Button fx:id="buttonEnterLogIn" alignment="CENTER" onAction="#actionButtonEnterLogIn" style="-fx-background-color: #8E24AA; -fx-background-radius: 20px; -fx-font-size: 16px; -fx-text-fill: white;" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="buttonEnterLogIn" alignment="CENTER" onAction="#actionButtonEnterLogIn" style="-fx-background-color: #8E24AA; -fx-background-radius: 20px; -fx-font-size: 16px; -fx-text-fill: white;" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Cambria" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="buttonRegister" alignment="CENTER" onAction="#actionButtonRegister" style="-fx-background-color: #8E24AA; -fx-background-radius: 20px; -fx-font-size: 14px; -fx-text-fill: white;" text="Registro" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="buttonRegister" alignment="CENTER" onAction="#actionButtonRegister" style="-fx-background-color: #8E24AA; -fx-background-radius: 20px; -fx-font-size: 14px; -fx-text-fill: white;" text="Registro" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Cambria" size="13.0" />
                </font>
             </Button>
-            <TextField fx:id="texFieldUsername" alignment="CENTER" prefHeight="39.0" prefWidth="524.0" promptText="Username" style="-fx-background-radius: 20px; -fx-padding: 10px; -fx-font-size: 16px; -fx-background-color: #F1F1F1;" GridPane.columnIndex="1">
+            <TextField fx:id="texFieldUsername" alignment="CENTER" prefHeight="39.0" prefWidth="524.0" promptText="Username" style="-fx-background-radius: 20px; -fx-padding: 10px; -fx-font-size: 16px; -fx-background-color: #F1F1F1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
@@ -138,7 +141,18 @@
                   <Insets />
                </GridPane.margin>
             </TextField>
+            <ImageView fitHeight="105.0" fitWidth="135.0" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../resourcess/logo.png" />
+               </image>
+            </ImageView>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="30.0" />
+         </padding>
       </GridPane>
    </center>
 </BorderPane>

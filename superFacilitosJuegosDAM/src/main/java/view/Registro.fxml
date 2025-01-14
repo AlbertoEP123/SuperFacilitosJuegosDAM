@@ -6,9 +6,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -39,106 +40,107 @@
          </BorderPane.margin>
       </GridPane>
    </bottom>
-   <top>
-      <FlowPane style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
-         <children>
-            <Pane minHeight="87.0" minWidth="464.0" style="-fx-background-color: #1A5989; -fx-background-radius: 20px;">
-               <children>
-                  <Label alignment="CENTER" layoutX="179.0" layoutY="22.0" text="Registro">
-                     <font>
-                        <Font name="Cambria Bold" size="29.0" />
-                     </font>
-                  </Label>
-               </children>
-               <FlowPane.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </FlowPane.margin>
-            </Pane>
-         </children>
-      </FlowPane>
-   </top>
-   <center>
-      <Pane nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER">
-         <children>
-            <GridPane alignment="CENTER" hgap="25.0" layoutY="18.0" minHeight="325.0" minWidth="462.0" style="-fx-background-color: #1B94E0;" vgap="25.0">
-               <columnConstraints>
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="166.0" minWidth="0.0" prefWidth="31.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="0.0" prefWidth="44.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label text="Nombre">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label text="Apellidos" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label text="Email" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label text="Confirmar Email" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="nombreId" prefHeight="26.0" prefWidth="283.0" style="-fx-background-radius: 25;" GridPane.columnIndex="1" />
-                  <TextField fx:id="ApellidosId" prefHeight="25.0" prefWidth="293.0" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="nicknameId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="emailId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label text="Fecha de Nacimiento" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label text="Nickname" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="confirmarEmailId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <DatePicker fx:id="FechaNacId" prefHeight="25.0" prefWidth="285.0" style="-fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label text="Contraseña" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label text="Confirmar Contraseña" GridPane.rowIndex="7">
-                     <font>
-                        <Font name="Cambria" size="16.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="contraseñaId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <PasswordField fx:id="confirmarContraseñaId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-               </children>
-               <padding>
-                  <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
-               </padding>
-            </GridPane>
-         </children>
-         <BorderPane.margin>
-            <Insets top="20.0" />
-         </BorderPane.margin>
-      </Pane>
-   </center>
-   <left>
-      <Pane BorderPane.alignment="CENTER" />
-   </left>
    <right>
       <Pane style="-fx-background-color: #1B94E0;" BorderPane.alignment="CENTER" />
    </right>
+   <center>
+      <GridPane alignment="CENTER" hgap="25.0" minHeight="325.0" minWidth="462.0" style="-fx-background-color: #1B94E0;" vgap="25.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="166.0" minWidth="0.0" prefWidth="31.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="0.0" prefWidth="44.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Nombre">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Apellidos" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Email" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Confirmar Email" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombreId" prefHeight="26.0" prefWidth="283.0" style="-fx-background-radius: 25;" GridPane.columnIndex="1" />
+            <TextField fx:id="ApellidosId" prefHeight="25.0" prefWidth="293.0" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="nicknameId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="emailId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Fecha de Nacimiento" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Nickname" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="confirmarEmailId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <DatePicker fx:id="FechaNacId" prefHeight="25.0" prefWidth="285.0" style="-fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Contraseña" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Confirmar Contraseña" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="contraseñaId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <PasswordField fx:id="confirmarContraseñaId" style="-fx-background-radius: 25;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <top>
+      <GridPane prefHeight="165.0" prefWidth="513.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Registro">
+               <font>
+                  <Font name="Cambria Bold" size="29.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="99.0" fitWidth="120.0" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../resourcess/logo.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets top="20.0" />
+               </GridPane.margin>
+            </ImageView>
+         </children>
+      </GridPane>
+   </top>
 </BorderPane>

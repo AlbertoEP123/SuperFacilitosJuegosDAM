@@ -1,11 +1,13 @@
 package api;
 
-import model.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import model.Games;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -19,7 +21,7 @@ public class RawgApiClient {
     public RawgApiClient() {
         this.client = new OkHttpClient();
     }
-    
+
     public List<Games> fetchTop5Games() {
         String url = BASE_URL + "/games?key=" + API_KEY + "&page_size=12";
         Request request = new Request.Builder()
@@ -90,7 +92,7 @@ public class RawgApiClient {
             e.printStackTrace();
         }
     }*/
-    
+
     public List<Games>  searchGameByName(String gameName) {
         // Reemplazar espacios por '%20' para la URL
         String query = gameName.replace(" ", "%20");
@@ -134,7 +136,7 @@ public class RawgApiClient {
             return (null);
         }
     }
-    
+
     public void fetchPopularGames() {
         String url = BASE_URL + "/games?key=" + API_KEY;
 

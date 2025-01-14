@@ -32,9 +32,9 @@ public class LogInController {
     @FXML
     void actionButtonEnterLogIn(ActionEvent event) {
         String username = texFieldUsername.getText();
-        
+
         String password = passwordField.getText();
-        
+
         boolean loginSuccess = false;
         try {
 			for (Usuario user : Usuario.getUsuariosRegistrados()) {
@@ -47,7 +47,7 @@ public class LogInController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        
+
         if (loginSuccess) {
         	Metodos.mostrarMensajeConfirmacion("Te has logueado "+username);
             Metodos.cambiarEscena(event, "/view/Home.fxml", "home");

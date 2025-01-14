@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Usuario {
 
@@ -14,7 +13,7 @@ public class Usuario {
 	private String contraseña;
 	private String confContraseña;
     private static ArrayList<Usuario> usuariosRegistrados = new ArrayList<>();
-    
+
     public Usuario(String nombre, String apellidos, String nickname, String email,
 			String contraseña) {
 		this.nombre = nombre;
@@ -103,6 +102,6 @@ public class Usuario {
 	            e.printStackTrace();
 	        }
 	    }
-	
-	
+
+
 }

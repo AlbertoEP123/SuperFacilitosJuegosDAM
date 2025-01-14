@@ -1,21 +1,15 @@
 package controller;
 
-import java.io.IOException;
-import java.time.LocalDate;
-
 import app.Metodos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import model.Usuario;
 
 public class RegistroController {
-	
+
     @FXML
     private TextField ApellidosId;
 
@@ -40,10 +34,10 @@ public class RegistroController {
     @FXML
     private TextField nombreId;
 
-    
-   
 
-   
+
+
+
     @FXML
     void btonCancelar(ActionEvent event) {
     	Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
@@ -52,8 +46,8 @@ public class RegistroController {
 
     @FXML
     void btonRegistro(ActionEvent event) {
-        if (nombreId.getText().isEmpty() || ApellidosId.getText().isEmpty() || FechaNacId.getValue() == null || 
-            nicknameId.getText().isEmpty() || emailId.getText().isEmpty() || confirmarEmailId.getText().isEmpty() || 
+        if (nombreId.getText().isEmpty() || ApellidosId.getText().isEmpty() || FechaNacId.getValue() == null ||
+            nicknameId.getText().isEmpty() || emailId.getText().isEmpty() || confirmarEmailId.getText().isEmpty() ||
             contraseñaId.getText().isEmpty() || confirmarContraseñaId.getText().isEmpty()) {
             Metodos.mostrarMensajeError("Por favor, complete todos los campos.");
             return;
@@ -74,7 +68,7 @@ public class RegistroController {
             return;
         }
 
-     
+
 
         Usuario usuario = new Usuario(
             nombreId.getText(),
@@ -86,13 +80,13 @@ public class RegistroController {
             contraseñaId.getText(),
             confirmarContraseñaId.getText()
         );
-        
-      
+
+
         Usuario.add(usuario);
         Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario "+ nombreId.getText());
         Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
     }
 
- 
+
 
 }
