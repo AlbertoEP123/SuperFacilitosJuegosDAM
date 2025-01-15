@@ -9,13 +9,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<!-- Asegúrate de que el proyecto se construya con Java 17 -->
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 
 	<dependencies>
-		<!-- JavaFX -->
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
@@ -85,7 +83,6 @@
 				<artifactId>javafx-maven-plugin</artifactId>
 				<version>0.0.5</version>
 				<configuration>
-					<!-- Asegúrate de que esta es tu clase principal -->
 					<mainClass>com.tu.paquete.Main</mainClass>
 				</configuration>
 			</plugin>
