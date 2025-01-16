@@ -22,6 +22,7 @@ public class MainApp extends Application {
 			primaryStage.setTitle("LogIn");
 			primaryStage.show();
 			Usuario.setUsuariosRegistrados(DaoUsuarios.loadUsers());
+			Usuario.mostrarUsuarios();
 
 
 		} catch (IOException e) {

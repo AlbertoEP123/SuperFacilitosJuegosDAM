@@ -45,21 +45,27 @@ public class DaoUsuarios {
 	    ArrayList<Usuario> usuarios = new ArrayList<>();
 
 	    // Query para obtener todos los usuarios
-	    String selectQuery = "SELECT  Nombre, Apellidos, fecha_Nacimiento, Apodo, Email, Correo FROM Usuarios";
+	    String selectQuery = "SELECT  Nombre, Apellidos, fecha_Nacimiento, Apodo, Email, Contrasena FROM Usuarios";
 
 	    try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
 	         ResultSet resultSet = selectStatement.executeQuery()) {
 
 	        while (resultSet.next()) {
 	            // Crear un objeto Usuario con los datos de cada fila
-	            Usuario user = null;
+	            Usuario user = new Usuario(
+	                    resultSet.getString("Nombre"),
+	                    resultSet.getString("Apellidos"),
+	                    resultSet.getString("Apodo"), // Fecha de nacimiento
+	                    resultSet.getString("Email"),           // Nickname
+	                    resultSet.getString("Contrasena")           // Email
+	                );
 	            
 	            user.setNombre(resultSet.getString("Nombre"));
 	            user.setApellidos(resultSet.getString("Apellidos"));
 	            user.setFechaNac(resultSet.getString("fecha_Nacimiento")); // Convertir a LocalDate
 	            user.setNickname(resultSet.getString("Apodo"));
 	            user.setEmail(resultSet.getString("Email"));
-	            user.setEmail(resultSet.getString("Correo"));
+	            user.setContraseña(resultSet.getString("Contrasena"));
 	            
 	            // Agregar el usuario al ArrayList
 	            usuarios.add(user);
