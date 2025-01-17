@@ -1,12 +1,13 @@
 package controller;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import api.RawgApiClient;
 import app.Metodos;
-import excepcion.PersonalizedNullPointerException;
+import excepcion.ExcepcionNullPointer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
@@ -130,6 +131,28 @@ public class HomeController {
             searchGames();
         }
     }
+    
+    @FXML
+    void ClickFPS(MouseEvent event) {
+    	principalGamesGenre("fps");
+
+    	
+    }
+
+    @FXML
+    void ClickTerror(MouseEvent event) {
+    	principalGamesGenre("terror");
+
+
+    }
+    @FXML
+    void clickOlvidarContraseña(MouseEvent event) {
+    	
+    }
+    @FXML
+    void clickPuzles(MouseEvent event) {
+    	principalGamesGenre("puzles");
+    }
 
     @FXML
     void ventanaUsuario(MouseEvent event) {
@@ -157,6 +180,7 @@ public class HomeController {
 
     @FXML
     void initialize() {
+    	
 
     	try {
         	labelUsuario.setText(LogInController.loggedInUser.getNickname());
@@ -205,6 +229,14 @@ public class HomeController {
             updateGameTittle(games);
         }
     }
+    public void principalGamesGenre(String genero) {
+        List<Games> games = client.fetchTop5GamesGenre(genero);
+        System.out.println(games.size());
+        if (games != null && !games.isEmpty()) {
+            updateGameView(games);
+            updateGameTittle(games);
+        }
+    }
 
     public void searchGames() {
         List<Games> games = client.searchGameByName(searchField.getText());
@@ -213,10 +245,10 @@ public class HomeController {
             updateGameView(games);
             updateGameTittle(games);
         }else {
-            // Lanza la excepción personalizada, pero también muestra un mensaje al usuario
+            // Lanza la excepción personalizada
             try {
-                throw new PersonalizedNullPointerException("Null pointer, no se encuentra el juego");
-            } catch (PersonalizedNullPointerException e) {
+                throw new ExcepcionNullPointer("Null pointer, no se encuentra el juego");
+            } catch (ExcepcionNullPointer e) {
             	Metodos.mostrarMensajeError(e.getMessage());
             }
         }
@@ -259,9 +291,44 @@ public class HomeController {
 		}
  	    if (size > 12) {
 			setImageWithFixedSize(imageView12, games.get(11).getImageUrl());
-		} else {
-			// Scroll y cargar nuevas imagenes con las existentes
-		}
+			
+		}   
+ 	    if (size > 12) {
+	        HBox extraGamesHBox = new HBox(20); // Un HBox para los juegos extra
+	        extraGamesHBox.setStyle("-fx-padding: 10;");
+
+	        for (int i = 12; i < size; i++) {
+	            if (games.get(i) != null) {
+	                String imageUrl = games.get(i).getImageUrl();
+	                if (imageUrl == null || imageUrl.isEmpty()) {
+	                    imageUrl = "https://via.placeholder.com/200x300.png?text=No+Image";
+	                }
+
+	                ImageView imageView = new ImageView(new Image(imageUrl));
+	                imageView.setFitWidth(200);
+	                imageView.setPreserveRatio(true);
+
+	                VBox vbox = new VBox(imageView);
+	                vbox.setSpacing(20);
+	                extraGamesHBox.getChildren().add(vbox);
+
+	                final int index = i;
+	                imageView.setOnMouseClicked(event -> {
+	                    System.out.println("Has hecho clic en el juego: " + games.get(index).getTitle());
+	                });
+	            }
+	        }
+	        
+	        // Crear un nuevo ScrollPane para los juegos adicionales
+	        ScrollPane extraGamesScrollPane = new ScrollPane(extraGamesHBox);
+	        extraGamesScrollPane.setFitToWidth(true);
+	        extraGamesScrollPane.setPrefHeight(350);
+	        extraGamesScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+	        extraGamesScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+	        // Añadir el ScrollPane de juegos adicionales a la vista
+	        scrollGame.setContent(extraGamesScrollPane.getContent());
+	    }
     }
     private void updateGameTittle(List<Games> games) {
         int size = games.size();

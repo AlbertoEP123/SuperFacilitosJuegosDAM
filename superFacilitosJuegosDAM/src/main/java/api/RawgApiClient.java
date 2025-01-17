@@ -7,7 +7,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import excepcion.PersonalizedNullPointerException;
+import excepcion.ExcepcionNullPointer;
 import model.Games;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -25,6 +25,47 @@ public class RawgApiClient {
 
     public List<Games> fetchTop5Games() {
         String url = BASE_URL + "/games?key=" + API_KEY + "&page_size=12";
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (response.isSuccessful() && response.body() != null) {
+                String responseBody = response.body().string();
+                JsonObject json = JsonParser.parseString(responseBody).getAsJsonObject();
+                JsonArray results = json.getAsJsonArray("results");
+                List<Games> gamesList = new ArrayList<>();
+
+                for (int i = 0; i < results.size(); i++) {
+                    JsonObject gameJson = results.get(i).getAsJsonObject();
+                    String title = gameJson.get("name").getAsString();
+                    double rating = gameJson.has("rating") ? gameJson.get("rating").getAsDouble() : 0.0;
+                    String releaseDate = gameJson.get("released").getAsString();
+                    String imageUrl = gameJson.get("background_image").getAsString();
+                    String description = gameJson.has("description") ? gameJson.get("description").getAsString() : "No description available";
+
+                    JsonArray platformsJson = gameJson.getAsJsonArray("platforms");
+                    List<String> platforms = new ArrayList<>();
+                    for (int j = 0; j < platformsJson.size(); j++) {
+                        JsonObject platform = platformsJson.get(j).getAsJsonObject().getAsJsonObject("platform");
+                        platforms.add(platform.get("name").getAsString());
+                    }
+
+                    Games game = new Games(title, rating, releaseDate, description, imageUrl, platforms);
+                    gamesList.add(game);
+                }
+                return (gamesList);
+            } else {
+                System.out.println("Error en la solicitud: " + response.code());
+                return (null);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return (null);
+        }
+    }
+    public List<Games> fetchTop5GamesGenre(String genero) {
+    	String url = BASE_URL + "/genre?key=" + API_KEY + "&page_size=12&genre="+genero; 
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -94,7 +135,7 @@ public class RawgApiClient {
         }
     }*/
 
-    public List<Games> searchGameByName(String gameName) throws PersonalizedNullPointerException {
+    public List<Games> searchGameByName(String gameName) throws ExcepcionNullPointer {
         // Reemplazar espacios por '%20' para la URL
         String query = gameName.replace(" ", "%20");
         String url = BASE_URL + "/games?key=" + API_KEY + "&search=" + query;
@@ -110,7 +151,7 @@ public class RawgApiClient {
 
                 // Verifica si no hay resultados
                 if (results == null || results.size() == 0) {
-                    throw new PersonalizedNullPointerException("No se encontraron juegos para la búsqueda: " + gameName);
+                    throw new ExcepcionNullPointer("No se encontraron juegos para la búsqueda: " + gameName);
                 }
 
                 List<Games> gamesList = new ArrayList<>();
@@ -128,7 +169,7 @@ public class RawgApiClient {
                     
                     String description = gameJson.has("description") && !gameJson.get("description").isJsonNull() ? gameJson.get("description").getAsString() : "No description available";
 
-                    // Verificar si "platforms" existe y no es nulo
+                    // Verificar si platforms existe y no es nulo
                     JsonArray platformsJson = gameJson.has("platforms") && !gameJson.getAsJsonArray("platforms").isJsonNull() ? gameJson.getAsJsonArray("platforms") : new JsonArray();
                     List<String> platforms = new ArrayList<>();
                     for (int j = 0; j < platformsJson.size(); j++) {
@@ -141,10 +182,10 @@ public class RawgApiClient {
                 }
                 return gamesList;
             } else {
-                throw new PersonalizedNullPointerException("Error en la solicitud a la API: " + response.code());
+                throw new ExcepcionNullPointer("Error en la solicitud a la API: " + response.code());
             }
         } catch (Exception e) {
-            throw new PersonalizedNullPointerException("Error al buscar juegos: " + e.getMessage());
+            throw new ExcepcionNullPointer("Error al buscar juegos: " + e.getMessage());
         }
     }
 

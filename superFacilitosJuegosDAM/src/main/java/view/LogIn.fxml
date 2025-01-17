@@ -127,11 +127,17 @@
                <font>
                   <Font name="Cambria" size="13.0" />
                </font>
+               <GridPane.margin>
+                  <Insets right="200.0" />
+               </GridPane.margin>
             </Button>
-            <Button fx:id="buttonRegister" alignment="CENTER" onAction="#actionButtonRegister" style="-fx-background-color: #8E24AA; -fx-background-radius: 20px; -fx-font-size: 14px; -fx-text-fill: white;" text="Registro" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="buttonRegister" alignment="CENTER" onAction="#actionButtonRegister" style="-fx-background-color: #8E24AA; -fx-background-radius: 20px; -fx-font-size: 14px; -fx-text-fill: white;" text="Registro" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Cambria" size="13.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="200.0" />
+               </GridPane.margin>
             </Button>
             <TextField fx:id="texFieldUsername" alignment="CENTER" prefHeight="39.0" prefWidth="524.0" promptText="Username" style="-fx-background-radius: 20px; -fx-padding: 10px; -fx-font-size: 16px; -fx-background-color: #F1F1F1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
@@ -146,6 +152,11 @@
                   <Image url="@../resourcess/logo.png" />
                </image>
             </ImageView>
+            <Label onMouseClicked="#clickOlvidarContraseña" text="¿Has olvidado la contraseña?" textFill="BLUE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
          <BorderPane.margin>
             <Insets />

@@ -63,9 +63,9 @@
             <ImageView fx:id="imageView10" fitHeight="138.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <ImageView fx:id="imageView11" fitHeight="133.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <ImageView fx:id="imageView12" fitHeight="139.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Pane opacity="0.5" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: gray;" />
-            <Pane opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
-            <Pane opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="2" />
+            <Pane onMouseClicked="#ClickFPS" opacity="0.5" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: gray;" />
+            <Pane onMouseClicked="#ClickTerror" opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
+            <Pane onMouseClicked="#clickPuzles" opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="2" />
             <Pane opacity="0.5" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: gray;" GridPane.columnIndex="3">
                <children>
                   <TextField fx:id="searchField" alignment="TOP_LEFT" layoutX="11.0" layoutY="10.0" onKeyPressed="#buscar" prefHeight="25.0" prefWidth="228.0" promptText="Buscar" style="-fx-border-radius: 200px; -fx-border-color: black; -fx-background-color: gray;">
