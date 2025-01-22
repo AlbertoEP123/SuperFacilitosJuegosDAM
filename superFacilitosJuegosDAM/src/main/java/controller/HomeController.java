@@ -119,6 +119,8 @@ public class HomeController {
     private TextField searchField;
     @FXML
     private ScrollPane scrollGame;
+    
+
 
     private int currentPage = 1;
     private static final int GAMES_PER_PAGE = 12;
@@ -256,6 +258,9 @@ public class HomeController {
 
     private void updateGameView(List<Games> games) {
     	int size = games.size();
+        VBox mainVBox = new VBox(10); // VBox principal para las primeras 12 imágenes
+        HBox extraGamesHBox = new HBox(10); // HBox para los juegos adicionales
+        extraGamesHBox.setStyle("-fx-padding: 10;");
     	if (size > 1) {
 			setImageWithFixedSize(imageView1, games.get(4).getImageUrl());
 		}
@@ -293,83 +298,85 @@ public class HomeController {
 			setImageWithFixedSize(imageView12, games.get(11).getImageUrl());
 			
 		}   
- 	    if (size > 12) {
-	        HBox extraGamesHBox = new HBox(20); // Un HBox para los juegos extra
-	        extraGamesHBox.setStyle("-fx-padding: 10;");
+ 	   if (size > 12) {
+ 	        // Creamos un VBox para los juegos adicionales
+ 	        VBox extraGamesVBox = new VBox(10);
+ 	        for (int i = 12; i < size; i++) {
+ 	            String imageUrl = games.get(i).getImageUrl();
+ 	            if (imageUrl == null || imageUrl.isEmpty()) {
+ 	                imageUrl = "https://via.placeholder.com/200x300.png?text=No+Image";
+ 	            }
 
-	        for (int i = 12; i < size; i++) {
-	            if (games.get(i) != null) {
-	                String imageUrl = games.get(i).getImageUrl();
-	                if (imageUrl == null || imageUrl.isEmpty()) {
-	                    imageUrl = "https://via.placeholder.com/200x300.png?text=No+Image";
-	                }
+ 	            ImageView imageView = new ImageView(new Image(imageUrl));
+ 	            imageView.setFitWidth(200);
+ 	            imageView.setPreserveRatio(true);
 
-	                ImageView imageView = new ImageView(new Image(imageUrl));
-	                imageView.setFitWidth(200);
-	                imageView.setPreserveRatio(true);
+ 	            VBox vbox = new VBox(imageView);
+ 	            vbox.setSpacing(20);
+ 	            extraGamesVBox.getChildren().add(vbox);
 
-	                VBox vbox = new VBox(imageView);
-	                vbox.setSpacing(20);
-	                extraGamesHBox.getChildren().add(vbox);
+ 	            final int index = i;
+ 	            imageView.setOnMouseClicked(event -> {
+ 	                System.out.println("Has hecho clic en el juego: " + games.get(index).getTitle());
+ 	            });
+ 	        }
 
-	                final int index = i;
-	                imageView.setOnMouseClicked(event -> {
-	                    System.out.println("Has hecho clic en el juego: " + games.get(index).getTitle());
-	                });
-	            }
-	        }
-	        
-	        // Crear un nuevo ScrollPane para los juegos adicionales
-	        ScrollPane extraGamesScrollPane = new ScrollPane(extraGamesHBox);
-	        extraGamesScrollPane.setFitToWidth(true);
-	        extraGamesScrollPane.setPrefHeight(350);
-	        extraGamesScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-	        extraGamesScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+ 	        // Creamos un ScrollPane para el VBox de juegos adicionales
+ 	        ScrollPane extraGamesScrollPane = new ScrollPane(extraGamesVBox);
+ 	        extraGamesScrollPane.setFitToWidth(true);
+ 	        extraGamesScrollPane.setPrefHeight(350);
+ 	        extraGamesScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Deshabilita el scroll horizontal
+ 	        extraGamesScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS); // Activa el scroll vertical
 
-	        // Añadir el ScrollPane de juegos adicionales a la vista
-	        scrollGame.setContent(extraGamesScrollPane.getContent());
+ 	        // Añadimos este ScrollPane a nuestro VBox principal
+ 	        mainVBox.getChildren().add(extraGamesScrollPane);
+ 	    }
+
+ 	    // Asignar el contenido final al ScrollPane
+ 	    scrollGame.setContent(mainVBox);
 	    }
-    }
+    
     private void updateGameTittle(List<Games> games) {
         int size = games.size();
 
         if (size > 0) {
-			tituloJuego1.setText(games.get(0).getTitle());
-		}
+            tituloJuego1.setText(games.get(0).getTitle());
+        }
         if (size > 1) {
-			tituloJuego2.setText(games.get(1).getTitle());
-		}
+            tituloJuego2.setText(games.get(1).getTitle());
+        }
         if (size > 2) {
-			tituloJuego3.setText(games.get(2).getTitle());
-		}
+            tituloJuego3.setText(games.get(2).getTitle());
+        }
         if (size > 3) {
-			tituloJuego4.setText(games.get(3).getTitle());
-		}
+            tituloJuego4.setText(games.get(3).getTitle());
+        }
         if (size > 4) {
-			tituloJuego5.setText(games.get(4).getTitle());
-		}
+            tituloJuego5.setText(games.get(4).getTitle());
+        }
         if (size > 5) {
-			tituloJuego6.setText(games.get(5).getTitle());
-		}
+            tituloJuego6.setText(games.get(5).getTitle());
+        }
         if (size > 6) {
-			tituloJuego7.setText(games.get(6).getTitle());
-		}
+            tituloJuego7.setText(games.get(6).getTitle());
+        }
         if (size > 7) {
-			tituloJuego8.setText(games.get(7).getTitle());
-		}
+            tituloJuego8.setText(games.get(7).getTitle());
+        }
         if (size > 8) {
-			tituloJuego9.setText(games.get(8).getTitle());
-		}
+            tituloJuego9.setText(games.get(8).getTitle());
+        }
         if (size > 9) {
-			tituloJuego10.setText(games.get(9).getTitle());
-		}
+            tituloJuego10.setText(games.get(9).getTitle());
+        }
         if (size > 10) {
-			tituloJuego11.setText(games.get(10).getTitle());
-		}
+            tituloJuego11.setText(games.get(10).getTitle());
+        }
         if (size > 11) {
-			tituloJuego12.setText(games.get(11).getTitle());
-		}
+            tituloJuego12.setText(games.get(11).getTitle());
+        }
     }
+
 
 
     private void setImageWithFixedSize(ImageView imageView, String imageUrl) {

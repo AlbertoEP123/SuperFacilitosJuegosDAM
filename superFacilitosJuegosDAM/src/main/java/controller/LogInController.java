@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Usuario;
 
@@ -59,6 +60,10 @@ public class LogInController {
     @FXML
     void actionButtonRegister(ActionEvent event) {
     	Metodos.cambiarEscena(event, "/view/Registro.fxml", "Registro");
+
+    }
+    @FXML
+    void clickOlvidarContraseña(MouseEvent event) {
 
     }
 

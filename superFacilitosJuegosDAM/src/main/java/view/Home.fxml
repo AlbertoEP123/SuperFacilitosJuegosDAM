@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -145,7 +144,7 @@
       </GridPane>
    </top>
    <right>
-      <GridPane prefHeight="674.0" prefWidth="34.0" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="657.0" prefWidth="41.0" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="41.0" minWidth="0.0" prefWidth="38.0" />
         </columnConstraints>
@@ -153,11 +152,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ScrollPane prefHeight="674.0" prefWidth="22.0">
-              <content>
-                <AnchorPane prefHeight="657.0" prefWidth="38.0" />
-              </content>
-            </ScrollPane>
+            <ScrollPane fx:id="scrollGame" prefHeight="657.0" prefWidth="0.0" />
          </children>
       </GridPane>
    </right>
