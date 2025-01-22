@@ -1,12 +1,13 @@
 package controller;
 
-import app.Metodos;
+import app.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import model.Usuario;
+import javafx.scene.layout.AnchorPane;
 
 public class RegistroController {
 
@@ -15,6 +16,9 @@ public class RegistroController {
 
     @FXML
     private DatePicker FechaNacId;
+
+    @FXML
+    private Button btonRegistro;
 
     @FXML
     private PasswordField confirmarContraseñaId;
@@ -34,59 +38,18 @@ public class RegistroController {
     @FXML
     private TextField nombreId;
 
-
-
-
+    @FXML
+    private AnchorPane pane;
 
     @FXML
-    void btonCancelar(ActionEvent event) {
-    	Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
+    void actionRegister(ActionEvent event) {
 
     }
 
     @FXML
-    void btonRegistro(ActionEvent event) {
-        if (nombreId.getText().isEmpty() || ApellidosId.getText().isEmpty() || FechaNacId.getValue() == null ||
-            nicknameId.getText().isEmpty() || emailId.getText().isEmpty() || confirmarEmailId.getText().isEmpty() ||
-            contraseñaId.getText().isEmpty() || confirmarContraseñaId.getText().isEmpty()) {
-            Metodos.mostrarMensajeError("Por favor, complete todos los campos.");
-            return;
-        }
-
-        if (!contraseñaId.getText().equals(confirmarContraseñaId.getText())) {
-            Metodos.mostrarMensajeError("Las contraseñas no coinciden.");
-            return;
-        }
-
-        if (!emailId.getText().equals(confirmarEmailId.getText())) {
-            Metodos.mostrarMensajeError("Los correos electrónicos no coinciden.");
-            return;
-        }
-
-        if (!emailId.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
-            Metodos.mostrarMensajeError("El correo electrónico no es válido.");
-            return;
-        }
-
-
-
-        Usuario usuario = new Usuario(
-            nombreId.getText(),
-            ApellidosId.getText(),
-            FechaNacId.getConverter().toString(),
-            nicknameId.getText(),
-            emailId.getText(),
-            confirmarEmailId.getText(),
-            contraseñaId.getText(),
-            confirmarContraseñaId.getText()
-        );
-
-
-        Usuario.add(usuario);
-        Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario "+ nombreId.getText());
-        Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
+    void salirAction(ActionEvent event) {
+    	
+    	
     }
-
-
 
 }
