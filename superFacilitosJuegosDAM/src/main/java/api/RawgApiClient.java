@@ -135,7 +135,7 @@ public class RawgApiClient {
         }
     }*/
 
-    public List<Games> searchGameByName(String gameName) throws ExcepcionNullPointer {
+    public List<Games> searchGameByName(String gameName, int a, int b) throws ExcepcionNullPointer {
         // Reemplazar espacios por '%20' para la URL
         String query = gameName.replace(" ", "%20");
         String url = BASE_URL + "/games?key=" + API_KEY + "&search=" + query;
