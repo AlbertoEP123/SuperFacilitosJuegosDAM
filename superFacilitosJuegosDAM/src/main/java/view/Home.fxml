@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <left>
       <Pane prefHeight="340.0" prefWidth="77.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
    </left>
@@ -38,7 +38,7 @@
             <RowConstraints minHeight="10.0" prefHeight="49.0" valignment="TOP" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-family: Cambria;" text="Terror" GridPane.columnIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-family: Cambria;" text="Casual" GridPane.columnIndex="1">
                <font>
                   <Font size="14.0" />
                </font></Label>

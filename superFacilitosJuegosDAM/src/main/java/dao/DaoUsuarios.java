@@ -40,6 +40,35 @@ public class DaoUsuarios {
 
 	}
 	
+	public static Usuario login(String email, String contrasena) {
+	    Connection connection = Conexion.conectar();
+
+	    String query = "SELECT * FROM Usuarios WHERE Email = ? AND Contrasena = ?";
+
+	    try (PreparedStatement statement = connection.prepareStatement(query)) {
+	        statement.setString(1, email);
+	        statement.setString(2, contrasena);
+
+	        ResultSet resultSet = statement.executeQuery();
+	        if (resultSet.next()) {
+	            // Si hay coincidencia, creamos un objeto Usuario
+	            return new Usuario(
+	                resultSet.getString("Nombre"),
+	                resultSet.getString("Apellidos"),
+	                resultSet.getString("fecha_Nacimiento"),
+	                resultSet.getString("Apodo"),
+	                resultSet.getString("Email"),
+	                null, // Confirmación de email no es relevante aquí
+	                resultSet.getString("Contrasena"),
+	                null  // Confirmación de contraseña no es relevante aquí
+	            );
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return null; // Si no se encuentra el usuario
+	}
+	
 	public static ArrayList<Usuario> loadUsers() {
 	    Connection connection = Conexion.conectar();
 	    ArrayList<Usuario> usuarios = new ArrayList<>();

@@ -64,8 +64,11 @@ public class RawgApiClient {
             return (null);
         }
     }
-    public List<Games> fetchTop5GamesGenre(String genero) {
-    	String url = BASE_URL + "/genre?key=" + API_KEY + "&page_size=12&genre="+genero; 
+
+    public List<Games> searchGamesByCategory(String categorySlug) {
+        // Construir la URL con el slug de la categoría
+        String url = BASE_URL + "/games?key=" + API_KEY + "&genres=" + categorySlug;
+
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -79,61 +82,38 @@ public class RawgApiClient {
 
                 for (int i = 0; i < results.size(); i++) {
                     JsonObject gameJson = results.get(i).getAsJsonObject();
-                    String title = gameJson.get("name").getAsString();
-                    double rating = gameJson.has("rating") ? gameJson.get("rating").getAsDouble() : 0.0;
-                    String releaseDate = gameJson.get("released").getAsString();
-                    String imageUrl = gameJson.get("background_image").getAsString();
-                    String description = gameJson.has("description") ? gameJson.get("description").getAsString() : "No description available";
 
-                    JsonArray platformsJson = gameJson.getAsJsonArray("platforms");
+                    // Obtener información del juego
+                    String title = gameJson.has("name") ? gameJson.get("name").getAsString() : "Título no disponible";
+                    double rating = gameJson.has("rating") ? gameJson.get("rating").getAsDouble() : 0.0;
+                    String releaseDate = gameJson.has("released") ? gameJson.get("released").getAsString() : "Fecha no disponible";
+                    String imageUrl = gameJson.has("background_image") ? gameJson.get("background_image").getAsString() : "URL no disponible";
+                    String description = gameJson.has("description") ? gameJson.get("description").getAsString() : "Descripción no disponible";
+
+                    // Obtener las plataformas
                     List<String> platforms = new ArrayList<>();
-                    for (int j = 0; j < platformsJson.size(); j++) {
-                        JsonObject platform = platformsJson.get(j).getAsJsonObject().getAsJsonObject("platform");
-                        platforms.add(platform.get("name").getAsString());
+                    if (gameJson.has("platforms")) {
+                        JsonArray platformsJson = gameJson.getAsJsonArray("platforms");
+                        for (int j = 0; j < platformsJson.size(); j++) {
+                            JsonObject platform = platformsJson.get(j).getAsJsonObject().getAsJsonObject("platform");
+                            platforms.add(platform.get("name").getAsString());
+                        }
                     }
 
+                    // Crear un objeto Game y añadirlo a la lista
                     Games game = new Games(title, rating, releaseDate, description, imageUrl, platforms);
                     gamesList.add(game);
                 }
-                return (gamesList);
+                return gamesList;
             } else {
                 System.out.println("Error en la solicitud: " + response.code());
-                return (null);
+                return new ArrayList<>();
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return (null);
+            return new ArrayList<>();
         }
     }
-
-
-    /*public void fetchTop5Games() {
-        String url = BASE_URL + "/games?key=" + API_KEY + "&page_size=10"; // Limita a 5 juegos
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful() && response.body() != null) {
-                String responseBody = response.body().string();
-                JsonObject json = JsonParser.parseString(responseBody).getAsJsonObject();
-
-                // Obtener la lista de resultados
-                JsonArray results = json.getAsJsonArray("results");
-                System.out.println("Top 5 juegos populares:");
-                for (int i = 0; i < results.size(); i++) {
-                    JsonObject game = results.get(i).getAsJsonObject();
-                    String name = game.get("name").getAsString();
-                    double rating = game.get("rating").getAsDouble();
-                    System.out.println((i + 1) + ". " + name + " (Rating: " + rating + ")");
-                }
-            } else {
-                System.out.println("Error en la solicitud: " + response.code());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public List<Games> searchGameByName(String gameName, int a, int b) throws ExcepcionNullPointer {
         // Reemplazar espacios por '%20' para la URL
@@ -190,9 +170,8 @@ public class RawgApiClient {
     }
 
 
-    public void fetchPopularGames() {
-        String url = BASE_URL + "/games?key=" + API_KEY;
-
+    public void fetchGenres() {
+        String url = BASE_URL + "/genres?key=" + API_KEY;
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -201,9 +180,17 @@ public class RawgApiClient {
             if (response.isSuccessful() && response.body() != null) {
                 String responseBody = response.body().string();
                 JsonObject json = JsonParser.parseString(responseBody).getAsJsonObject();
-                System.out.println(json);
+                JsonArray genres = json.getAsJsonArray("results");
+
+                System.out.println("Lista de géneros disponibles:");
+                for (int i = 0; i < genres.size(); i++) {
+                    JsonObject genre = genres.get(i).getAsJsonObject();
+                    String name = genre.get("name").getAsString();
+                    String slug = genre.get("slug").getAsString();
+                    System.out.println("Nombre: " + name + ", Slug: " + slug);
+                }
             } else {
-                System.out.println("Error en la solicitud: " + response.code());
+                System.out.println("Error al obtener géneros: " + response.code());
             }
         } catch (Exception e) {
             e.printStackTrace();

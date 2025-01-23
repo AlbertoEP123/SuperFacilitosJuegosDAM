@@ -1,6 +1,7 @@
 package controller;
 
 import app.Metodos;
+import dao.DaoUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -34,18 +35,14 @@ public class RegistroController {
     @FXML
     private TextField nombreId;
 
-
-
-
-
     @FXML
     void btonCancelar(ActionEvent event) {
-    	Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
-
+        Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
     }
 
     @FXML
     void btonRegistro(ActionEvent event) {
+        // Validación de campos
         if (nombreId.getText().isEmpty() || ApellidosId.getText().isEmpty() || FechaNacId.getValue() == null ||
             nicknameId.getText().isEmpty() || emailId.getText().isEmpty() || confirmarEmailId.getText().isEmpty() ||
             contraseñaId.getText().isEmpty() || confirmarContraseñaId.getText().isEmpty()) {
@@ -68,25 +65,24 @@ public class RegistroController {
             return;
         }
 
-
-
+        // Crear un nuevo usuario
         Usuario usuario = new Usuario(
             nombreId.getText(),
             ApellidosId.getText(),
-            FechaNacId.getConverter().toString(),
+            FechaNacId.getValue().toString(), // Convierte el LocalDate a String si es necesario
             nicknameId.getText(),
             emailId.getText(),
-            confirmarEmailId.getText(),
+            confirmarEmailId.getText(), // Almacenar el correo de confirmación (aunque no se usa para más adelante)
             contraseñaId.getText(),
-            confirmarContraseñaId.getText()
+            confirmarContraseñaId.getText() // Almacenar la contraseña de confirmación
         );
 
+        // Guardar el usuario en la base de datos utilizando el DAO
+        DaoUsuarios.addUser(usuario);
 
-        Usuario.add(usuario);
-        Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario "+ nombreId.getText());
-        Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
+        // Mostrar mensaje de confirmación y cambiar la escena
+        Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario " + nombreId.getText());
+        Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
     }
-
-
-
 }
+

@@ -135,14 +135,14 @@ public class HomeController {
     
     @FXML
     void ClickFPS(MouseEvent event) {
-    	principalGamesGenre("fps");
+    	principalGamesGenre("shooter");
 
     	
     }
 
     @FXML
     void ClickTerror(MouseEvent event) {
-    	principalGamesGenre("terror");
+    	principalGamesGenre("casual");
 
 
     }
@@ -152,7 +152,7 @@ public class HomeController {
     }
     @FXML
     void clickPuzles(MouseEvent event) {
-    	principalGamesGenre("puzles");
+    	principalGamesGenre("puzzle");
     }
 
     @FXML
@@ -181,10 +181,6 @@ public class HomeController {
 
     @FXML
     void initialize() {
-    	
-    	
-
-
     	 assert tituloJuego1 != null : "tituloJuego1 no se ha cargado correctamente!";
     	    assert tituloJuego2 != null : "tituloJuego2 no se ha cargado correctamente!";
     	    assert tituloJuego3 != null : "tituloJuego3 no se ha cargado correctamente!";
@@ -262,7 +258,7 @@ public class HomeController {
         }
     }
     public void principalGamesGenre(String genero) {
-        List<Games> games = client.searchGameByName(searchField.getText(), currentPage, GAMES_PER_PAGE);
+        List<Games> games = client.searchGamesByCategory(genero);
         System.out.println(games.size());
         if (games != null && !games.isEmpty()) {
             updateGameView(games);

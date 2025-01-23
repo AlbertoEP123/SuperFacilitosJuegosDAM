@@ -10,7 +10,7 @@ public class connection {
 //  private static final String PARAMETROS = "?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String PARAMETROS = "?serverTimezone=UTC";
     private static final String USUARIO = "root";
-    private static final String CLAVE = "elcarlo4";
+    private static final String CLAVE = "26838279q";
 
     public static Connection conectar() {
         Connection conexion = null;

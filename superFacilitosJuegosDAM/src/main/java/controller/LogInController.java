@@ -2,6 +2,7 @@ package controller;
 
 
 import app.Metodos;
+import dao.DaoUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -32,29 +33,19 @@ public class LogInController {
 
     @FXML
     void actionButtonEnterLogIn(ActionEvent event) {
-        String username = texFieldUsername.getText();
+    	 String username = texFieldUsername.getText();
+    	    String password = passwordField.getText();
 
-        String password = passwordField.getText();
+    	    // Usar el DAO para verificar el login
+    	    Usuario user = DaoUsuarios.login(username, password);
 
-        boolean loginSuccess = false;
-        try {
-			for (Usuario user : Usuario.getUsuariosRegistrados()) {
-			    if (user.getNickname().equals(username) && user.getContraseña().equals(password)) {
-			        loginSuccess = true;
-			        loggedInUser = user;
-			        break;
-			    }
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-        if (loginSuccess) {
-        	Metodos.mostrarMensajeConfirmacion("Te has logueado "+username);
-            Metodos.cambiarEscena(event, "/view/Home.fxml", "home");
-        } else {
-            Metodos.mostrarMensajeError("Usuario o contraseña incorrectos.");
-        }
+    	    if (user != null) {
+    	        loggedInUser = user; // Guardamos al usuario logueado
+    	        Metodos.mostrarMensajeConfirmacion("Te has logueado " + user.getNickname());
+    	        Metodos.cambiarEscena(event, "/view/Home.fxml", "home");
+    	    } else {
+    	        Metodos.mostrarMensajeError("Usuario o contraseña incorrectos.");
+    	    }
     }
 
     @FXML
