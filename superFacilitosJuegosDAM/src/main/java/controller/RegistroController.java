@@ -1,10 +1,6 @@
 package controller;
 
 import app.Metodos;
-<<<<<<< HEAD
-import dao.DaoUsuarios;
-=======
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -87,10 +83,6 @@ public class RegistroController {
 
 
         Usuario.add(usuario);
-<<<<<<< HEAD
-        DaoUsuarios.addUser(usuario);
-=======
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
         Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario "+ nombreId.getText());
         Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
     }

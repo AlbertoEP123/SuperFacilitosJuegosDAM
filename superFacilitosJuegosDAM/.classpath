@@ -36,12 +36,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.21.jar"/>
-	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.41.0.0.jar"/>
-=======
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -34,10 +34,6 @@ public class HomeController {
     @FXML
     private URL location;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
     @FXML
     private Label tituloJuego1;
 
@@ -186,29 +182,6 @@ public class HomeController {
     @FXML
     void initialize() {
     	
-<<<<<<< HEAD
-
-    	try {
-        	labelUsuario.setText(LogInController.loggedInUser.getNickname());
-
-		} catch (Exception e) {
-			
-		}
-
-
-    	 assert imageView1 != null : "fx:id=\"imageView1\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView10 != null : "fx:id=\"imageView10\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView11 != null : "fx:id=\"imageView11\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView12 != null : "fx:id=\"imageView12\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView2 != null : "fx:id=\"imageView2\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView3 != null : "fx:id=\"imageView3\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView4 != null : "fx:id=\"imageView4\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView5 != null : "fx:id=\"imageView5\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView6 != null : "fx:id=\"imageView6\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView7 != null : "fx:id=\"imageView7\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView8 != null : "fx:id=\"imageView8\" was not injected: check your FXML file 'Home.fxml'.";
-         assert imageView9 != null : "fx:id=\"imageView9\" was not injected: check your FXML file 'Home.fxml'.";
-=======
     	
 
 
@@ -242,15 +215,12 @@ public class HomeController {
     	    assert panelCerrarSesion != null : "panelCerrarSesion no se ha cargado correctamente!";
     	    assert scrollVideojuegosHome != null : "scrollVideojuegosHome no se ha cargado correctamente!";
     	    assert searchField != null : "searchField no se ha cargado correctamente!";
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
         assert labelUsuario != null : "fx:id=\"labelUsuario\" was not injected: check your FXML file 'Home.fxml'.";
         assert panelCerrarSesion != null : "fx:id=\"panelCerrarSesion\" was not injected: check your FXML file 'Home.fxml'.";
         assert scrollVideojuegosHome != null : "fx:id=\"scrollVideojuegosHome\" was not injected: check your FXML file 'Home.fxml'.";
         assert searchField != null : "fx:id=\"searchField\" was not injected: check your FXML file 'Home.fxml'.";
         client = new RawgApiClient();
         principalGames();
-<<<<<<< HEAD
-=======
         scrollGame.setOnScroll(event -> {
             // Verificar si el usuario ha llegado al final del ScrollPane (scroll hacia abajo)
             if (event.getDeltaY() > 0) {
@@ -261,14 +231,10 @@ public class HomeController {
                 }
             }
         });
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
 
     }
 
 
-<<<<<<< HEAD
-    private void clearImageViews() {
-=======
     	private void loadNextPage() {
     	    // Incrementar la página actual para cargar más juegos
     	    currentPage++;
@@ -279,7 +245,6 @@ public class HomeController {
 
 
 	private void clearImageViews() {
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
         for (int i = 0; i < 4; i++) {
             ImageView targetImageView = getImageView(i);
             if (targetImageView != null) {
@@ -297,11 +262,7 @@ public class HomeController {
         }
     }
     public void principalGamesGenre(String genero) {
-<<<<<<< HEAD
-        List<Games> games = client.fetchTop5GamesGenre(genero);
-=======
         List<Games> games = client.searchGameByName(searchField.getText(), currentPage, GAMES_PER_PAGE);
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
         System.out.println(games.size());
         if (games != null && !games.isEmpty()) {
             updateGameView(games);
@@ -310,11 +271,7 @@ public class HomeController {
     }
 
     public void searchGames() {
-<<<<<<< HEAD
-        List<Games> games = client.searchGameByName(searchField.getText());
-=======
         List<Games> games = client.searchGameByName(searchField.getText(), currentPage, GAMES_PER_PAGE);
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
         System.out.println(games.size());
         if (games != null && !games.isEmpty()) {
             updateGameView(games);
@@ -330,86 +287,6 @@ public class HomeController {
     }
 
     private void updateGameView(List<Games> games) {
-<<<<<<< HEAD
-    	int size = games.size();
-        VBox mainVBox = new VBox(10); // VBox principal para las primeras 12 imágenes
-        HBox extraGamesHBox = new HBox(10); // HBox para los juegos adicionales
-        extraGamesHBox.setStyle("-fx-padding: 10;");
-    	if (size > 1) {
-			setImageWithFixedSize(imageView1, games.get(4).getImageUrl());
-		}
- 	    if (size > 2) {
-			setImageWithFixedSize(imageView2, games.get(5).getImageUrl());
-		}
- 	    if (size > 3) {
-			setImageWithFixedSize(imageView3, games.get(6).getImageUrl());
-		}
- 	    if (size > 4) {
-			setImageWithFixedSize(imageView4, games.get(7).getImageUrl());
-		}
- 	    if (size > 5) {
-			setImageWithFixedSize(imageView5, games.get(0).getImageUrl());
-		}
- 	    if (size > 6) {
-			setImageWithFixedSize(imageView6, games.get(1).getImageUrl());
-		}
- 	    if (size > 7) {
-			setImageWithFixedSize(imageView7, games.get(2).getImageUrl());
-		}
- 	    if (size > 8) {
-			setImageWithFixedSize(imageView8, games.get(3).getImageUrl());
-		}
- 	    if (size > 9) {
-			setImageWithFixedSize(imageView9, games.get(8).getImageUrl());
-		}
- 	    if (size > 10) {
-			setImageWithFixedSize(imageView10, games.get(9).getImageUrl());
-		}
- 	    if (size > 11) {
-			setImageWithFixedSize(imageView11, games.get(10).getImageUrl());
-		}
- 	    if (size > 12) {
-			setImageWithFixedSize(imageView12, games.get(11).getImageUrl());
-			
-		}   
- 	   if (size > 12) {
- 	        // Creamos un VBox para los juegos adicionales
- 	        VBox extraGamesVBox = new VBox(10);
- 	        for (int i = 12; i < size; i++) {
- 	            String imageUrl = games.get(i).getImageUrl();
- 	            if (imageUrl == null || imageUrl.isEmpty()) {
- 	                imageUrl = "https://via.placeholder.com/200x300.png?text=No+Image";
- 	            }
-
- 	            ImageView imageView = new ImageView(new Image(imageUrl));
- 	            imageView.setFitWidth(200);
- 	            imageView.setPreserveRatio(true);
-
- 	            VBox vbox = new VBox(imageView);
- 	            vbox.setSpacing(20);
- 	            extraGamesVBox.getChildren().add(vbox);
-
- 	            final int index = i;
- 	            imageView.setOnMouseClicked(event -> {
- 	                System.out.println("Has hecho clic en el juego: " + games.get(index).getTitle());
- 	            });
- 	        }
-
- 	        // Creamos un ScrollPane para el VBox de juegos adicionales
- 	        ScrollPane extraGamesScrollPane = new ScrollPane(extraGamesVBox);
- 	        extraGamesScrollPane.setFitToWidth(true);
- 	        extraGamesScrollPane.setPrefHeight(350);
- 	        extraGamesScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Deshabilita el scroll horizontal
- 	        extraGamesScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS); // Activa el scroll vertical
-
- 	        // Añadimos este ScrollPane a nuestro VBox principal
- 	        mainVBox.getChildren().add(extraGamesScrollPane);
- 	    }
-
- 	    // Asignar el contenido final al ScrollPane
- 	    scrollGame.setContent(mainVBox);
-	    }
-=======
         // Limpiar las imágenes de las ImageView
         // Las primeras 12 imágenes se asignarán a las imageView1, imageView2,... imageView12
         int size = games.size();
@@ -482,7 +359,6 @@ public class HomeController {
     }
 
 
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
     
     private void updateGameTittle(List<Games> games) {
         int size = games.size();
@@ -528,17 +404,6 @@ public class HomeController {
 
 
     private void setImageWithFixedSize(ImageView imageView, String imageUrl) {
-<<<<<<< HEAD
-        Image image = new Image(imageUrl);
-
-        imageView.setImage(image);        
-        imageView.setFitWidth(200); // Establece el ancho deseado
-        imageView.setFitHeight(200); // Establece el alto deseado
-        
-        imageView.setPreserveRatio(true);
-    }
-
-=======
         if (imageUrl == null || imageUrl.isEmpty()) {
             imageUrl = "https://via.placeholder.com/200x300.png?text=No+Image";
         }
@@ -549,7 +414,6 @@ public class HomeController {
     }
 
 
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
     private ScrollPane imprimirJuegos(List<Games> juegos) throws IOException {
         HBox hbox = new HBox(20);
         hbox.setStyle("-fx-padding: 10;");
@@ -573,10 +437,7 @@ public class HomeController {
                 System.out.println("Has hecho clic en el juego: " + juegos.get(index).getTitle());
             });
         }
-<<<<<<< HEAD
-=======
         
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
 
          scrollGame = new ScrollPane(hbox);
          scrollGame.setFitToWidth(true);
@@ -600,4 +461,3 @@ public class HomeController {
         }
     }
 }
-

@@ -102,23 +102,6 @@ public class Usuario {
 	            e.printStackTrace();
 	        }
 	    }
-	  
-	  public static void mostrarUsuarios() {
-		    if (usuariosRegistrados.isEmpty()) {
-		        System.out.println("No hay usuarios registrados.");
-		    } else {
-		        System.out.println("Lista de usuarios registrados:");
-		        for (Usuario user : usuariosRegistrados) {
-		            System.out.println("---------------------------");
-		            System.out.println("Nombre: " + user.getNombre());
-		            System.out.println("Apellidos: " + user.getApellidos());
-		            System.out.println("Fecha de Nacimiento: " + user.getFechaNac());
-		            System.out.println("Nickname: " + user.getNickname());
-		            System.out.println("Email: " + user.getEmail());
-		        }
-		        System.out.println("---------------------------");
-		    }
-		}
 
 
 }
