@@ -29,7 +29,7 @@ public class DaoUsuarios {
 	        insertStatement.setString(3, user.getFechaNac()); 
 	        insertStatement.setString(4, user.getNickname());
 	        insertStatement.setString(5, user.getEmail());
-	        insertStatement.setString(6, user.getConfContraseña());
+	        insertStatement.setString(6, user.getContraseña());
 
 	        // Ejecutar la consulta
 	        insertStatement.executeUpdate();
@@ -43,7 +43,7 @@ public class DaoUsuarios {
 	public static Usuario login(String email, String contrasena) {
 	    Connection connection = Conexion.conectar();
 
-	    String query = "SELECT * FROM Usuarios WHERE Email = ? AND Contrasena = ?";
+	    String query = "SELECT * FROM Usuarios WHERE Apodo = ? AND Contrasena = ?";
 
 	    try (PreparedStatement statement = connection.prepareStatement(query)) {
 	        statement.setString(1, email);
@@ -105,6 +105,33 @@ public class DaoUsuarios {
 	    }
 
 	    return usuarios; // Devolver la lista de usuarios
+	}
+	
+	public static boolean filtrarPorApodo(String apodo) {
+		 Connection connection = Conexion.conectar();
+		    String selectQuery = "SELECT COUNT(*) FROM Usuarios WHERE Apodo = ?";
+		    
+
+		    try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+		        statement.setString(1, apodo);
+
+		        ResultSet resultSet = statement.executeQuery();
+		        if (resultSet.next()) {
+		        int resultSetVar =	resultSet.getInt(1);
+		        if(resultSetVar == 0) {
+		        	return true;
+		        }
+		        
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		  
+		
+		
+		
+		return false;
+		
 	}
 
 }

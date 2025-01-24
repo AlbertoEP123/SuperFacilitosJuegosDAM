@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class connection {
 	private static final String URL = "jdbc:mysql://localhost:3306/";
-    private static final String BBDD = "bd_mygames";
+    private static final String BBDD = "bd_MyGames";
 //  private static final String PARAMETROS = "?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String PARAMETROS = "?serverTimezone=UTC";
     private static final String USUARIO = "root";
-    private static final String CLAVE = "26838279q";
+    private static final String CLAVE = "root";
 
     public static Connection conectar() {
         Connection conexion = null;

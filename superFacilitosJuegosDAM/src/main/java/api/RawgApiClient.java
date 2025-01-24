@@ -65,60 +65,16 @@ public class RawgApiClient {
         }
     }
 
-    public List<Games> searchGamesByCategory(String categorySlug) {
-        // Construir la URL con el slug de la categoría
-        String url = BASE_URL + "/games?key=" + API_KEY + "&genres=" + categorySlug;
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful() && response.body() != null) {
-                String responseBody = response.body().string();
-                JsonObject json = JsonParser.parseString(responseBody).getAsJsonObject();
-                JsonArray results = json.getAsJsonArray("results");
-                List<Games> gamesList = new ArrayList<>();
-
-                for (int i = 0; i < results.size(); i++) {
-                    JsonObject gameJson = results.get(i).getAsJsonObject();
-
-                    // Obtener información del juego
-                    String title = gameJson.has("name") ? gameJson.get("name").getAsString() : "Título no disponible";
-                    double rating = gameJson.has("rating") ? gameJson.get("rating").getAsDouble() : 0.0;
-                    String releaseDate = gameJson.has("released") ? gameJson.get("released").getAsString() : "Fecha no disponible";
-                    String imageUrl = gameJson.has("background_image") ? gameJson.get("background_image").getAsString() : "URL no disponible";
-                    String description = gameJson.has("description") ? gameJson.get("description").getAsString() : "Descripción no disponible";
-
-                    // Obtener las plataformas
-                    List<String> platforms = new ArrayList<>();
-                    if (gameJson.has("platforms")) {
-                        JsonArray platformsJson = gameJson.getAsJsonArray("platforms");
-                        for (int j = 0; j < platformsJson.size(); j++) {
-                            JsonObject platform = platformsJson.get(j).getAsJsonObject().getAsJsonObject("platform");
-                            platforms.add(platform.get("name").getAsString());
-                        }
-                    }
-
-                    // Crear un objeto Game y añadirlo a la lista
-                    Games game = new Games(title, rating, releaseDate, description, imageUrl, platforms);
-                    gamesList.add(game);
-                }
-                return gamesList;
-            } else {
-                System.out.println("Error en la solicitud: " + response.code());
-                return new ArrayList<>();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
+ 
+    public List<Games> searchByFilter(int nPagina, int juegosPorPagina, String filtro) throws ExcepcionNullPointer {
+        String url = BASE_URL + "/games?key=" + API_KEY + filtro  + "&page="+nPagina + "&page_size="+juegosPorPagina;
+        return search(url);
+       
     }
-
-    public List<Games> searchGameByName(String gameName, int a, int b) throws ExcepcionNullPointer {
+   
+    public List<Games> search(String url) throws ExcepcionNullPointer {
         // Reemplazar espacios por '%20' para la URL
-        String query = gameName.replace(" ", "%20");
-        String url = BASE_URL + "/games?key=" + API_KEY + "&search=" + query;
+      
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -131,7 +87,7 @@ public class RawgApiClient {
 
                 // Verifica si no hay resultados
                 if (results == null || results.size() == 0) {
-                    throw new ExcepcionNullPointer("No se encontraron juegos para la búsqueda: " + gameName);
+                    throw new ExcepcionNullPointer("No se encontraron juegos para la búsqueda: " + url);
                 }
 
                 List<Games> gamesList = new ArrayList<>();

@@ -4,6 +4,7 @@ import app.Metodos;
 import dao.DaoUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -28,7 +29,8 @@ public class RegistroController {
 
     @FXML
     private TextField emailId;
-
+    @FXML
+    private Button botonRegistro;
     @FXML
     private TextField nicknameId;
 
@@ -63,6 +65,12 @@ public class RegistroController {
         if (!emailId.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
             Metodos.mostrarMensajeError("El correo electrónico no es válido.");
             return;
+        }
+        
+        if(DaoUsuarios.filtrarPorApodo(nicknameId.getText()) == false) {
+            Metodos.mostrarMensajeError("El usuario ya está en uso");
+            return;
+
         }
 
         // Crear un nuevo usuario
