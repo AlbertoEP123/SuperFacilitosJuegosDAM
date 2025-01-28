@@ -26,7 +26,11 @@
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+<<<<<<< HEAD
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+=======
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="273.0" />
+>>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -152,7 +156,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+<<<<<<< HEAD
+            <ScrollPane fx:id="scrollGame" prefHeight="657.0" prefWidth="0.0" />
+=======
             <ScrollPane fx:id="scrollGame" prefHeight="657.0" prefWidth="36.0" />
+>>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
          </children>
       </GridPane>
    </right>

@@ -64,81 +64,17 @@ public class RawgApiClient {
             return (null);
         }
     }
-    public List<Games> fetchTop5GamesGenre(String genero) {
-    	String url = BASE_URL + "/genre?key=" + API_KEY + "&page_size=12&genre="+genero; 
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful() && response.body() != null) {
-                String responseBody = response.body().string();
-                JsonObject json = JsonParser.parseString(responseBody).getAsJsonObject();
-                JsonArray results = json.getAsJsonArray("results");
-                List<Games> gamesList = new ArrayList<>();
-
-                for (int i = 0; i < results.size(); i++) {
-                    JsonObject gameJson = results.get(i).getAsJsonObject();
-                    String title = gameJson.get("name").getAsString();
-                    double rating = gameJson.has("rating") ? gameJson.get("rating").getAsDouble() : 0.0;
-                    String releaseDate = gameJson.get("released").getAsString();
-                    String imageUrl = gameJson.get("background_image").getAsString();
-                    String description = gameJson.has("description") ? gameJson.get("description").getAsString() : "No description available";
-
-                    JsonArray platformsJson = gameJson.getAsJsonArray("platforms");
-                    List<String> platforms = new ArrayList<>();
-                    for (int j = 0; j < platformsJson.size(); j++) {
-                        JsonObject platform = platformsJson.get(j).getAsJsonObject().getAsJsonObject("platform");
-                        platforms.add(platform.get("name").getAsString());
-                    }
-
-                    Games game = new Games(title, rating, releaseDate, description, imageUrl, platforms);
-                    gamesList.add(game);
-                }
-                return (gamesList);
-            } else {
-                System.out.println("Error en la solicitud: " + response.code());
-                return (null);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return (null);
-        }
+ 
+    public List<Games> searchByFilter(int nPagina, int juegosPorPagina, String filtro) throws ExcepcionNullPointer {
+        String url = BASE_URL + "/games?key=" + API_KEY + filtro  + "&page="+nPagina + "&page_size="+juegosPorPagina;
+        return search(url);
+       
     }
-
-
-    /*public void fetchTop5Games() {
-        String url = BASE_URL + "/games?key=" + API_KEY + "&page_size=10"; // Limita a 5 juegos
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful() && response.body() != null) {
-                String responseBody = response.body().string();
-                JsonObject json = JsonParser.parseString(responseBody).getAsJsonObject();
-
-                // Obtener la lista de resultados
-                JsonArray results = json.getAsJsonArray("results");
-                System.out.println("Top 5 juegos populares:");
-                for (int i = 0; i < results.size(); i++) {
-                    JsonObject game = results.get(i).getAsJsonObject();
-                    String name = game.get("name").getAsString();
-                    double rating = game.get("rating").getAsDouble();
-                    System.out.println((i + 1) + ". " + name + " (Rating: " + rating + ")");
-                }
-            } else {
-                System.out.println("Error en la solicitud: " + response.code());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    public List<Games> searchGameByName(String gameName, int a, int b) throws ExcepcionNullPointer {
+   
+    public List<Games> search(String url) throws ExcepcionNullPointer {
         // Reemplazar espacios por '%20' para la URL
-        String query = gameName.replace(" ", "%20");
-        String url = BASE_URL + "/games?key=" + API_KEY + "&search=" + query;
+      
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -151,7 +87,7 @@ public class RawgApiClient {
 
                 // Verifica si no hay resultados
                 if (results == null || results.size() == 0) {
-                    throw new ExcepcionNullPointer("No se encontraron juegos para la búsqueda: " + gameName);
+                    throw new ExcepcionNullPointer("No se encontraron juegos para la búsqueda: " + url);
                 }
 
                 List<Games> gamesList = new ArrayList<>();
@@ -190,9 +126,8 @@ public class RawgApiClient {
     }
 
 
-    public void fetchPopularGames() {
-        String url = BASE_URL + "/games?key=" + API_KEY;
-
+    public void fetchGenres() {
+        String url = BASE_URL + "/genres?key=" + API_KEY;
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -201,13 +136,20 @@ public class RawgApiClient {
             if (response.isSuccessful() && response.body() != null) {
                 String responseBody = response.body().string();
                 JsonObject json = JsonParser.parseString(responseBody).getAsJsonObject();
-                System.out.println(json);
+                JsonArray genres = json.getAsJsonArray("results");
+
+                System.out.println("Lista de géneros disponibles:");
+                for (int i = 0; i < genres.size(); i++) {
+                    JsonObject genre = genres.get(i).getAsJsonObject();
+                    String name = genre.get("name").getAsString();
+                    String slug = genre.get("slug").getAsString();
+                    System.out.println("Nombre: " + name + ", Slug: " + slug);
+                }
             } else {
-                System.out.println("Error en la solicitud: " + response.code());
+                System.out.println("Error al obtener géneros: " + response.code());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-

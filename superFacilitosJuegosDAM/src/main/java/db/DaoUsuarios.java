@@ -8,14 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import connection.Conexion;
 import model.Usuario;
 
 
 
 public class DaoUsuarios {
 	public static void addUser(Usuario user) {
-	    Connection connection = Conexion.conectar();
+	    Connection connection = Conection.conectar();
 
 	    // Query de inserción en la tabla Usuarios, sin incluir el campo Id porque es autoincremental
 	    String insertQuery = "INSERT INTO Usuarios (Nombre, Apellidos, fecha_Nacimiento, Apodo, Email, Contrasena) " +
@@ -41,7 +40,7 @@ public class DaoUsuarios {
 	}
 	
 	public static ArrayList<Usuario> loadUsers() {
-	    Connection connection = Conexion.conectar();
+	    Connection connection = Conection.conectar();
 	    ArrayList<Usuario> usuarios = new ArrayList<>();
 
 	    // Query para obtener todos los usuarios

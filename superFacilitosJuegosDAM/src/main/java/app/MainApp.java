@@ -2,25 +2,22 @@ package app;
 
 import java.io.IOException;
 
-import dao.DaoUsuarios;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Usuario;
 
 public class MainApp extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(MainApp.class.getResource("/view/Home.fxml"));
+			Parent root = FXMLLoader.load(MainApp.class.getResource("/view/LogIn.fxml"));
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("applicattion.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			Usuario.setUsuariosRegistrados(DaoUsuarios.loadUsers());
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -34,8 +31,4 @@ public class MainApp extends Application {
 	}
 
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8

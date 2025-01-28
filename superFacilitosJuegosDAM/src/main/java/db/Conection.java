@@ -1,10 +1,11 @@
 package db;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class connection {
+public class Conection {
 	private static final String URL = "jdbc:mysql://localhost:3306/";
     private static final String BBDD = "bd_mygames";
 //  private static final String PARAMETROS = "?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
