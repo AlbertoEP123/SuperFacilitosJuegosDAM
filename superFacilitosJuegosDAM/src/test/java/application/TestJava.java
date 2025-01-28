@@ -45,6 +45,54 @@ public class TestJava {
         robot.clickOn("#buttonRegister");
         FxAssert.verifyThat(robot.window("Registro"), WindowMatchers.isShowing());
     }
+    @Test
+    public void testContraseñasNoCoinciden(FxRobot robot) {
+        robot.clickOn("#buttonRegister");
+
+        robot.clickOn("#nombreId").write("Carlos");
+        robot.clickOn("#ApellidosId").write("Gómez");
+        robot.clickOn("#FechaNacId").write("15/10/2000");
+
+        robot.clickOn("#nicknameId").write("carlosg");
+        robot.clickOn("#emailId").write("carlos@gmail.com");
+        robot.clickOn("#confirmarEmailId").write("carlos@gmail.com");
+        robot.clickOn("#contraseñaId").write("123");
+        robot.clickOn("#confirmarContraseñaId").write("122");
+
+        robot.clickOn("#botonRegistro");
+
+        robot.lookup(".dialog-pane").tryQuery().ifPresent(dialogPane -> {
+            DialogPane pane = (DialogPane) dialogPane;
+            FxAssert.verifyThat(pane.getContentText(), LabeledMatchers.hasText("Las contraseñas no coinciden."));
+
+            robot.clickOn(pane.lookupButton(ButtonType.OK));
+        });
+    
+    }
+    @Test
+    public void testRegistroExitoso(FxRobot robot) {
+        robot.clickOn("#buttonRegister");
+
+        robot.clickOn("#nombreId").write("Juan");
+        robot.clickOn("#ApellidosId").write("Pérez");
+        robot.clickOn("#FechaNacId").write("15/10/2000");
+        robot.clickOn("#nicknameId").write("juan90");
+        robot.clickOn("#emailId").write("juan@gmail.com");
+        robot.clickOn("#confirmarEmailId").write("juan@gmail.com");
+        robot.clickOn("#contraseñaId").write("password123");
+        robot.clickOn("#confirmarContraseñaId").write("password123");
+
+        robot.clickOn("#botonRegistro");
+        robot.lookup(".dialog-pane").tryQuery().ifPresent(dialogPane -> {
+            DialogPane pane = (DialogPane) dialogPane;
+            FxAssert.verifyThat(pane.getContentText(), LabeledMatchers.hasText("Se ha registrado el usuario Juan"));
+
+            robot.clickOn(pane.lookupButton(ButtonType.OK));
+        });
+       
+    }
+
+
 
     @Test
     public void testLoginTrue(FxRobot robot) {

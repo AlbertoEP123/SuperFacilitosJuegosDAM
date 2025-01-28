@@ -17,6 +17,10 @@ local.properties
 
 /target/
 
+.classpath
+.project
+
+
 # Locally stored "Eclipse launch configurations"
 *.launch
 

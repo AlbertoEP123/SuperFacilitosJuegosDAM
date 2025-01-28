@@ -1,14 +1,12 @@
-package db;
-
+package connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conection {
-	private static final String URL = "jdbc:mysql://localhost:3306/";
+public class Conexion {
+    private static final String URL = "jdbc:mysql://localhost:3306/";
     private static final String BBDD = "bd_MyGames";
-//  private static final String PARAMETROS = "?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String PARAMETROS = "?serverTimezone=UTC";
     private static final String USUARIO = "root";
     private static final String CLAVE = "root";
@@ -17,7 +15,11 @@ public class Conection {
         Connection conexion = null;
         
         try {
-            conexion = DriverManager.getConnection(URL+BBDD+PARAMETROS, USUARIO, CLAVE);
+            // Cargar el controlador JDBC para MySQL
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            // Establecer la conexión
+            conexion = DriverManager.getConnection(URL + BBDD + PARAMETROS, USUARIO, CLAVE);
             System.out.println("Conexion OK");
         } catch (SQLException e) {
             System.out.println("Error en la conexion");
@@ -26,5 +28,4 @@ public class Conection {
         
         return conexion;
     }
-
 }

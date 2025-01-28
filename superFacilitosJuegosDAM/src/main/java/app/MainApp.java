@@ -31,4 +31,8 @@ public class MainApp extends Application {
 	}
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 79ca8467521d8d5831d40aa813339c229dc3679b

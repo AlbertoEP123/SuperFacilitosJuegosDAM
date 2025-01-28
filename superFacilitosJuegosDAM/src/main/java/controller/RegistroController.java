@@ -1,9 +1,14 @@
 package controller;
 
 import app.Metodos;
+<<<<<<< HEAD
 import db.DaoUsuarios;
+=======
+import dao.DaoUsuarios;
+>>>>>>> 79ca8467521d8d5831d40aa813339c229dc3679b
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -28,25 +33,22 @@ public class RegistroController {
 
     @FXML
     private TextField emailId;
-
+    @FXML
+    private Button botonRegistro;
     @FXML
     private TextField nicknameId;
 
     @FXML
     private TextField nombreId;
 
-
-
-
-
     @FXML
     void btonCancelar(ActionEvent event) {
-    	Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
-
+        Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
     }
 
     @FXML
     void btonRegistro(ActionEvent event) {
+        // Validación de campos
         if (nombreId.getText().isEmpty() || ApellidosId.getText().isEmpty() || FechaNacId.getValue() == null ||
             nicknameId.getText().isEmpty() || emailId.getText().isEmpty() || confirmarEmailId.getText().isEmpty() ||
             contraseñaId.getText().isEmpty() || confirmarContraseñaId.getText().isEmpty()) {
@@ -68,20 +70,26 @@ public class RegistroController {
             Metodos.mostrarMensajeError("El correo electrónico no es válido.");
             return;
         }
+        
+        if(DaoUsuarios.filtrarPorApodo(nicknameId.getText()) == false) {
+            Metodos.mostrarMensajeError("El usuario ya está en uso");
+            return;
 
+        }
 
-
+        // Crear un nuevo usuario
         Usuario usuario = new Usuario(
             nombreId.getText(),
             ApellidosId.getText(),
-            FechaNacId.getConverter().toString(),
+            FechaNacId.getValue().toString(), // Convierte el LocalDate a String si es necesario
             nicknameId.getText(),
             emailId.getText(),
-            confirmarEmailId.getText(),
+            confirmarEmailId.getText(), // Almacenar el correo de confirmación (aunque no se usa para más adelante)
             contraseñaId.getText(),
-            confirmarContraseñaId.getText()
+            confirmarContraseñaId.getText() // Almacenar la contraseña de confirmación
         );
 
+<<<<<<< HEAD
 
         Usuario.add(usuario);
         DaoUsuarios.addUser(usuario);
@@ -93,4 +101,14 @@ public class RegistroController {
 
 
 
+=======
+        // Guardar el usuario en la base de datos utilizando el DAO
+        DaoUsuarios.addUser(usuario);
+
+        // Mostrar mensaje de confirmación y cambiar la escena
+        Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario " + nombreId.getText());
+        Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
+    }
+>>>>>>> 79ca8467521d8d5831d40aa813339c229dc3679b
 }
+
