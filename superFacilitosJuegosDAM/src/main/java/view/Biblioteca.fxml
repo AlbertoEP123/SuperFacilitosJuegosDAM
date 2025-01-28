@@ -20,11 +20,22 @@
    <center>
       <GridPane hgap="5.0" prefHeight="647.0" prefWidth="882.0" vgap="5.0">
         <columnConstraints>
+<<<<<<< HEAD:superFacilitosJuegosDAM/target/classes/view/Home.fxml
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+<<<<<<< HEAD
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+=======
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="273.0" />
+>>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
+=======
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+>>>>>>> 79ca8467521d8d5831d40aa813339c229dc3679b:superFacilitosJuegosDAM/src/main/java/view/Biblioteca.fxml
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -136,8 +147,16 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+<<<<<<< HEAD:superFacilitosJuegosDAM/target/classes/view/Home.fxml
+<<<<<<< HEAD
+            <ScrollPane fx:id="scrollGame" prefHeight="657.0" prefWidth="0.0" />
+=======
+            <ScrollPane fx:id="scrollGame" prefHeight="657.0" prefWidth="36.0" />
+>>>>>>> 4faa3ca540c15f5cbc774bb5b9b4890e3aa32ee8
+=======
             <Button fx:id="botonAnterior" mnemonicParsing="false" onMouseClicked="#paginaAnterior" prefHeight="25.0" prefWidth="27.0" textAlignment="CENTER" />
             <Button mnemonicParsing="false" onMouseClicked="#paginaSiguiente" prefHeight="25.0" prefWidth="27.0" GridPane.rowIndex="1" />
+>>>>>>> 79ca8467521d8d5831d40aa813339c229dc3679b:superFacilitosJuegosDAM/src/main/java/view/Biblioteca.fxml
          </children>
       </GridPane>
    </right>

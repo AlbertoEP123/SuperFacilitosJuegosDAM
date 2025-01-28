@@ -464,9 +464,13 @@ public class HomeController {
 			return null;
 		}
 	}
+<<<<<<< HEAD
 
 	public ImageView imageView1() {
 		// TODO Auto-generated method stub
 		return imageView1;
 	}
 }
+=======
+}
+>>>>>>> 62246659a4c7d10894946f950f5986c1fcc5f7f3
