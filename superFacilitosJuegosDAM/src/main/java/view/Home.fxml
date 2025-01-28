@@ -50,7 +50,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <ImageView fx:id="imageView1" fitHeight="142.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+            <ImageView fx:id="imageView1" fitHeight="142.0" fitWidth="100.0" onMouseClicked="#detalGame1" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
             <ImageView fx:id="imageView2" fitHeight="151.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ImageView fx:id="imageView3" fitHeight="148.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <ImageView fx:id="imageView4" fitHeight="147.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />

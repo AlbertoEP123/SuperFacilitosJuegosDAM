@@ -28,6 +28,7 @@ public class HomeController {
 
 	private RawgApiClient client;
 
+	DetallesController detallesController;
 	@FXML
 	private ResourceBundle resources;
 
@@ -70,7 +71,7 @@ public class HomeController {
 	private Label tituloJuego9;
 
 	@FXML
-	private ImageView imageView1;
+	public ImageView imageView1;
 
 	@FXML
 	private ImageView imageView10;
@@ -144,6 +145,7 @@ public class HomeController {
 	void clickOlvidarContraseña(MouseEvent event) {
 
 	}
+	
 
 	@FXML
 	void clickPuzles(MouseEvent event) {
@@ -184,13 +186,23 @@ public class HomeController {
     	currentPage--;
 		actualizar();
     }
+    
+    @FXML
+    void detalGame1(MouseEvent event) {
+		Metodos.cambiarEscena(event, "/view/Detalles.fxml", "Detalles");
+		detallesController.cargarImagen();
+    	
+    }
+    public ImageView getImageView1() {
+        return imageView1;
+    }
 	
 	
 
 	@FXML
 	void initialize() {
 		
-		labelUsuario.setText(LogInController.loggedInUser.getNickname());
+		//labelUsuario.setText(LogInController.loggedInUser.getNickname());
 		assert tituloJuego1 != null : "tituloJuego1 no se ha cargado correctamente!";
 		assert tituloJuego2 != null : "tituloJuego2 no se ha cargado correctamente!";
 		assert tituloJuego3 != null : "tituloJuego3 no se ha cargado correctamente!";
@@ -205,6 +217,7 @@ public class HomeController {
 		assert tituloJuego12 != null : "tituloJuego12 no se ha cargado correctamente!";
 
 		assert imageView1 != null : "imageView1 no se ha cargado correctamente!";
+		
 		assert imageView2 != null : "imageView2 no se ha cargado correctamente!";
 		assert imageView3 != null : "imageView3 no se ha cargado correctamente!";
 		assert imageView4 != null : "imageView4 no se ha cargado correctamente!";
@@ -292,6 +305,10 @@ public class HomeController {
 			}
 		}
 	}
+	
+	private void detailGame() {
+		
+	}
 
 	private void updateGameView(List<Games> games) {
 		// Limpiar las imágenes de las ImageView
@@ -302,7 +319,9 @@ public class HomeController {
 		// Asignar las imágenes a las ImageView ya existentes
 		if (size > 0) {
 			setImageWithFixedSize(imageView1, games.get(0).getImageUrl());
+			
 		}
+		
 		if (size > 1) {
 			setImageWithFixedSize(imageView2, games.get(1).getImageUrl());
 		}
@@ -444,5 +463,10 @@ public class HomeController {
 		default:
 			return null;
 		}
+	}
+
+	public ImageView imageView1() {
+		// TODO Auto-generated method stub
+		return imageView1;
 	}
 }
