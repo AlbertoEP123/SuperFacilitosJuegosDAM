@@ -28,7 +28,6 @@ public class HomeController {
 
 	private RawgApiClient client;
 
-	DetallesController detallesController;
 	@FXML
 	private ResourceBundle resources;
 
@@ -36,7 +35,7 @@ public class HomeController {
 	private URL location;
 
 	@FXML
-	private Label tituloJuego1;
+	public static Label tituloJuego1;
 
 	@FXML
 	private Label tituloJuego10;
@@ -48,7 +47,7 @@ public class HomeController {
 	private Label tituloJuego12;
 
 	@FXML
-	private Label tituloJuego2;
+	public static Label tituloJuego2;
 
 	@FXML
 	private Label tituloJuego4;
@@ -71,7 +70,7 @@ public class HomeController {
 	private Label tituloJuego9;
 
 	@FXML
-	public ImageView imageView1;
+	public static ImageView imageView1;
 
 	@FXML
 	private ImageView imageView10;
@@ -83,7 +82,7 @@ public class HomeController {
 	private ImageView imageView12;
 
 	@FXML
-	private ImageView imageView2;
+	public static ImageView imageView2;
 
 	@FXML
 	private ImageView imageView3;
@@ -130,6 +129,18 @@ public class HomeController {
 	}
 
 	@FXML
+	void cargarDetails(MouseEvent event) {
+	    Metodos.cambiarEscena(event, "/view/Detalles.fxml", "Detalles");
+
+	}
+	@FXML
+    void cargarDetails2(MouseEvent event) {
+	    Metodos.cambiarEscena(event, "/view/Detalles.fxml", "Detalles");
+
+
+    }
+
+	@FXML
 	void ClickFPS(MouseEvent event) {
 		principalGamesGenre("shooter");
 
@@ -145,7 +156,6 @@ public class HomeController {
 	void clickOlvidarContraseña(MouseEvent event) {
 
 	}
-	
 
 	@FXML
 	void clickPuzles(MouseEvent event) {
@@ -186,16 +196,6 @@ public class HomeController {
     	currentPage--;
 		actualizar();
     }
-    
-    @FXML
-    void detalGame1(MouseEvent event) {
-		Metodos.cambiarEscena(event, "/view/Detalles.fxml", "Detalles");
-		detallesController.cargarImagen();
-    	
-    }
-    public ImageView getImageView1() {
-        return imageView1;
-    }
 	
 	
 
@@ -217,7 +217,6 @@ public class HomeController {
 		assert tituloJuego12 != null : "tituloJuego12 no se ha cargado correctamente!";
 
 		assert imageView1 != null : "imageView1 no se ha cargado correctamente!";
-		
 		assert imageView2 != null : "imageView2 no se ha cargado correctamente!";
 		assert imageView3 != null : "imageView3 no se ha cargado correctamente!";
 		assert imageView4 != null : "imageView4 no se ha cargado correctamente!";
@@ -245,6 +244,7 @@ public class HomeController {
 
 	}
 
+	
 	private void loadNextPage() {
 		// Incrementar la página actual para cargar más juegos
 		currentPage++;
@@ -305,10 +305,6 @@ public class HomeController {
 			}
 		}
 	}
-	
-	private void detailGame() {
-		
-	}
 
 	private void updateGameView(List<Games> games) {
 		// Limpiar las imágenes de las ImageView
@@ -319,9 +315,7 @@ public class HomeController {
 		// Asignar las imágenes a las ImageView ya existentes
 		if (size > 0) {
 			setImageWithFixedSize(imageView1, games.get(0).getImageUrl());
-			
 		}
-		
 		if (size > 1) {
 			setImageWithFixedSize(imageView2, games.get(1).getImageUrl());
 		}
@@ -464,13 +458,6 @@ public class HomeController {
 			return null;
 		}
 	}
-<<<<<<< HEAD
+		
 
-	public ImageView imageView1() {
-		// TODO Auto-generated method stub
-		return imageView1;
-	}
 }
-=======
-}
->>>>>>> 62246659a4c7d10894946f950f5986c1fcc5f7f3
