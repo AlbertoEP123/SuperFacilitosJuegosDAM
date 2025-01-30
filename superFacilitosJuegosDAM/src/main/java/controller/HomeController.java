@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -22,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import model.Auxiliar;
 import model.Games;
 
 public class HomeController {
@@ -35,7 +37,7 @@ public class HomeController {
 	private URL location;
 
 	@FXML
-	public static Label tituloJuego1;
+	private Label tituloJuego1;
 
 	@FXML
 	private Label tituloJuego10;
@@ -47,7 +49,7 @@ public class HomeController {
 	private Label tituloJuego12;
 
 	@FXML
-	public static Label tituloJuego2;
+	private Label tituloJuego2;
 
 	@FXML
 	private Label tituloJuego4;
@@ -70,7 +72,7 @@ public class HomeController {
 	private Label tituloJuego9;
 
 	@FXML
-	public static ImageView imageView1;
+	private ImageView imageView1;
 
 	@FXML
 	private ImageView imageView10;
@@ -82,7 +84,7 @@ public class HomeController {
 	private ImageView imageView12;
 
 	@FXML
-	public static ImageView imageView2;
+	private ImageView imageView2;
 
 	@FXML
 	private ImageView imageView3;
@@ -116,7 +118,7 @@ public class HomeController {
 	@FXML
 	private TextField searchField;
 
-
+	private HashMap<ImageView, Games> hashMapJuegos = new HashMap();
 	private int currentPage = 1;
 	private static final int GAMES_PER_PAGE = 12;
 
@@ -128,17 +130,7 @@ public class HomeController {
 		}
 	}
 
-	@FXML
-	void cargarDetails(MouseEvent event) {
-	    Metodos.cambiarEscena(event, "/view/Detalles.fxml", "Detalles");
-
-	}
-	@FXML
-    void cargarDetails2(MouseEvent event) {
-	    Metodos.cambiarEscena(event, "/view/Detalles.fxml", "Detalles");
-
-
-    }
+	
 
 	@FXML
 	void ClickFPS(MouseEvent event) {
@@ -196,7 +188,16 @@ public class HomeController {
     	currentPage--;
 		actualizar();
     }
-	
+    @FXML
+    void clickDetails(MouseEvent event) {
+		ImageView caratula =(ImageView)event.getSource();
+		Games infoJuego = hashMapJuegos.get(caratula);
+		System.out.println(infoJuego.getTitle());	
+		Auxiliar.juego=infoJuego;
+		Auxiliar.caratula = caratula;
+		Metodos.cambiarEscena(event, "/view/Detalles.fxml", "Detalles");
+
+    }
 	
 
 	@FXML
@@ -253,6 +254,8 @@ public class HomeController {
 		// de búsqueda, la página actual y la cantidad de juegos por página)
 		searchGames();
 	}
+	
+	
 
 	private void clearImageViews() {
 		for (int i = 0; i < 4; i++) {
@@ -311,44 +314,70 @@ public class HomeController {
 		// Las primeras 12 imágenes se asignarán a las imageView1, imageView2,...
 		// imageView12
 		int size = games.size();
+		hashMapJuegos.clear();
 
 		// Asignar las imágenes a las ImageView ya existentes
+		
 		if (size > 0) {
 			setImageWithFixedSize(imageView1, games.get(0).getImageUrl());
+			hashMapJuegos.put(imageView1, games.get(0));
 		}
 		if (size > 1) {
 			setImageWithFixedSize(imageView2, games.get(1).getImageUrl());
+			hashMapJuegos.put(imageView2, games.get(1));
+
 		}
 		if (size > 2) {
 			setImageWithFixedSize(imageView3, games.get(2).getImageUrl());
+			hashMapJuegos.put(imageView3, games.get(2));
+
 		}
 		if (size > 3) {
 			setImageWithFixedSize(imageView4, games.get(3).getImageUrl());
+			hashMapJuegos.put(imageView4, games.get(3));
+
 		}
 		if (size > 4) {
 			setImageWithFixedSize(imageView5, games.get(4).getImageUrl());
+			hashMapJuegos.put(imageView5, games.get(4));
+
 		}
 		if (size > 5) {
 			setImageWithFixedSize(imageView6, games.get(5).getImageUrl());
+			hashMapJuegos.put(imageView6, games.get(5));
+
 		}
 		if (size > 6) {
 			setImageWithFixedSize(imageView7, games.get(6).getImageUrl());
+			hashMapJuegos.put(imageView7, games.get(6));
+
 		}
 		if (size > 7) {
 			setImageWithFixedSize(imageView8, games.get(7).getImageUrl());
+			hashMapJuegos.put(imageView8, games.get(7));
+
 		}
 		if (size > 8) {
 			setImageWithFixedSize(imageView9, games.get(8).getImageUrl());
+			hashMapJuegos.put(imageView9, games.get(8));
+
 		}
 		if (size > 9) {
 			setImageWithFixedSize(imageView10, games.get(9).getImageUrl());
+			hashMapJuegos.put(imageView10, games.get(9));
+
 		}
 		if (size > 10) {
 			setImageWithFixedSize(imageView11, games.get(10).getImageUrl());
+			hashMapJuegos.put(imageView11, games.get(10));
+
 		}
 		if (size > 11) {
 			setImageWithFixedSize(imageView12, games.get(11).getImageUrl());
+			hashMapJuegos.put(imageView12, games.get(11));
+
 		}
+		
 
 		for (int i = 0; i < Math.min(size, 12); i++) {
 			// Obtener la ImageView correspondiente

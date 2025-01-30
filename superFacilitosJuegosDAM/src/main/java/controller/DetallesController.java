@@ -6,9 +6,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import model.Auxiliar;
 
 public class DetallesController {
-    
+    private HomeController home;
 
     public DetallesController() {
     }
@@ -38,6 +39,7 @@ public class DetallesController {
 
     @FXML
     void buttonJugado(MouseEvent event) {
+    	
     }
 
     @FXML
@@ -67,23 +69,12 @@ public class DetallesController {
     @FXML
     void ventanaUsuario(MouseEvent event) {
     }
+  
     @FXML
-    public void initialize() {
-        
-        	
-            try {
-				caratulaJuego.setImage(HomeController.imageView1.getImage());
+   void initialize() {
+       caratulaJuego.setImage(Auxiliar.caratula.getImage());
 
-	            System.out.println("entra");
-
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-        
-    }
+   }
     
-
     }
 

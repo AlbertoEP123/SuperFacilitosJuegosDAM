@@ -3,7 +3,8 @@ package model;
 import java.util.List;
 
 public class Games {
-    private String title;
+    private int id;
+	private String title;
     private double averageRating;
     private String releaseDate;
     private String description;
@@ -11,8 +12,9 @@ public class Games {
     private List<String> platforms;
 
     // Constructor
-    public Games(String title, double averageRating, String releaseDate, String description, String imageUrl, List<String> platforms) {
-        this.title = title;
+    public Games(int id,String title, double averageRating, String releaseDate, String description, String imageUrl, List<String> platforms) {
+        this.id = id;
+    	this.title = title;
         this.averageRating = averageRating;
         this.releaseDate = releaseDate;
         this.description = description;
@@ -20,7 +22,15 @@ public class Games {
         this.platforms = platforms;
     }
 
-    // Getters and Setters
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	// Getters and Setters
     public String getTitle() {
         return title;
     }

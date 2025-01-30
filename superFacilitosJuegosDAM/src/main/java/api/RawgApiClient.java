@@ -38,6 +38,8 @@ public class RawgApiClient {
 
                 for (int i = 0; i < results.size(); i++) {
                     JsonObject gameJson = results.get(i).getAsJsonObject();
+                    int id = gameJson.has("id") && !gameJson.get("id").isJsonNull() ? gameJson.get("id").getAsInt() : 0;
+
                     String title = gameJson.get("name").getAsString();
                     double rating = gameJson.has("rating") ? gameJson.get("rating").getAsDouble() : 0.0;
                     String releaseDate = gameJson.get("released").getAsString();
@@ -51,7 +53,7 @@ public class RawgApiClient {
                         platforms.add(platform.get("name").getAsString());
                     }
 
-                    Games game = new Games(title, rating, releaseDate, description, imageUrl, platforms);
+                    Games game = new Games(id,title, rating, releaseDate, description, imageUrl, platforms);
                     gamesList.add(game);
                 }
                 return (gamesList);
@@ -94,6 +96,7 @@ public class RawgApiClient {
                 for (int i = 0; i < results.size(); i++) {
                     JsonObject gameJson = results.get(i).getAsJsonObject();
                     
+                    int id = gameJson.has("id") && !gameJson.get("id").isJsonNull() ? gameJson.get("id").getAsInt() : 0;
                     // Verificación de nulos para cada campo
                     String title = gameJson.has("name") && !gameJson.get("name").isJsonNull() ? gameJson.get("name").getAsString() : "Unknown Title";
                     
@@ -113,7 +116,7 @@ public class RawgApiClient {
                         platforms.add(platform.has("name") && !platform.get("name").isJsonNull() ? platform.get("name").getAsString() : "Unknown Platform");
                     }
 
-                    Games game = new Games(title, rating, releaseDate, description, imageUrl, platforms);
+                    Games game = new Games(id,title, rating, releaseDate, description, imageUrl, platforms);
                     gamesList.add(game);
                 }
                 return gamesList;
