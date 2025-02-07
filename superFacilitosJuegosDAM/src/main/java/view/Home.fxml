@@ -73,18 +73,54 @@
                      </font>
                   </TextField>
                </children></Pane>
-            <Label fx:id="tituloJuego5" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="4" />
-            <Label fx:id="tituloJuego6" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="tituloJuego7" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label fx:id="tituloJuego8" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label fx:id="tituloJuego1" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="2" />
-            <Label fx:id="tituloJuego2" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="tituloJuego3" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label fx:id="tituloJuego4" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label fx:id="tituloJuego9" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="6" />
-            <Label fx:id="tituloJuego10" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label fx:id="tituloJuego11" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Label fx:id="tituloJuego12" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label fx:id="tituloJuego5" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego6" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego7" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego8" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego1" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego2" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego3" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego4" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego9" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego10" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego11" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <Label fx:id="tituloJuego12" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
          </children>
          <opaqueInsets>
             <Insets top="20.0" />
@@ -110,10 +146,15 @@
                   <Insets />
                </GridPane.margin>
                <children>
-                  <Label fx:id="labelUsuario" layoutX="14.0" layoutY="27.0" prefHeight="18.0" prefWidth="69.0" style="-fx-font-family: Cambria;" text="usuario">
+                  <Label fx:id="labelUsuario" alignment="BOTTOM_CENTER" layoutX="2.0" layoutY="53.0" prefHeight="18.0" prefWidth="73.0" style="-fx-font-family: Cambria;" text="usuario">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="13.0" />
                      </font></Label>
+                  <ImageView fitHeight="53.0" fitWidth="52.0" layoutX="12.0" layoutY="5.0">
+                     <image>
+                        <Image url="@../resourcess/usuario.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="91.0" style="-fx-background-radius: 15px; -fx-background-color: WHITE;" GridPane.hgrow="ALWAYS">

@@ -144,10 +144,6 @@ public class HomeController {
 
 	}
 
-	@FXML
-	void clickOlvidarContraseña(MouseEvent event) {
-
-	}
 
 	@FXML
 	void clickPuzles(MouseEvent event) {
@@ -156,6 +152,7 @@ public class HomeController {
 
 	@FXML
 	void ventanaUsuario(MouseEvent event) {
+		Metodos.cambiarEscena(event, "/view/Usuario.fxml", "Usuario");
 
 	}
 
