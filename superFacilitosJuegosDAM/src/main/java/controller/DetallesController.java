@@ -9,8 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.Auxiliar;
+import model.Biblioteca;
 
 public class DetallesController {
+	static public int obtenido;
+	static public int jugado;
+	static public int pendiente;
+	static public int terminado;
 
     public DetallesController() {
     }
@@ -40,27 +45,39 @@ public class DetallesController {
 
     @FXML
     void buttonJugado(MouseEvent event) {
+    	jugado = event.getClickCount();   	
     	
     }
 
     @FXML
     void buttonNota(MouseEvent event) {
+    	
     }
 
     @FXML
     void buttonObtenido(MouseEvent event) {
+    	obtenido = event.getClickCount(); 
+
     }
 
     @FXML
     void buttonPendiente(MouseEvent event) {
+    	pendiente = event.getClickCount(); 
+
     }
 
     @FXML
     void buttonTerminado(MouseEvent event) {
+    	terminado = event.getClickCount(); 
+
     }
 
     @FXML
     void guardarJuego(MouseEvent event) {
+    	// nuevo objeto para guardar elementos
+    	Biblioteca datosJuego = new Biblioteca(jugado,terminado,pendiente,obtenido);
+    	
+
     }
 
     @FXML
@@ -73,9 +90,11 @@ public class DetallesController {
     	
     }
 
-    @FXML
-    void ventanaUsuario(MouseEvent event) {
-    }
+	@FXML
+	void ventanaUsuario(MouseEvent event) {
+		Metodos.cambiarEscena(event, "/view/Usuario.fxml", "Usuario");
+
+	}
   
     @FXML
    void initialize() {
