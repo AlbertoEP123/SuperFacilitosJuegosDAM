@@ -76,5 +76,60 @@ public class DaoUsuarios {
 
 	    return usuarios; // Devolver la lista de usuarios
 	}
+	public static void updateNombre(String nickname, String nuevoNombre) {
+        Connection connection = Conection.conectar();
+        String updateQuery = "UPDATE Usuarios SET Nombre = ? WHERE Apodo = ?";
+        try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+            updateStatement.setString(1, nuevoNombre);
+            updateStatement.setString(2, nickname);
+            updateStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Nombre cambiado en la db");
+
+    }
+
+    public static void updateApellidos(String nickname, String nuevosApellidos) {
+        Connection connection = Conection.conectar();
+        String updateQuery = "UPDATE Usuarios SET Apellidos = ? WHERE Apodo = ?";
+        try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+            updateStatement.setString(1, nuevosApellidos);
+            updateStatement.setString(2, nickname);
+            updateStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Apellidos cambiados en la db");
+    }
+
+    public static void updateContraseña(String nickname, String nuevaContraseña) {
+        Connection connection = Conection.conectar();
+        String updateQuery = "UPDATE Usuarios SET Contrasena = ? WHERE Apodo = ?";
+        try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+            updateStatement.setString(1, nuevaContraseña);
+            updateStatement.setString(2, nickname);
+            updateStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Contraseña cambiada en la db");
+
+    }
+
+    public static void updateNickname(String oldNickname, String nuevoNickname) {
+        Connection connection = Conection.conectar();
+        String updateQuery = "UPDATE Usuarios SET Apodo = ? WHERE Apodo = ?";
+        try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+            updateStatement.setString(1, nuevoNickname);
+            updateStatement.setString(2, oldNickname);
+            updateStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Nickname cambiado en la db");
+
+    }
+
 
 }

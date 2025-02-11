@@ -1,19 +1,27 @@
 package controller;
 
+import java.io.File;
+
 import app.Metodos;
+import db.DaoUsuarios;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class UsuarioController {
 	
-	boolean primera = true;
-	int evento = 0;
+	private boolean cambiarNombreActivo = false;
+	private boolean cambiarApellidosActivo = false;
+    private boolean cambiarContraseñaActivo = false;
+    private boolean cambiarNicknameActivo = false;
     @FXML
     private Button botonCambiarApellidos;
 
@@ -22,18 +30,13 @@ public class UsuarioController {
 
     @FXML
     private Button botonCambiarNickname;
+   
+    @FXML
+    private Label labelNickame2;
 
     @FXML
     private Button botonCambiarNombre;
 
-    @FXML
-    private ImageView imageJuegoFav1;
-
-    @FXML
-    private ImageView imageJuegoFav2;
-
-    @FXML
-    private ImageView imageJuegoFav3;
 
     @FXML
     private ImageView imageProfile;
@@ -57,9 +60,6 @@ public class UsuarioController {
     private Label labelNickame;
 
     @FXML
-    private Label labelNickame2;
-
-    @FXML
     private Label labelNombre;
 
     @FXML
@@ -76,51 +76,139 @@ public class UsuarioController {
 
     @FXML
     private TextField textFieldNombre;
+    
+    @FXML
+    private Button botonCambiarImagen;
+    
+    @FXML
+    void cambiarImagen(MouseEvent event) {
+    	  FileChooser fileChooser = new FileChooser();
+          fileChooser.setTitle("Seleccionar Imagen de Perfil");
+          fileChooser.getExtensionFilters().addAll(
+              new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.gif")
+          );
+          
+          Stage stage = (Stage) botonCambiarImagen.getScene().getWindow();
+          File selectedFile = fileChooser.showOpenDialog(stage);
+          
+          if (selectedFile != null) {
+              Image image = new Image(selectedFile.toURI().toString());
+              imageProfile.setImage(image);
+              
+              
+              LogInController.loggedInUser.setImagenPerfilPath(selectedFile.getAbsolutePath());
+    }
+    }
 
     @FXML
     void clickBiblioteca(MouseEvent event) {
     	
 
     }
-
     @FXML
-    void clickCambiarApellidos(MouseEvent event) {
-    	// Implementar que se ha clicado dos veces el boton, al clicar por segunda vez se cierra el textField y setTex de los label
-    	evento++;
-    	if(primera) {
-    		botonCambiarApellidos.setText("Guardar");
-        	textFieldApellidos.setVisible(true);
-        	LogInController.loggedInUser.setApellidos(textFieldApellidos.getText());
-        	labelApellidos.setText(textFieldApellidos.getText());
-    	}else {
-    		
-    	}
-    	
-    	
+    void irAHome(MouseEvent event) {
+    	Metodos.cambiarEscena(event, "/view/Home.fxml", "Home");
     }
 
     @FXML
-    void clickCambiarNombre(MouseEvent event) {
-//    	botonCambiarNombre.setText("Guardar");
-//    	textFieldNombre.setVisible(true);
-//    	LogInController.loggedInUser.setNombre(textFieldNombre.getText());
-//    	labelNombre.setText(textFieldNombre.getText());
-//    	textFieldNombre.setVisible(false);
+    void clickCambiarApellidos(MouseEvent event) {
+        if (!cambiarApellidosActivo) {
+            // Primer clic: Activar modo de edición
+            botonCambiarApellidos.setText("Guardar");
+            textFieldApellidos.setVisible(true);
+            textFieldApellidos.setText(labelApellidos.getText());
+            labelApellidos.setVisible(false);
+            cambiarApellidosActivo = true;
+        } else {
+            // Segundo clic: Guardar cambios
+            String nuevosApellidos = textFieldApellidos.getText();
+            if (!nuevosApellidos.isEmpty()) {
+                LogInController.loggedInUser.setApellidos(nuevosApellidos);
+                labelApellidos.setText(nuevosApellidos);
+                DaoUsuarios.updateApellidos(LogInController.loggedInUser.getApellidos(), nuevosApellidos);
 
+            }
+            botonCambiarApellidos.setText("Cambiar Apellidos");
+            textFieldApellidos.setVisible(false);
+            labelApellidos.setVisible(true);
+            cambiarApellidosActivo = false;
+        }
+    }
+    @FXML
+    void clickCambiarNombre(MouseEvent event) {
+        if (!cambiarNombreActivo) {
+            // Primer clic
+            botonCambiarNombre.setText("Guardar");
+            textFieldNombre.setVisible(true);
+            textFieldNombre.setText(labelNombre.getText());
+            labelNombre.setVisible(false);
+            cambiarNombreActivo = true;
+        } else {
+            // Segundo clic
+            String nuevoNombre = textFieldNombre.getText();
+            if (!nuevoNombre.isEmpty()) {
+                LogInController.loggedInUser.setNombre(nuevoNombre);
+                labelNombre.setText(nuevoNombre);
+                DaoUsuarios.updateNombre(LogInController.loggedInUser.getNombre(), nuevoNombre);
+
+            }
+            botonCambiarNombre.setText("Cambiar Nombre");
+            textFieldNombre.setVisible(false);
+            labelNombre.setVisible(true);
+            cambiarNombreActivo = false;
+        }
     }
 
     @FXML
     void clickContraseña(MouseEvent event) {
-    	//LogInController.loggedInUser.setContraseña(null);
+        if (!cambiarContraseñaActivo) {
+            // Primer clic: Activar modo de edición
+            botonCambiarContraseña.setText("Guardar");
+            paswordField.setVisible(true);
+            paswordField.setText("");
+            labelContraseña.setVisible(false);
+            cambiarContraseñaActivo = true;
+        } else {
+            // Segundo clic: Guardar cambios
+            String nuevaContraseña = paswordField.getText();
+            if (!nuevaContraseña.isEmpty()) {
+                LogInController.loggedInUser.setContraseña(nuevaContraseña);
+                labelContraseña.setText("*".repeat(nuevaContraseña.length()));
+                DaoUsuarios.updateContraseña(LogInController.loggedInUser.getContraseña(), nuevaContraseña);
 
-
+            }
+            botonCambiarContraseña.setText("Cambiar Contraseña");
+            paswordField.setVisible(false);
+            labelContraseña.setVisible(true);
+            cambiarContraseñaActivo = false;
+        }
     }
+
 
     @FXML
     void clickNickname(MouseEvent event) {
-    	//LogInController.loggedInUser.setNickname(null);
+        if (!cambiarNicknameActivo) {
+            // Primer clic: Activar modo de edición
+            botonCambiarNickname.setText("Guardar");
+            textFieldNickname.setVisible(true);
+            textFieldNickname.setText(labelNickame.getText());
+            labelNickame.setVisible(false);
+            cambiarNicknameActivo = true;
+        } else {
+            // Segundo clic: Guardar cambios
+            String nuevoNickname = textFieldNickname.getText();
+            if (!nuevoNickname.isEmpty()) {
+                LogInController.loggedInUser.setNickname(nuevoNickname);
+                labelNickame.setText(nuevoNickname);
+                labelNickame2.setText(nuevoNickname);
+                DaoUsuarios.updateNickname(LogInController.loggedInUser.getNickname(), nuevoNickname);
 
-
+            }
+            botonCambiarNickname.setText("Cambiar Nickname");
+            textFieldNickname.setVisible(false);
+            labelNickame.setVisible(true);
+            cambiarNicknameActivo = false;
+        }
     }
 
     @FXML
@@ -130,19 +218,16 @@ public class UsuarioController {
     }
     @FXML
     void initialize() {
-    	textFieldApellidos.setVisible(false);
-    	textFieldNickname.setVisible(false);
-    	textFieldNombre.setVisible(false);
-    	paswordField.setVisible(false);
+        textFieldApellidos.setVisible(false);
+        textFieldNickname.setVisible(false);
+        textFieldNombre.setVisible(false);
+        paswordField.setVisible(false);
 
-    	labelApellidos.setText(LogInController.loggedInUser.getApellidos());
-    	labelNickame.setText(LogInController.loggedInUser.getNickname());
-    	labelNickame2.setText(LogInController.loggedInUser.getNickname());
-    	labelNombre.setText(LogInController.loggedInUser.getNombre());
-    	labelContraseña.setText(LogInController.loggedInUser.getContraseña());
-    	labelContraseña.setText("*");
-
-
+        labelApellidos.setText(LogInController.loggedInUser.getApellidos());
+        labelNickame.setText(LogInController.loggedInUser.getNickname());
+        labelNickame2.setText(LogInController.loggedInUser.getNickname());
+        labelNombre.setText(LogInController.loggedInUser.getNombre());
+        String contraseña = LogInController.loggedInUser.getContraseña();
+        labelContraseña.setText("*".repeat(contraseña.length()));
     }
-
 }
