@@ -4,6 +4,7 @@ import app.Metodos;
 import db.DaoUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,6 +17,11 @@ public class RegistroController {
 
     @FXML
     private DatePicker FechaNacId;
+    
+
+    @FXML
+    private Button btnRegistro;
+
 
     @FXML
     private PasswordField confirmarContraseñaId;
