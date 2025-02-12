@@ -11,6 +11,8 @@ public class Usuario {
 	private String email;
 	private String confEmail;
 	private String contraseña;
+    private String imagenPerfilPath;
+
 	private String confContraseña;
     private static ArrayList<Usuario> usuariosRegistrados = new ArrayList<>();
 
@@ -86,6 +88,13 @@ public class Usuario {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
+	  public String getImagenPerfilPath() {
+	        return imagenPerfilPath;
+	    }
+
+	    public void setImagenPerfilPath(String absolutePath) {
+	        this.imagenPerfilPath = absolutePath;
+	    }
 	public String getConfContraseña() {
 		return confContraseña;
 	}
@@ -119,6 +128,8 @@ public class Usuario {
 		        System.out.println("---------------------------");
 		    }
 		}
+
+
 
 
 }

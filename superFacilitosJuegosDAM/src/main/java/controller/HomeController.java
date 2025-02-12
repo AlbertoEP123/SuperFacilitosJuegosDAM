@@ -32,6 +32,9 @@ public class HomeController {
 
 	@FXML
 	private ResourceBundle resources;
+	
+    @FXML
+    private Label nPagina;
 
 	@FXML
 	private URL location;
@@ -288,6 +291,8 @@ public class HomeController {
 			updateGameView(games);
 			updateGameTittle(games);
 		}
+		nPagina.setText("Página: "+currentPage);
+
 	}
 
 	public void searchGames() {
