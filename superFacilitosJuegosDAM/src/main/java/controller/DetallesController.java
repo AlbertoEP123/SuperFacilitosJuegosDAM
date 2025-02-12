@@ -113,10 +113,11 @@ public class DetallesController {
        caratulaJuego.setPreserveRatio(true); 
        fechaLanzamiento.setText(Auxiliar.juego.getReleaseDate());
        textDescripcion.setText(Auxiliar.juego.getDescription());
+       System.out.println(Auxiliar.juego.getDescription());
        tituloJuego.setText(Auxiliar.juego.getTitle());
        String platforms = formatPlatforms(Auxiliar.juego.getPlatforms());
        plataformaJuego.setText(platforms);       
-       nota.setText(formato);
+       nota.setText(formato+"/5");
 
    }
 

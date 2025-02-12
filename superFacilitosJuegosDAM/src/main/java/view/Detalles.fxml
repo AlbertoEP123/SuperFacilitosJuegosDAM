@@ -77,7 +77,7 @@
             </Pane>
             <Pane fx:id="panelCerrarSesion1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#irAHome" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white;" GridPane.columnIndex="2">
                <GridPane.margin>
-                  <Insets right="130.0" />
+                  <Insets right="150.0" />
                </GridPane.margin>
                <children>
                   <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
@@ -86,6 +86,9 @@
                      </image>
                   </ImageView>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Pane>
          </children>
       </GridPane>
@@ -104,11 +107,11 @@
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="270.0" prefWidth="340.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="165.0" prefWidth="165.0" />
           <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="148.0" minWidth="120.0" prefWidth="148.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="152.0" prefWidth="152.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="-Infinity" prefWidth="340.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="50.0" prefWidth="50.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="531.0" minHeight="10.0" prefHeight="327.0" vgrow="SOMETIMES" />
@@ -116,9 +119,9 @@
             <RowConstraints maxHeight="261.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="caratulaJuego" fitHeight="279.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <ImageView fx:id="caratulaJuego" fitHeight="206.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="20.0" />
+                  <Insets top="70.0" />
                </GridPane.margin>
             </ImageView>
             <Label text="Plataforma" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
@@ -145,19 +148,22 @@
                   <Font name="Cambria" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="tituloJuego" text="Titulo" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Label fx:id="tituloJuego" prefHeight="17.0" prefWidth="342.0" text="Titulo" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="50.0" />
+                  <Insets />
                </GridPane.margin>
                <font>
                   <Font name="Cambria" size="15.0" />
                </font>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
             </Label>
-            <Label fx:id="plataformaJuego" prefHeight="92.0" prefWidth="150.0" text="Titulo" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label fx:id="plataformaJuego" prefHeight="25.0" prefWidth="349.0" text="Titulo" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="Cambria" size="15.0" />
                </font></Label>
-            <Label fx:id="fechaLanzamiento" text="Titulo" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <Label fx:id="fechaLanzamiento" prefHeight="20.0" prefWidth="350.0" text="Titulo" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="35.0" />
                </GridPane.margin>
@@ -167,7 +173,7 @@
             </Label>
             <Label text="Descripcion" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="30.0" />
+                  <Insets bottom="60.0" />
                </GridPane.margin>
                <font>
                   <Font name="Cambria" size="15.0" />
@@ -216,7 +222,7 @@
                   </Label>
                </children>
             </Group>
-            <Label fx:id="textDescripcion" prefHeight="228.0" prefWidth="389.0" textAlignment="JUSTIFY" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label fx:id="textDescripcion" prefHeight="205.0" prefWidth="359.0" textAlignment="JUSTIFY" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>
