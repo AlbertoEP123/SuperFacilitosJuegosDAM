@@ -74,6 +74,12 @@ public class RegistroController {
             Metodos.mostrarMensajeError("El correo electrónico no es válido.");
             return;
         }
+        
+        if(DaoUsuarios.existeUsuario(nicknameId.getText())) {
+            Metodos.mostrarMensajeError("El usuario existe.");
+        	return;
+        	
+        }
 
 
 
@@ -89,9 +95,7 @@ public class RegistroController {
         );
 
 
-        Usuario.add(usuario);
         DaoUsuarios.addUser(usuario);
-
         Metodos.mostrarMensajeConfirmacion("Se ha registrado el usuario "+ nombreId.getText());
         Metodos.cambiarEscena(event, "/view/LogIn.fxml","LogIn");
     }

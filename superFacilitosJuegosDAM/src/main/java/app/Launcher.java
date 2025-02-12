@@ -2,6 +2,7 @@ package app;
 
 import java.util.ArrayList;
 
+import db.DaoUsuarios;
 import model.Usuario;
 
 public class Launcher {
@@ -12,9 +13,12 @@ public class Launcher {
 	}
 
 	public static void init() {
-		ArrayList<Usuario> user = new ArrayList<>();
-		user.add(new Usuario("Alvaro", "Ruiz", "alvarorb", "a@gmail.com", "1234"));
-		Usuario.setUsuariosRegistrados(user);
+		
+		Usuario user = new Usuario("Alvaro", "Ruiz", "alvarorb", "a@gmail.com", "1234");
+		if(!DaoUsuarios.existeUsuario(user.getNickname())) {
+			DaoUsuarios.addUser(user);
+		}
+
 	}
 
 

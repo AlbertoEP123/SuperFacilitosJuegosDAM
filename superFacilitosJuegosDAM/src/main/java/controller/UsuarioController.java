@@ -125,7 +125,7 @@ public class UsuarioController {
             if (!nuevosApellidos.isEmpty()) {
                 LogInController.loggedInUser.setApellidos(nuevosApellidos);
                 labelApellidos.setText(nuevosApellidos);
-                DaoUsuarios.updateApellidos(LogInController.loggedInUser.getApellidos(), nuevosApellidos);
+                DaoUsuarios.updateApellidos(LogInController.loggedInUser.getNickname(), nuevosApellidos);
 
             }
             botonCambiarApellidos.setText("Cambiar Apellidos");
@@ -149,7 +149,7 @@ public class UsuarioController {
             if (!nuevoNombre.isEmpty()) {
                 LogInController.loggedInUser.setNombre(nuevoNombre);
                 labelNombre.setText(nuevoNombre);
-                DaoUsuarios.updateNombre(LogInController.loggedInUser.getNombre(), nuevoNombre);
+                DaoUsuarios.updateNombre(LogInController.loggedInUser.getNickname(), nuevoNombre);
 
             }
             botonCambiarNombre.setText("Cambiar Nombre");
@@ -174,7 +174,7 @@ public class UsuarioController {
             if (!nuevaContraseña.isEmpty()) {
                 LogInController.loggedInUser.setContraseña(nuevaContraseña);
                 labelContraseña.setText("*".repeat(nuevaContraseña.length()));
-                DaoUsuarios.updateContraseña(LogInController.loggedInUser.getContraseña(), nuevaContraseña);
+                DaoUsuarios.updateContraseña(LogInController.loggedInUser.getNickname(), nuevaContraseña);
 
             }
             botonCambiarContraseña.setText("Cambiar Contraseña");

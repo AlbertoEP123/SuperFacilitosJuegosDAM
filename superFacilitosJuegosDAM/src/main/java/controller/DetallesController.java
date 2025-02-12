@@ -1,8 +1,14 @@
 package controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import api.RawgApiClient;
 import app.Metodos;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -10,14 +16,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.Auxiliar;
-import model.Biblioteca;
+
 
 public class DetallesController {
 	static public int obtenido;
 	static public int jugado;
 	static public int pendiente;
 	static public int terminado;
-	static Biblioteca datosJuego;
+	private RawgApiClient client ;
 	// pasar double de la nota a string
 	double valor = Auxiliar.juego.getAverageRating();
     String formato = String.format("%.2f", valor);
@@ -81,10 +87,11 @@ public class DetallesController {
 
     @FXML
     void guardarJuego(MouseEvent event) {
-    	// nuevo objeto para guardar elementos, si es 1 es que esta pulsado
-    	datosJuego = new Biblioteca(jugado,terminado,pendiente,obtenido);
-    	
-
+    	// modificar ventana, solo mostrar detalles y que guarde en bilbioteca
+    	// añadir a biblioteca, hacer insert a tabla bilioteca, 
+    	// id juego, id usuario, imagen, titulo, botones..
+    	// en biblioteca poder poner fehca jugada,nota numerica, comentario
+    	 	
     }
 
 
@@ -108,18 +115,20 @@ public class DetallesController {
   
     @FXML
    void initialize() {
+    
+       client = new RawgApiClient();
        caratulaJuego.setImage(Auxiliar.caratula.getImage());
        caratulaJuego.setFitWidth(200); 
        caratulaJuego.setPreserveRatio(true); 
        fechaLanzamiento.setText(Auxiliar.juego.getReleaseDate());
-       textDescripcion.setText(Auxiliar.juego.getDescription());
-       System.out.println(Auxiliar.juego.getDescription());
+       textDescripcion.setText(client.obtenerDescripcionPorId(Auxiliar.juego.getId()));
        tituloJuego.setText(Auxiliar.juego.getTitle());
        String platforms = formatPlatforms(Auxiliar.juego.getPlatforms());
        plataformaJuego.setText(platforms);       
        nota.setText(formato+"/5");
 
    }
+
 
     private String formatPlatforms(Object platforms) {
         if (platforms instanceof List) {
@@ -134,5 +143,7 @@ public class DetallesController {
         }
     
     }
+    
+   
 }
 

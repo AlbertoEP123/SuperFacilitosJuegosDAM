@@ -2,6 +2,7 @@ package controller;
 
 
 import app.Metodos;
+import db.DaoUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -38,7 +39,7 @@ public class LogInController {
 
         boolean loginSuccess = false;
         try {
-			for (Usuario user : Usuario.getUsuariosRegistrados()) {
+			for (Usuario user : DaoUsuarios.loadUsers()) {
 			    if (user.getNickname().equals(username) && user.getContraseña().equals(password)) {
 			        loginSuccess = true;
 			        loggedInUser = user;

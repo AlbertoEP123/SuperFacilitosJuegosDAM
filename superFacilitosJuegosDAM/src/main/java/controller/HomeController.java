@@ -277,7 +277,7 @@ public class HomeController {
 
 	public void principalGamesGenre(String genero) {
 		filtro ="&genres="+genero;
-		List<Games> games = client.searchByFilter( currentPage, GAMES_PER_PAGE, filtro);
+		List<Games> games = client.searchByFilter(currentPage, GAMES_PER_PAGE, filtro);
 		System.out.println(games.size());
 		if (games != null && !games.isEmpty()) {
 			updateGameView(games);
@@ -285,7 +285,7 @@ public class HomeController {
 		}
 	}
 	public void actualizar() {
-		List<Games> games = client.searchByFilter( currentPage, GAMES_PER_PAGE, filtro);
+		List<Games> games = client.searchByFilter(currentPage, GAMES_PER_PAGE, filtro);
 		System.out.println(games.size());
 		if (games != null && !games.isEmpty()) {
 			updateGameView(games);
@@ -297,7 +297,7 @@ public class HomeController {
 
 	public void searchGames() {
 		filtro = "&search="+searchField.getText().replace(" ","%20");
-		List<Games> games = client.searchByFilter( currentPage, GAMES_PER_PAGE,filtro);
+		List<Games> games = client.searchByFilter(currentPage, GAMES_PER_PAGE,filtro);
 		System.out.println(games.size());
 		if (games != null && !games.isEmpty()) {
 			updateGameView(games);

@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import db.DaoUsuarios;
+
 public class Usuario {
 
 	private String nombre;
@@ -14,7 +16,6 @@ public class Usuario {
     private String imagenPerfilPath;
 
 	private String confContraseña;
-    private static ArrayList<Usuario> usuariosRegistrados = new ArrayList<>();
 
     public Usuario(String nombre, String apellidos, String nickname, String email,
 			String contraseña) {
@@ -38,13 +39,6 @@ public class Usuario {
 		this.confContraseña = confContraseña;
 	}
 
-	public static ArrayList<Usuario> getUsuariosRegistrados() {
-		return usuariosRegistrados;
-	}
-
-	public static void setUsuariosRegistrados(ArrayList<Usuario> usuariosRegistrados) {
-		Usuario.usuariosRegistrados = usuariosRegistrados;
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -101,33 +95,9 @@ public class Usuario {
 	public void setConfContraseña(String confContraseña) {
 		this.confContraseña = confContraseña;
 	}
-	  public static void add(Usuario user) {
-	        try {
-	            if (usuariosRegistrados == null) {
-	                usuariosRegistrados = new ArrayList<>();
-	            }
-	            usuariosRegistrados.add(user);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
+	 
 	  
-	  public static void mostrarUsuarios() {
-		    if (usuariosRegistrados.isEmpty()) {
-		        System.out.println("No hay usuarios registrados.");
-		    } else {
-		        System.out.println("Lista de usuarios registrados:");
-		        for (Usuario user : usuariosRegistrados) {
-		            System.out.println("---------------------------");
-		            System.out.println("Nombre: " + user.getNombre());
-		            System.out.println("Apellidos: " + user.getApellidos());
-		            System.out.println("Fecha de Nacimiento: " + user.getFechaNac());
-		            System.out.println("Nickname: " + user.getNickname());
-		            System.out.println("Email: " + user.getEmail());
-		        }
-		        System.out.println("---------------------------");
-		    }
-		}
+	  
 
 
 
