@@ -27,7 +27,6 @@ public class AniadeController {
 	static public int jugado;
 	static public int pendiente;
 	static public int terminado;
-	static Biblioteca datosJuego;
 	private String imagePath;
 	
     @FXML // ResourceBundle that was given to the FXMLLoader
