@@ -11,7 +11,8 @@ public class Conection {
 //  private static final String PARAMETROS = "?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String PARAMETROS = "?serverTimezone=UTC";
     private static final String USUARIO = "root";
-    private static final String CLAVE = "root";
+    // cambiar en funcion de tu clave en tu db
+    private static final String CLAVE = "elcarlo4";
 
     public static Connection conectar() {
         Connection conexion = null;
