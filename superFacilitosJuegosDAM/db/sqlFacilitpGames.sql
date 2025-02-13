@@ -137,6 +137,15 @@ CREATE TABLE if not exists Game_Stores (
 
 );
 
+CREATE TABLE IF NOT EXISTS Games_Aniadidos (
+    title VARCHAR(255) primary key,
+    releaseDate varchar(40),
+    user varchar(40),
+    description TEXT,
+    imageUrl VARCHAR(255),
+    plataforma VARCHAR(255)
+);
+
 INSERT INTO Usuarios (Id, Nombre, Apellidos, fecha_Nacimiento, Apodo, Email, Contrasena)
 VALUES (1, 'Juan', 'Pérez', '1990-05-15', 'jperez', 'ej@gmail.com', '1234');
 Select * from usuarios

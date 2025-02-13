@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AniadeController">
+   <left>
+      <Pane prefHeight="340.0" prefWidth="77.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <Pane prefHeight="51.0" prefWidth="892.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <GridPane prefHeight="100.0" prefWidth="1122.0" style="-fx-background-color: #1A5989; -fx-border-color: black;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="557.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="118.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="306.0" minWidth="10.0" prefWidth="306.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <Label fx:id="labelUsuario" layoutX="6.0" layoutY="45.0" prefHeight="18.0" prefWidth="61.0" style="-fx-font-family: Cambria;" text="usuario" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <ImageView fitHeight="43.0" fitWidth="56.0" layoutX="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resourcess/usuario.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="91.0" style="-fx-background-radius: 15px; -fx-background-color: WHITE;" GridPane.hgrow="ALWAYS">
+               <GridPane.margin>
+                  <Insets left="80.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets bottom="5.0" />
+               </opaqueInsets>
+               <children>
+                  <ImageView fitHeight="76.0" fitWidth="98.0" layoutX="-3.0" layoutY="-1.0">
+                     <image>
+                        <Image url="@../resourcess/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="panelCerrarSesion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logOut" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="2">
+               <children>
+                  <ImageView fitHeight="67.0" fitWidth="72.0" layoutX="-4.0" layoutY="-1.0">
+                     <image>
+                        <Image url="@../resourcess/logOut.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <GridPane.margin>
+                  <Insets left="165.0" />
+               </GridPane.margin>
+            </Pane>
+            <Pane fx:id="panelCerrarSesion1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#irAHome" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white;" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets right="150.0" />
+               </GridPane.margin>
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resourcess/home.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Pane>
+         </children>
+      </GridPane>
+   </top>
+   <right>
+      <GridPane prefHeight="657.0" prefWidth="41.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="41.0" minWidth="0.0" prefWidth="38.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </right>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="270.0" prefWidth="340.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="165.0" prefWidth="165.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="148.0" minWidth="120.0" prefWidth="148.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="-Infinity" prefWidth="340.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="50.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="531.0" minHeight="10.0" prefHeight="327.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="351.0" minHeight="10.0" prefHeight="242.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="261.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="caratulaJuego" fitHeight="206.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="70.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../../resources/cruz.png" />
+               </image>
+            </ImageView>
+            <Label text="Plataforma" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Titulo" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="20.0" prefWidth="165.0" text="Fecha Lanzamiento" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="35.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="tituloJuego" prefHeight="17.0" prefWidth="342.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+               <graphic>
+                  <TextField fx:id="txtTitulo" />
+               </graphic>
+            </Label>
+            <TextField fx:id="txtPlataforma" GridPane.columnIndex="3" />
+            <Label fx:id="fechaLanzamiento" prefHeight="20.0" prefWidth="350.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="35.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+               <graphic>
+                  <DatePicker fx:id="txtDate" prefHeight="27.0" prefWidth="351.0" />
+               </graphic>
+            </Label>
+            <Label text="Descripcion" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets bottom="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+            <Group GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <children>
+                  <Label layoutX="12.0" layoutY="4.0" text="Obtenido">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="18.0" layoutY="56.0" text="Jugado">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="9.0" layoutY="115.0" text="Pendiente">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="156.0" prefHeight="30.0" prefWidth="76.0" text="Terminado">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Button mnemonicParsing="false" onMouseClicked="#guardarJuego" style="-fx-border-style: solid;" text="Guardar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Group GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <children>
+                  <RadioButton mnemonicParsing="false" onMouseClicked="#buttonObtenido" />
+                  <RadioButton layoutY="50.0" mnemonicParsing="false" onMouseClicked="#buttonJugado" />
+                  <RadioButton layoutY="112.0" mnemonicParsing="false" onMouseClicked="#buttonPendiente" />
+                  <RadioButton layoutY="157.0" mnemonicParsing="false" onMouseClicked="#buttonTerminado" />
+               </children>
+            </Group>
+            <Label fx:id="textDescripcion" prefHeight="205.0" prefWidth="359.0" textAlignment="JUSTIFY" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <graphic>
+                  <TextArea fx:id="txtDescrption" prefHeight="200.0" prefWidth="200.0" />
+               </graphic></Label>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
