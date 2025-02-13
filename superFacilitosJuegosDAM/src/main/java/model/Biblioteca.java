@@ -1,42 +1,39 @@
 package model;
 
+import java.util.List;
+
 public class Biblioteca {
 
-	private int jugado;
-	private int terminado;
-	private int pendiente;
-	private int obtenido;
-	public Biblioteca(int jugado, int terminado, int pendiente, int obtenido) {
-		super();
-		this.jugado = jugado;
-		this.terminado = terminado;
-		this.pendiente = pendiente;
-		this.obtenido = obtenido;
-	}
-	public int getJugado() {
-		return jugado;
-	}
-	public void setJugado(int jugado) {
-		this.jugado = jugado;
-	}
-	public int getTerminado() {
-		return terminado;
-	}
-	public void setTerminado(int terminado) {
-		this.terminado = terminado;
-	}
-	public int getPendiente() {
-		return pendiente;
-	}
-	public void setPendiente(int pendiente) {
-		this.pendiente = pendiente;
-	}
-	public int getObtenido() {
-		return obtenido;
-	}
-	public void setObtenido(int obtenido) {
-		this.obtenido = obtenido;
-	}
-	
-	
+    private List<EntradaDeBiblioteca> entradas; // Lista para almacenar las entradas de la biblioteca
+
+    // Constructor
+    public Biblioteca(List<EntradaDeBiblioteca> entradas) {
+        this.entradas = entradas;
+    }
+
+    // Getter y Setter
+    public List<EntradaDeBiblioteca> getEntradas() {
+        return entradas;
+    }
+
+    public void setEntradas(List<EntradaDeBiblioteca> entradas) {
+        this.entradas = entradas;
+    }
+
+    // Método para agregar una entrada a la biblioteca
+    public void agregarEntrada(EntradaDeBiblioteca entrada) {
+        this.entradas.add(entrada);
+    }
+
+    // Método para eliminar una entrada de la biblioteca
+    public void eliminarEntrada(EntradaDeBiblioteca entrada) {
+        this.entradas.remove(entrada);
+    }
+
+    // Método toString para mostrar la información de la biblioteca y sus entradas
+    @Override
+    public String toString() {
+        return "Biblioteca [entradas=" + entradas + "]";
+    }
 }
+
