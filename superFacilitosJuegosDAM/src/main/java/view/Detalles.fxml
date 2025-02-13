@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -108,31 +106,29 @@
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="270.0" prefWidth="340.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="165.0" prefWidth="165.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="148.0" minWidth="120.0" prefWidth="148.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="-Infinity" prefWidth="340.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="50.0" prefWidth="50.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="333.0" minWidth="120.0" prefWidth="314.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="-Infinity" prefWidth="174.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="531.0" minHeight="10.0" prefHeight="327.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="351.0" minHeight="10.0" prefHeight="242.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="261.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="531.0" minHeight="10.0" prefHeight="431.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="351.0" minHeight="10.0" prefHeight="187.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="261.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="caratulaJuego" fitHeight="206.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <ImageView fx:id="caratulaJuego" fitHeight="226.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
-                  <Insets top="70.0" />
+                  <Insets top="90.0" />
                </GridPane.margin>
             </ImageView>
-            <Label text="Plataforma" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+            <Label text="Plataforma" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <GridPane.margin>
-                  <Insets />
+                  <Insets bottom="150.0" />
                </GridPane.margin>
                <font>
                   <Font name="Cambria" size="15.0" />
                </font>
             </Label>
-            <Label text="Titulo" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Label text="Titulo" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="50.0" />
                </GridPane.margin>
@@ -140,15 +136,15 @@
                   <Font name="Cambria" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="20.0" prefWidth="165.0" text="Fecha Lanzamiento" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <Label prefHeight="20.0" prefWidth="165.0" text="Fecha Lanzamiento" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="35.0" />
+                  <Insets top="50.0" />
                </GridPane.margin>
                <font>
                   <Font name="Cambria" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="tituloJuego" prefHeight="17.0" prefWidth="342.0" text="Titulo" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Label fx:id="tituloJuego" prefHeight="17.0" prefWidth="342.0" text="Titulo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -159,70 +155,53 @@
                   <Insets top="50.0" />
                </padding>
             </Label>
-            <Label fx:id="plataformaJuego" prefHeight="25.0" prefWidth="349.0" text="Titulo" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label fx:id="plataformaJuego" prefHeight="102.0" prefWidth="332.0" text="Titulo" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="Cambria" size="15.0" />
-               </font></Label>
-            <Label fx:id="fechaLanzamiento" prefHeight="20.0" prefWidth="350.0" text="Titulo" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               </font>
                <GridPane.margin>
-                  <Insets bottom="35.0" />
+                  <Insets bottom="150.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets right="30.0" />
+               </padding></Label>
+            <Label fx:id="fechaLanzamiento" prefHeight="75.0" prefWidth="332.0" text="Titulo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets top="50.0" />
                </GridPane.margin>
                <font>
                   <Font name="Cambria" size="15.0" />
                </font>
             </Label>
-            <Label text="Descripcion" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Label text="Descripcion" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets bottom="60.0" />
+                  <Insets bottom="20.0" />
                </GridPane.margin>
                <font>
                   <Font name="Cambria" size="15.0" />
                </font>
             </Label>
-            <Group GridPane.halignment="CENTER" GridPane.rowIndex="1">
-               <children>
-                  <Label layoutX="12.0" layoutY="4.0" text="Obtenido">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="18.0" layoutY="56.0" text="Jugado">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="9.0" layoutY="115.0" text="Pendiente">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="26.0" layoutY="167.0" text="Nota">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="4.0" layoutY="222.0" prefHeight="30.0" prefWidth="76.0" text="Terminado">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Group>
-            <Button mnemonicParsing="false" onMouseClicked="#guardarJuego" style="-fx-border-style: solid;" text="Guardar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Group GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-               <children>
-                  <RadioButton mnemonicParsing="false" onMouseClicked="#buttonObtenido" />
-                  <RadioButton layoutY="50.0" mnemonicParsing="false" onMouseClicked="#buttonJugado" />
-                  <RadioButton layoutY="112.0" mnemonicParsing="false" onMouseClicked="#buttonPendiente" />
-                  <RadioButton layoutY="223.0" mnemonicParsing="false" onMouseClicked="#buttonTerminado" />
-                  <Label fx:id="nota" layoutX="-14.0" layoutY="159.0" text="nota">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Group>
-            <Label fx:id="textDescripcion" prefHeight="205.0" prefWidth="359.0" textAlignment="JUSTIFY" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onMouseClicked="#guardarJuego" style="-fx-border-style: solid;" text="Guardar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="textDescripcion" prefHeight="187.0" prefWidth="623.0" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="1">
+               <padding>
+                  <Insets left="30.0" />
+               </padding></Label>
+            <Label fx:id="nota" text="nota" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="100.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Nota" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="100.0" />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
    </center>

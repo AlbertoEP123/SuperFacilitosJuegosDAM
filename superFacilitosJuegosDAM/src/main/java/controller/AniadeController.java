@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 
 import app.AppContext;
 import app.Metodos;
-import db.DaoGamesAniadidos;
+//import db.DaoGamesAniadidos;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -18,7 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
-import model.Biblioteca;
+//import model.Biblioteca;
 import model.MyGames;
 
 public class AniadeController {
@@ -107,8 +107,8 @@ public class AniadeController {
             game.setImageUrl(caratulaJuego.getImage().getUrl());
         }
     	game.setUser(AppContext.getUsuarioLogueado().getNickname());
-    	DaoGamesAniadidos.addGame(game);
-    	datosJuego = new Biblioteca(jugado,terminado,pendiente,obtenido);
+//    	DaoGamesAniadidos.addGame(game);
+//    	datosJuego = new Biblioteca(jugado,terminado,pendiente,obtenido);
     }
 
     @FXML

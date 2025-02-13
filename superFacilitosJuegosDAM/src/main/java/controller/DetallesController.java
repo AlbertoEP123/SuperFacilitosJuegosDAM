@@ -118,8 +118,10 @@ public class DetallesController {
     
        client = new RawgApiClient();
        caratulaJuego.setImage(Auxiliar.caratula.getImage());
-       caratulaJuego.setFitWidth(200); 
-       caratulaJuego.setPreserveRatio(true); 
+       caratulaJuego.setFitWidth(333);
+       caratulaJuego.setFitHeight(326);
+       caratulaJuego.setPreserveRatio(true);
+       
        fechaLanzamiento.setText(Auxiliar.juego.getReleaseDate());
        textDescripcion.setText(client.obtenerDescripcionPorId(Auxiliar.juego.getId()));
        tituloJuego.setText(Auxiliar.juego.getTitle());
