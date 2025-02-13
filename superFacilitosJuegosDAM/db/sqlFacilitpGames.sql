@@ -136,6 +136,18 @@ CREATE TABLE if not exists Game_Stores (
     FOREIGN KEY (store_id) REFERENCES Store(id) ON DELETE CASCADE  -- Asegúrate de que 'Store' sea singular
 
 );
+CREATE TABLE `biblioteca` (
+   `idUsuario` int NOT NULL,
+   `idGame` int NOT NULL,
+   `imagen` varchar(100) DEFAULT NULL,
+   `titulos` varchar(45) DEFAULT NULL,
+   `estado` varchar(1) DEFAULT NULL,
+   `comentario` varchar(45) DEFAULT NULL,
+   `nota` int DEFAULT NULL,
+   `fechaJugado` date DEFAULT NULL,
+   PRIMARY KEY (`idUsuario`,`idGame`),
+   CONSTRAINT `Id` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`Id`) ON DELETE CASCADE
+ ) 
 
 CREATE TABLE IF NOT EXISTS Games_Aniadidos (
     title VARCHAR(255) primary key,
