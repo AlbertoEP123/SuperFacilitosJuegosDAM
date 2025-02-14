@@ -93,9 +93,9 @@
    <center>
       <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="270.0" prefWidth="340.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="333.0" minWidth="120.0" prefWidth="314.0" />
-            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="340.0" minWidth="-Infinity" prefWidth="174.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="-Infinity" prefWidth="406.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="333.0" minWidth="120.0" prefWidth="229.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="370.0" minWidth="-Infinity" prefWidth="370.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints fillHeight="false" maxHeight="531.0" minHeight="10.0" prefHeight="431.0" vgrow="NEVER" />
@@ -124,7 +124,7 @@
                   <Font name="Cambria" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="20.0" prefWidth="165.0" text="Fecha Terminado" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label prefHeight="20.0" prefWidth="113.0" text="Fecha Terminado" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets top="40.0" />
                </GridPane.margin>
