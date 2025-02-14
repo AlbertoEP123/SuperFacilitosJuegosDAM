@@ -93,25 +93,27 @@ public class DetallesController {
 		 Metodos.cambiarEscena(event, "/view/Home.fxml", "Home");
 	    }
   
-    @FXML
-   void initialize() {
+	 @FXML
+	 void initialize() {
+	     client = new RawgApiClient();
+	     caratulaJuego.setImage(Auxiliar.caratula.getImage());
+	     caratulaJuego.setFitWidth(333);
+	     caratulaJuego.setFitHeight(326);
+	     caratulaJuego.setPreserveRatio(true);
 
-    
-       client = new RawgApiClient();
-       caratulaJuego.setImage(Auxiliar.caratula.getImage());
-       caratulaJuego.setFitWidth(333);
-       caratulaJuego.setFitHeight(326);
-       caratulaJuego.setPreserveRatio(true);
-       
-       fechaLanzamiento.setText(Auxiliar.juego.getReleaseDate());
-       textDescripcion.setText(client.obtenerDescripcionPorId(Auxiliar.juego.getId()));
-       tituloJuego.setText(Auxiliar.juego.getTitle());
-       String platforms = formatPlatforms(Auxiliar.juego.getPlatforms());
-       plataformaJuego.setText(platforms);       
-       nota.setText(formato+"/5");
-       labelUsuario.setText(LogInController.loggedInUser.getNickname());
+	     fechaLanzamiento.setText(Auxiliar.juego.getReleaseDate());
 
-   }
+	     // Limpiar la descripción de HTML usando regex
+	     String descripcionHTML = client.obtenerDescripcionPorId(Auxiliar.juego.getId());
+	     String descripcionTexto = descripcionHTML.replaceAll("<[^>]*>", ""); // Elimina todas las etiquetas 
+
+	     textDescripcion.setText(descripcionTexto); 
+	     tituloJuego.setText(Auxiliar.juego.getTitle());
+	     String platforms = formatPlatforms(Auxiliar.juego.getPlatforms());
+	     plataformaJuego.setText(platforms);
+	     nota.setText(formato + "/5");
+	     labelUsuario.setText(LogInController.loggedInUser.getNickname());
+	 }
 
 
     private String formatPlatforms(Object platforms) {

@@ -156,7 +156,12 @@ public class DetallesControllerBiblioteca {
         caratulaJuego.setFitWidth(333);
         caratulaJuego.setFitHeight(326);
         caratulaJuego.setPreserveRatio(true);
-        textDescripcion.setText(client.obtenerDescripcionPorId(Auxiliar.entrada.getIdGame()));
+
+        // Limpiar la descripción de HTML usando regex
+        String descripcionHTML = client.obtenerDescripcionPorId(Auxiliar.entrada.getIdGame());
+        String descripcionTexto = descripcionHTML.replaceAll("<[^>]*>", ""); // Elimina todas las etiquetas HTML
+
+        textDescripcion.setText(descripcionTexto); // Asignar el texto limpio al Label
 
         dateFEchaTerminado.setDisable(true);
         txtComentario.setDisable(true);
@@ -166,7 +171,7 @@ public class DetallesControllerBiblioteca {
             rdbtnPendiente.setSelected(false);
             toggleFields();
         });
-        
+
         rdbtnPendiente.setOnAction(event -> {
             rdbtnTerminado.setSelected(false);
             toggleFields();

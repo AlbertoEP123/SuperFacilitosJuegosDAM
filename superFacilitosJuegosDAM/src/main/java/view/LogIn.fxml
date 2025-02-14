@@ -152,11 +152,6 @@
                   <Image url="@../resourcess/logo.png" />
                </image>
             </ImageView>
-            <Label onMouseClicked="#clickOlvidarContraseña" text="¿Has olvidado la contraseña?" textFill="BLUE" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <font>
-                  <Font name="Cambria Bold" size="14.0" />
-               </font>
-            </Label>
          </children>
          <BorderPane.margin>
             <Insets />
