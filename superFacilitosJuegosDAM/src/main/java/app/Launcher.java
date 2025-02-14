@@ -1,6 +1,5 @@
 package app;
 
-import java.util.ArrayList;
 
 import db.DaoUsuarios;
 import model.Usuario;

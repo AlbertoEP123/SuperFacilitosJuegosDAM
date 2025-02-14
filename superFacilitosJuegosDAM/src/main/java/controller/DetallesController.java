@@ -24,10 +24,7 @@ import model.EntradaDeBiblioteca;
 
 
 public class DetallesController {
-	static public int obtenido;
-	static public int jugado;
-	static public int pendiente;
-	static public int terminado;
+
 	private RawgApiClient client ;
 	// pasar double de la nota a string
 	double valor = Auxiliar.juego.getAverageRating();
@@ -72,50 +69,13 @@ public class DetallesController {
     			Auxiliar.juego.getImageUrl(),Auxiliar.juego.getTitle(), "0",
     			"1", "0", "comentario base",Auxiliar.juego.getAverageRating() , null);
     	DaoBiblioteca.addEntradaBiblioteca(DaoUsuarios.getId(LogInController.loggedInUser.getEmail()), entrada, "ej");
+    	Metodos.mostrarMensajeConfirmacion("Juego añadido a biblioteca");
     	
     }
 
-    @FXML
-    void buttonJugado(MouseEvent event) {
-    	jugado = event.getClickCount();   	
-    	
-    }
     
 
-    @FXML
-    void buttonNota(MouseEvent event) {
-    	
-    }
 
-    @FXML
-    void buttonObtenido(MouseEvent event) {
-    	obtenido = event.getClickCount(); 
-
-    }
-
-    @FXML
-    void buttonPendiente(MouseEvent event) {
-    	pendiente = event.getClickCount(); 
-
-    }
-
-    @FXML
-    void buttonTerminado(MouseEvent event) {
-    	terminado = event.getClickCount(); 
-
-    }
-
-    @FXML
-    void guardarJuego(MouseEvent event) {
-    	// modificar ventana, solo mostrar detalles y que guarde en bilbioteca
-    	// añadir a biblioteca, hacer insert a tabla bilioteca, 
-    	// id juego, id usuario, imagen, titulo, botones..
-    	// en biblioteca poder poner fehca jugada,nota numerica, comentario
-    	 	
-    }
-
-
-  
     @FXML
     void logOut(MouseEvent event) {
     	Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
@@ -149,6 +109,7 @@ public class DetallesController {
        String platforms = formatPlatforms(Auxiliar.juego.getPlatforms());
        plataformaJuego.setText(platforms);       
        nota.setText(formato+"/5");
+       labelUsuario.setText(LogInController.loggedInUser.getNickname());
 
    }
 

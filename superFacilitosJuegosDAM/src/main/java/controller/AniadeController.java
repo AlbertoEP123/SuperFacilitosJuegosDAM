@@ -107,6 +107,7 @@ public class AniadeController {
             game.setImageUrl(caratulaJuego.getImage().getUrl());
         }
     	game.setUser(AppContext.getUsuarioLogueado().getNickname());
+    	Metodos.mostrarMensajeConfirmacion("Juego añadido");
 //    	DaoGamesAniadidos.addGame(game);
 //    	datosJuego = new Biblioteca(jugado,terminado,pendiente,obtenido);
     }

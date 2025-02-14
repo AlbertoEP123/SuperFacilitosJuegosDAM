@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsuarioController">
+<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsuarioController">
    <bottom>
       <Pane prefHeight="51.0" prefWidth="892.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
    </bottom>
@@ -29,7 +29,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="180.0" />
                </GridPane.margin>
@@ -41,7 +41,7 @@
                   </ImageView>
                </children>
                <opaqueInsets>
-                  <Insets right="10.0" />
+                  <Insets />
                </opaqueInsets>
             </Pane>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
@@ -51,7 +51,7 @@
                <children>
                   <ImageView fitHeight="60.0" fitWidth="57.0" layoutX="4.0" layoutY="4.0" onMouseClicked="#clickAniade" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/cruz.png" />
+                        <Image url="@../resourcess/cruz.png" />
                      </image>
                   </ImageView>
                </children>
