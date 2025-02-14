@@ -109,6 +109,11 @@ public class UsuarioController {
     void irAHome(MouseEvent event) {
     	Metodos.cambiarEscena(event, "/view/Home.fxml", "Home");
     }
+    
+    @FXML
+    void clickAniade(MouseEvent event) {
+    	Metodos.cambiarEscena(event, "/view/Añadir.fxml", "Añadir Juego");
+    }
 
     @FXML
     void clickCambiarApellidos(MouseEvent event) {
