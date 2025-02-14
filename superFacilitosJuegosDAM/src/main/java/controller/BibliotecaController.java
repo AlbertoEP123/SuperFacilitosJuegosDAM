@@ -113,7 +113,13 @@ public class BibliotecaController {
     @FXML
     void clickDetails(MouseEvent event) {
         ImageView caratula = (ImageView) event.getSource();
-        
+
+        // Verificar si la imagen está cargada y que no sea la de "No Image"
+        if (caratula.getImage() == null || caratula.getImage().getUrl().contains("placeholder.com")) {
+            System.out.println("Imagen no cargada o es un marcador de posición. No se puede abrir detalles.");
+            return;
+        }
+
         // Array de ImageView en el orden en que se muestran en la UI
         ImageView[] imageViews = {imageView1, imageView2, imageView3, imageView4, imageView5, imageView6,
                                   imageView7, imageView8, imageView9, imageView10, imageView11, imageView12};
@@ -145,7 +151,7 @@ public class BibliotecaController {
         Auxiliar.entrada = entrada;
         Auxiliar.caratula = caratula;
 
-        // Cambiar de escena
+        // Cambiar de escena solo si la imagen es válida
         Metodos.cambiarEscena(event, "/view/DetallesBiblioteca.fxml", "Detalles");
     }
 

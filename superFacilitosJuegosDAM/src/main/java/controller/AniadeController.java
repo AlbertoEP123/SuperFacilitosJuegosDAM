@@ -7,10 +7,15 @@ import java.util.ResourceBundle;
 
 import app.AppContext;
 import app.Metodos;
+import db.DaoBiblioteca;
+import db.DaoUsuarios;
+import javafx.event.ActionEvent;
 //import db.DaoGamesAniadidos;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -18,6 +23,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import model.Auxiliar;
+import model.EntradaDeBiblioteca;
+import model.Games;
 //import model.Biblioteca;
 import model.MyGames;
 
@@ -28,45 +36,60 @@ public class AniadeController {
 	static public int pendiente;
 	static public int terminado;
 	private String imagePath;
-	
-    @FXML // ResourceBundle that was given to the FXMLLoader
-    private ResourceBundle resources;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
-    private URL location;
+    @FXML
+    private Button btnGuardar;
 
-    @FXML // fx:id="caratulaJuego"
-    private ImageView caratulaJuego; // Value injected by FXMLLoader
+    @FXML
+    private ImageView caratulaJuego;
 
-    @FXML // fx:id="fechaLanzamiento"
-    private Label fechaLanzamiento; // Value injected by FXMLLoader
+    @FXML
+    private Label fechaLanzamiento;
 
-    @FXML // fx:id="labelUsuario"
-    private Label labelUsuario; // Value injected by FXMLLoader
+    @FXML
+    private Label labelUsuario;
 
-    @FXML // fx:id="panelCerrarSesion"
-    private Pane panelCerrarSesion; // Value injected by FXMLLoader
+    @FXML
+    private Pane panelCerrarSesion;
 
-    @FXML // fx:id="panelCerrarSesion1"
-    private Pane panelCerrarSesion1; // Value injected by FXMLLoader
+    @FXML
+    private Pane panelCerrarSesion1;
 
-    @FXML // fx:id="textDescripcion"
-    private Label textDescripcion; // Value injected by FXMLLoader
+    @FXML
+    private RadioButton rdbtnObtenido;
 
-    @FXML // fx:id="tituloJuego"
-    private Label tituloJuego; // Value injected by FXMLLoader
+    @FXML
+    private RadioButton rdbtnPendiente;
 
-    @FXML // fx:id="txtDate"
-    private DatePicker txtDate; // Value injected by FXMLLoader
+    @FXML
+    private RadioButton rdbtnTerminado;
 
-    @FXML // fx:id="txtDescrption"
-    private TextArea txtDescrption; // Value injected by FXMLLoader
+    @FXML
+    private Label textDescripcion;
 
-    @FXML // fx:id="txtPlataforma"
-    private TextField txtPlataforma; // Value injected by FXMLLoader
+    @FXML
+    private Label tituloJuego;
 
-    @FXML // fx:id="txtTitulo"
-    private TextField txtTitulo; // Value injected by FXMLLoader
+    @FXML
+    private DatePicker txtDate;
+
+    @FXML
+    private TextArea txtDescrption;
+
+    @FXML
+    private TextField txtPlataforma;
+
+    @FXML
+    private TextField txtTitulo;
+    
+    private String poseidoV = "0";
+    private String pendienteV = "0";
+    private String terminadoV = "0";
+    
+
+
+ 
+
 
     @FXML
     void buttonJugado(MouseEvent event) {
@@ -75,18 +98,64 @@ public class AniadeController {
 
     @FXML
     void buttonObtenido(MouseEvent event) {
-    	obtenido = event.getClickCount();
+
     }
 
     @FXML
     void buttonPendiente(MouseEvent event) {
-    	terminado = event.getClickCount();
+
     }
 
     @FXML
     void buttonTerminado(MouseEvent event) {
-    	terminado = event.getClickCount(); 
+
     }
+
+    @FXML
+    void guardar(ActionEvent event) {
+    	EntradaDeBiblioteca entrada = new EntradaDeBiblioteca(DaoUsuarios.getId(LogInController.loggedInUser.getEmail()),
+   			 DaoBiblioteca.getNextIdBiblioteca(), 
+   			"/resourcess/cruz.png",txtTitulo.getText(), poseidoV,
+   			pendienteV, terminadoV, txtDescrption.getText(),0 , null);
+   	DaoBiblioteca.addEntradaBiblioteca(DaoUsuarios.getId(LogInController.loggedInUser.getEmail()), entrada, "ej");
+   	Metodos.mostrarMensajeConfirmacion("Juego añadido a biblioteca");
+   	Games game = new Games(obtenido, terminadoV, jugado, poseidoV, pendienteV, imagePath, null);
+    }
+    @FXML
+    void obtener(ActionEvent event) {
+        poseidoV = "1";
+        pendienteV = "0";
+        terminadoV = "0";
+        
+        rdbtnObtenido.setSelected(true);
+        rdbtnPendiente.setSelected(false);
+        rdbtnTerminado.setSelected(false);
+    }
+    
+    @FXML
+    private void pendiente(ActionEvent event) {
+        poseidoV = "0";
+        pendienteV = "1";
+        terminadoV = "0";
+        
+        rdbtnObtenido.setSelected(false);
+        rdbtnPendiente.setSelected(true);
+        rdbtnTerminado.setSelected(false);
+    }
+    
+    @FXML
+    void terminado(ActionEvent event) {
+        poseidoV = "1";
+        pendienteV = "0";
+        terminadoV = "1";
+        
+        rdbtnObtenido.setSelected(true);
+        rdbtnPendiente.setSelected(false);
+        rdbtnTerminado.setSelected(true);
+    }
+
+
+
 
     @FXML
     void guardarJuego(MouseEvent event) {

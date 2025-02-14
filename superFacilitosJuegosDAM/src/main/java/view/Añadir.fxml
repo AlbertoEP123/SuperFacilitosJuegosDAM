@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AniadeController">
+<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AniadeController">
    <left>
       <Pane prefHeight="340.0" prefWidth="77.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
    </left>
@@ -190,12 +190,7 @@
             </Label>
             <Group GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <children>
-                  <Label layoutX="12.0" layoutY="4.0" text="Obtenido">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="18.0" layoutY="56.0" text="Jugado">
+                  <Label layoutX="11.0" layoutY="54.0" text="Obtenido">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>
@@ -212,13 +207,12 @@
                   </Label>
                </children>
             </Group>
-            <Button mnemonicParsing="false" onMouseClicked="#guardarJuego" style="-fx-border-style: solid;" text="Guardar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" onMouseClicked="#guardarJuego" style="-fx-border-style: solid;" text="Guardar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Group GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <children>
-                  <RadioButton mnemonicParsing="false" onMouseClicked="#buttonObtenido" />
-                  <RadioButton layoutY="50.0" mnemonicParsing="false" onMouseClicked="#buttonJugado" />
-                  <RadioButton layoutY="112.0" mnemonicParsing="false" onMouseClicked="#buttonPendiente" />
-                  <RadioButton layoutY="157.0" mnemonicParsing="false" onMouseClicked="#buttonTerminado" />
+                  <RadioButton fx:id="rdbtnObtenido" layoutY="56.0" mnemonicParsing="false" onAction="#obtener" onMouseClicked="#buttonObtenido" />
+                  <RadioButton fx:id="rdbtnPendiente" layoutY="112.0" mnemonicParsing="false" onAction="#pendiente" onMouseClicked="#buttonPendiente" />
+                  <RadioButton fx:id="rdbtnTerminado" layoutY="157.0" mnemonicParsing="false" onAction="#terminado" onMouseClicked="#buttonTerminado" />
                </children>
             </Group>
             <Label fx:id="textDescripcion" prefHeight="205.0" prefWidth="359.0" textAlignment="JUSTIFY" GridPane.columnIndex="3" GridPane.rowIndex="1">

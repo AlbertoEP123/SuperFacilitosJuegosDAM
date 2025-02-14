@@ -153,6 +153,71 @@ public class DaoBiblioteca {
         
         return entradas;
     }
+    
+ // Método para obtener el siguiente ID disponible en la biblioteca
+    public static int getNextIdBiblioteca() {
+        Connection connection = Conection.conectar();
+        int nextId = 1; // Valor predeterminado si no hay registros en la tabla
+
+        String query = "SELECT MAX(idGame) AS maxId FROM biblioteca";
+
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            if (resultSet.next()) {
+                int maxId = resultSet.getInt("maxId");
+                if (!resultSet.wasNull()) {
+                    nextId = maxId + 1;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nextId;
+    }
+    
+    public static void addGame(Games game) {
+        Connection connection = Conection.conectar();
+        String insertQuery = "INSERT INTO Games (id, name, description, release_date, rating, metacritic_score, background_image_url) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
+            statement.setInt(1, game.getId());
+            statement.setString(2, game.getTitle());
+            statement.setString(3, game.getDescription());
+            statement.setDate(4, Date.valueOf(game.getReleaseDate()));
+            statement.setInt(5, (int) game.getAverageRating());
+            statement.setInt(6, 0); // metacritic_score placeholder
+            statement.setString(7, game.getImageUrl());
+            
+            statement.executeUpdate();
+            System.out.println("Juego añadido correctamente");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String getGameDescription(int gameId) {
+        Connection connection = Conection.conectar();
+        String description = null;
+        String selectQuery = "SELECT description FROM Games WHERE id = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+            statement.setInt(1, gameId);
+            ResultSet resultSet = statement.executeQuery();
+            
+            if (resultSet.next()) {
+                description = resultSet.getString("description");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return description;
+    }
+
+
 
 
 }
