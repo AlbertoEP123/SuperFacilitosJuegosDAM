@@ -13,12 +13,12 @@ public class EntradaDeBiblioteca {
     private String obtenido;
     private String jugado;
     private String comentario;
-    private int nota;
+    private double nota;
     private Date fechaJugado;
 
     // Constructor
     public EntradaDeBiblioteca(int idUsuario, int idGame, String imagen, String titulos, String pendiente, 
-                               String obtenido, String jugado, String comentario, int nota, Date fechaJugado) {
+                               String obtenido, String jugado, String comentario, double nota, Date fechaJugado) {
         this.idUsuario = idUsuario;
         this.idGame = idGame;
         this.imagen = imagen;
@@ -96,7 +96,7 @@ public class EntradaDeBiblioteca {
         this.comentario = comentario;
     }
 
-    public int getNota() {
+    public double getNota() {
         return nota;
     }
 

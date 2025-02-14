@@ -14,7 +14,7 @@ public class Launcher {
 
 	public static void init() {
 		
-		Usuario user = new Usuario("Alvaro", "Ruiz", "alvarorb", "a@gmail.com", "1234");
+		Usuario user = new Usuario("Alvaro", "Ruiz", "al", "a@gmail.com", "1234");
 		if(!DaoUsuarios.existeUsuario(user.getNickname())) {
 			DaoUsuarios.addUser(user);
 		}

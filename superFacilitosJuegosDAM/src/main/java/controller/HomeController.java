@@ -203,7 +203,7 @@ public class HomeController {
 	@FXML
 	void initialize() {
 		
-		//labelUsuario.setText(LogInController.loggedInUser.getNickname());
+		labelUsuario.setText(LogInController.loggedInUser.getNickname());
 		assert tituloJuego1 != null : "tituloJuego1 no se ha cargado correctamente!";
 		assert tituloJuego2 != null : "tituloJuego2 no se ha cargado correctamente!";
 		assert tituloJuego3 != null : "tituloJuego3 no se ha cargado correctamente!";

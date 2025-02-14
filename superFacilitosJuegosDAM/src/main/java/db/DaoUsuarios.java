@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import app.Metodos;
 import model.Usuario;
 
 public class DaoUsuarios {
@@ -131,4 +132,26 @@ public static void updateNombre(String nickname, String nuevoNombre) {
 		updateCampo(nickname, nuevoNombre, "Nombre");
 
 	}
+
+public static int getId(String email) {
+    Connection connection = Conection.conectar();
+    int idUsuario = -1; // Valor por defecto si no se encuentra el usuario
+
+    String selectQuery = "SELECT Id FROM Usuarios WHERE Email = ?";
+
+    try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+        selectStatement.setString(1, email);
+        try (ResultSet resultSet = selectStatement.executeQuery()) {
+            if (resultSet.next()) {
+                idUsuario = resultSet.getInt("Id");
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return idUsuario; // Retorna el ID o -1 si no se encuentra
+}
+
+
 }

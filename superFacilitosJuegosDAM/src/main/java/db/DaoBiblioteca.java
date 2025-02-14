@@ -35,7 +35,7 @@ public class DaoBiblioteca {
             insertStatement.setString(6, entrada.getObtenido()); 
             insertStatement.setString(7, entrada.getJugado()); 
             insertStatement.setString(8, comentario); 
-            insertStatement.setInt(9, entrada.getNota()); 
+            insertStatement.setDouble(9, entrada.getNota()); 
             insertStatement.setDate(10, entrada.getFechaJugado());
             
             insertStatement.executeUpdate();
@@ -56,8 +56,9 @@ public class DaoBiblioteca {
      */
     public static void updateEntradaBiblioteca(int idUsuario, int idGame, EntradaDeBiblioteca entrada, String comentario) {
         Connection connection = Conection.conectar();
-        
-        String updateQuery = "UPDATE biblioteca SET pendiente = ?, obtenido = ?, jugado = ?, comentario = ?, nota = ? "
+
+        // Modificamos la consulta para incluir el campo 'fechaJugado'
+        String updateQuery = "UPDATE biblioteca SET pendiente = ?, obtenido = ?, jugado = ?, comentario = ?, nota = ?, fechaJugado = ? "
                 + "WHERE idUsuario = ? AND idGame = ?";
 
         try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
@@ -65,9 +66,17 @@ public class DaoBiblioteca {
             updateStatement.setString(2, entrada.getObtenido());
             updateStatement.setString(3, entrada.getJugado());
             updateStatement.setString(4, comentario); 
-            updateStatement.setInt(5, entrada.getNota()); 
-            updateStatement.setInt(6, idUsuario);
-            updateStatement.setInt(7, idGame);
+            updateStatement.setDouble(5, entrada.getNota()); 
+            
+            // Comprobamos si la fechaJugado es nula, de no serlo, la convertimos a java.sql.Date
+            if (entrada.getFechaJugado() != null) {
+                updateStatement.setDate(6, entrada.getFechaJugado());  // Establecemos la fechaJugado en el PreparedStatement
+            } else {
+                updateStatement.setNull(6, java.sql.Types.DATE);  // Si es null, establecemos el valor como NULL
+            }
+
+            updateStatement.setInt(7, idUsuario);
+            updateStatement.setInt(8, idGame);
             
             int filasAfectadas = updateStatement.executeUpdate();
             if (filasAfectadas > 0) {

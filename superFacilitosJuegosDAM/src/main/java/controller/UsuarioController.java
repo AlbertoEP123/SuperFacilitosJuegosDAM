@@ -102,7 +102,7 @@ public class UsuarioController {
 
     @FXML
     void clickBiblioteca(MouseEvent event) {
-    	
+    	Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
 
     }
     @FXML

@@ -10,12 +10,17 @@ import com.google.gson.JsonParser;
 
 import api.RawgApiClient;
 import app.Metodos;
+import db.DaoBiblioteca;
+import db.DaoUsuarios;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.Auxiliar;
+import model.EntradaDeBiblioteca;
 
 
 public class DetallesController {
@@ -30,6 +35,10 @@ public class DetallesController {
     
     public DetallesController() {
     }
+    
+
+    @FXML
+    private Button btnGuardar;
 
   
     @FXML
@@ -54,6 +63,17 @@ public class DetallesController {
 
     @FXML
     private Label tituloJuego;
+    
+
+    @FXML
+    void guardar(ActionEvent event) {
+    	EntradaDeBiblioteca entrada = new EntradaDeBiblioteca(DaoUsuarios.getId(LogInController.loggedInUser.getEmail()),
+    			Auxiliar.juego.getId() , 
+    			Auxiliar.juego.getImageUrl(),Auxiliar.juego.getTitle(), "0",
+    			"1", "0", "comentario base",Auxiliar.juego.getAverageRating() , null);
+    	DaoBiblioteca.addEntradaBiblioteca(DaoUsuarios.getId(LogInController.loggedInUser.getEmail()), entrada, "ej");
+    	
+    }
 
     @FXML
     void buttonJugado(MouseEvent event) {
@@ -115,6 +135,7 @@ public class DetallesController {
   
     @FXML
    void initialize() {
+
     
        client = new RawgApiClient();
        caratulaJuego.setImage(Auxiliar.caratula.getImage());
