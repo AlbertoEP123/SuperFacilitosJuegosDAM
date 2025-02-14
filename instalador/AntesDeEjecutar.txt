@@ -1,0 +1,4 @@
+Para que todo funcione correctamente antes de ejecutar el instalador tienes que ejecutar estas dos lineas en Mysql:
+
+CREATE USER 'superfacilitogames'@'localhost' IDENTIFIED BY 'ezgames';
+GRANT ALL PRIVILEGES ON bd_mygames.* TO 'superfacilitogames'@'localhost';
