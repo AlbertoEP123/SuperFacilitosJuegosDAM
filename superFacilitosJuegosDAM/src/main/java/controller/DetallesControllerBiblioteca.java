@@ -67,6 +67,7 @@ public class DetallesControllerBiblioteca {
 
         if (idGame > 0) {
             DaoBiblioteca.deleteEntradaBiblioteca(idUsuario, idGame);
+            Metodos.mostrarMensajeConfirmacion(Auxiliar.entrada.getTitulos()+" ha sido eliminado");
             System.out.println("El juego con ID " + idGame + " ha sido eliminado.");
             Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
         } else {
@@ -76,77 +77,71 @@ public class DetallesControllerBiblioteca {
 
     @FXML
     void guardar(ActionEvent event) {
-
         int idUsuario = DaoUsuarios.getId(LogInController.loggedInUser.getEmail());
         int idGame = Auxiliar.entrada.getIdGame();
 
         if (!rdbtnPendiente.isSelected() && !rdbtnTerminado.isSelected()) {
-            System.out.println("No hay cambios.");
+            Metodos.mostrarMensajeConfirmacion("No hay cambios");
             return;
-        } else if (rdbtnPendiente.isSelected()) {
-            EntradaDeBiblioteca entradaActualizada = new EntradaDeBiblioteca(
+        }
+
+        EntradaDeBiblioteca entradaActualizada;
+        if (rdbtnPendiente.isSelected()) {
+            entradaActualizada = new EntradaDeBiblioteca(
                 idUsuario,
                 idGame,
                 Auxiliar.entrada.getImagen(),
                 Auxiliar.entrada.getTitulos(),
-                "1",
+                "1", // Pendiente
                 Auxiliar.entrada.getObtenido(),
-                "0",
+                "0", // No terminado
                 "",
                 Auxiliar.entrada.getNota(),
                 null
             );
-            DaoBiblioteca.updateEntradaBiblioteca(idUsuario, idGame, entradaActualizada, txtComentario.getText());
-            System.out.println("Cambios guardados correctamente. v.pendiente");
-            Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
         } else if (rdbtnTerminado.isSelected()) {
-        	
-        	LocalDate localDate = dateFEchaTerminado.getValue();
-        	if (localDate != null) {
-        	    System.out.println("Fecha seleccionada: " + localDate);
-        	    Date fechaJugado = Date.valueOf(localDate);
-        	    // Continuar con el guardado...
-        	} else {
-        	    System.out.println("No se ha seleccionado ninguna fecha.");
-        	}
-        	if (localDate != null) {
-        	    System.out.println("Fecha seleccionada: " + localDate);
-        	    Date fechaJugado = Date.valueOf(localDate);
-                EntradaDeBiblioteca entradaActualizada = new EntradaDeBiblioteca(
-                        idUsuario,
-                        idGame,
-                        Auxiliar.entrada.getImagen(),
-                        Auxiliar.entrada.getTitulos(),
-                        "0",
-                        Auxiliar.entrada.getObtenido(),
-                        "1",
-                        txtComentario.getText(),
-                        Double.parseDouble(txtNotaPersonal.getText()),
-                        fechaJugado
-                    );
-                    DaoBiblioteca.updateEntradaBiblioteca(idUsuario, idGame, entradaActualizada, txtComentario.getText());
-                    System.out.println("Cambios guardados correctamente. v. terminado");
-                    Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
-        	} else {
-        	    System.out.println("No se ha seleccionado ninguna fecha.");
-        	}
+            // Si el estado es "Terminado", validar campos obligatorios
+            LocalDate localDate = dateFEchaTerminado.getValue();
+            String comentario = txtComentario.getText();
+            String notaPersonal = txtNotaPersonal.getText();
 
+            // Validar que los campos no estén vacíos
+            if (localDate == null || comentario == null || comentario.trim().isEmpty() || notaPersonal == null || notaPersonal.trim().isEmpty()) {
+                Metodos.mostrarMensajeError("Por favor, rellena todos los campos");
+                return;
+            }
+
+            // Validar que la nota sea un número válido
+            double nota;
+            try {
+                nota = Double.parseDouble(notaPersonal);
+            } catch (NumberFormatException e) {
+                Metodos.mostrarMensajeError("La nota debe ser un número válido.");
+                return;
+            }
+
+            // Crear la entrada actualizada
+            Date fechaJugado = Date.valueOf(localDate);
+            entradaActualizada = new EntradaDeBiblioteca(
+                idUsuario,
+                idGame,
+                Auxiliar.entrada.getImagen(),
+                Auxiliar.entrada.getTitulos(),
+                "0", // No pendiente
+                Auxiliar.entrada.getObtenido(),
+                "1", // Terminado
+                comentario,
+                nota,
+                fechaJugado
+            );
+        } else {
+            return; // No debería llegar aquí
         }
-    }
 
-    @FXML
-    void logOut(MouseEvent event) {
-        Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
-    }
-
-    @FXML
-    void irABiblioteca(MouseEvent event) {
+        // Guardar los cambios en la base de datos
+        DaoBiblioteca.updateEntradaBiblioteca(idUsuario, idGame, entradaActualizada, txtComentario.getText());
+        Metodos.mostrarMensajeConfirmacion("Cambios guardados correctamente.");
         Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
-    }
-    
-    @FXML
-    void guardarJuego(MouseEvent event) {
-        System.out.println("Guardar juego clickeado");
     }
 
     @FXML
@@ -159,7 +154,7 @@ public class DetallesControllerBiblioteca {
 
         // Limpiar la descripción de HTML usando regex
         String descripcionHTML = client.obtenerDescripcionPorId(Auxiliar.entrada.getIdGame());
-        String descripcionTexto = descripcionHTML.replaceAll("<[^>]*>", ""); // Elimina todas las etiquetas HTML
+        String descripcionTexto = descripcionHTML.replaceAll("<[^>]*>", ""); // Elimina todas las etiquetas HTML de la descr
 
         textDescripcion.setText(descripcionTexto); // Asignar el texto limpio al Label
 
@@ -177,6 +172,7 @@ public class DetallesControllerBiblioteca {
             toggleFields();
         });
 
+        // Cargar el estado del RadioButton basado en la entrada actual
         if ("1".equals(Auxiliar.entrada.getJugado())) {
             rdbtnTerminado.setSelected(true);
             toggleFields();
@@ -190,6 +186,8 @@ public class DetallesControllerBiblioteca {
 
             txtComentario.setText(Auxiliar.entrada.getComentario());
             txtNotaPersonal.setText(String.valueOf(Auxiliar.entrada.getNota()));
+        } else if ("1".equals(Auxiliar.entrada.getPendiente())) {
+            rdbtnPendiente.setSelected(true);
         }
     }
 
@@ -199,4 +197,20 @@ public class DetallesControllerBiblioteca {
         txtComentario.setDisable(!terminado);
         txtNotaPersonal.setDisable(!terminado);
     }
+
+    @FXML
+    void logOut(MouseEvent event) {
+        Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
+    }
+
+    @FXML
+    void irABiblioteca(MouseEvent event) {
+        Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
+    }
+    
+    @FXML
+    void guardarJuego(MouseEvent event) {
+        System.out.println("Guardar juego clickeado");
+    }
 }
+

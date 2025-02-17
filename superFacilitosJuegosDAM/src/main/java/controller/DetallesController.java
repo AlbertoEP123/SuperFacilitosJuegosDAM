@@ -69,7 +69,7 @@ public class DetallesController {
     			Auxiliar.juego.getImageUrl(),Auxiliar.juego.getTitle(), "0",
     			"1", "0", "comentario base",Auxiliar.juego.getAverageRating() , null);
     	DaoBiblioteca.addEntradaBiblioteca(DaoUsuarios.getId(LogInController.loggedInUser.getEmail()), entrada, "ej");
-    	Metodos.mostrarMensajeConfirmacion("Juego añadido a biblioteca");
+    	Metodos.mostrarMensajeConfirmacion(Auxiliar.juego.getTitle()+" ha sido añadido a la biblioteca");
     	
     }
 
