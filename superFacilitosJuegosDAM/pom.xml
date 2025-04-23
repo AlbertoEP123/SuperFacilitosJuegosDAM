@@ -8,6 +8,7 @@
 	<groupId>aplicacionVideojuegosDAM</groupId>
 	<artifactId>aplicacionVideojuegosDAM</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>
@@ -140,5 +141,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>
 

@@ -3,7 +3,12 @@ package app;
 
 import db.DaoUsuarios;
 import model.Usuario;
-
+/**
+ * TO DO:
+ * 	HOME CONTROLLER: CAMBIAR FONDO DISEÑO, LETRAS, TAMAÑO IMAGENES, NAVEGACION, MAS PLATAFORMAS Y GENEROS
+ * 	DETAIL CONTROLLER : CAMBIAR DISEÑO
+ *  USUARIO CONTROLLER : CAMBIAR DISEÑO Y CAMBIAR IMAGEN FUNCIONAL
+ */
 public class Launcher {
 
 	public static void main(String[] args) {

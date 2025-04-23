@@ -23,8 +23,8 @@ public class RawgApiClient {
 		this.client = new OkHttpClient();
 	}
 
-	public List<Games> fetchTop5Games() {
-		String url = BASE_URL + "/games?key=" + API_KEY + "&page_size=12";
+	public List<Games> topJuegos(int juegosPorPagina) {
+		String url = BASE_URL + "/games?key=" + API_KEY + "&page_size=" + juegosPorPagina;
 		Request request = new Request.Builder().url(url).build();
 
 		try (Response response = client.newCall(request).execute()) {
@@ -68,6 +68,7 @@ public class RawgApiClient {
 
 	public List<Games> searchByFilter(int nPagina, int juegosPorPagina, String filtro) throws ExcepcionNullPointer {
 		String url = BASE_URL + "/games?key=" + API_KEY + filtro + "&page=" + nPagina + "&page_size=" + juegosPorPagina;
+		System.out.println(url);
 		return search(url);
 
 	}

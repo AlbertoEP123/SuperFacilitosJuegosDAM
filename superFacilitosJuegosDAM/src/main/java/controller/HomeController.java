@@ -267,7 +267,7 @@ public class HomeController {
 	}
 
 	public void principalGames() {
-		List<Games> games = client.fetchTop5Games();
+		List<Games> games = client.topJuegos(GAMES_PER_PAGE);
 		System.out.println(games.size());
 		if (games != null && !games.isEmpty()) {
 			updateGameView(games);
