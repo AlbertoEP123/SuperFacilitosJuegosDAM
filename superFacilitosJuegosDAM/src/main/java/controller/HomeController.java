@@ -153,9 +153,24 @@ public class HomeController {
 		principalGamesGenre("puzzle");
 	}
 
+	
+
 	@FXML
 	void ventanaUsuario(MouseEvent event) {
 		Metodos.cambiarEscena(event, "/view/Usuario.fxml", "Usuario");
+
+	}
+
+	
+
+	@FXML
+	void aniadir(MouseEvent event) {
+		Metodos.cambiarEscena(event, "/view/Añadir.fxml", "Añadir");
+	}
+
+	@FXML
+	void biblioteca(MouseEvent event) {
+		Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
 
 	}
 

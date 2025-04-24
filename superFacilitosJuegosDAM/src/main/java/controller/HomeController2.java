@@ -94,6 +94,19 @@ public class HomeController2 {
 		Metodos.cambiarEscena(event, "/view/LogIn.fxml", "LogIn");
 
 	}
+	
+	
+
+	@FXML
+	void aniadir(MouseEvent event) {
+		Metodos.cambiarEscena(event, "/view/Añadir.fxml", "Añadir");
+	}
+
+	@FXML
+	void biblioteca(MouseEvent event) {
+		Metodos.cambiarEscena(event, "/view/Biblioteca.fxml", "Biblioteca");
+
+	}
 
 	@FXML
 	void textFieldBusqueda(KeyEvent event) {

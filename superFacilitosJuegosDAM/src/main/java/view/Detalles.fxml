@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -9,209 +8,149 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="808.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DetallesController">
-   <left>
-      <Pane prefHeight="340.0" prefWidth="77.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
-   </left>
-   <bottom>
-      <Pane prefHeight="51.0" prefWidth="892.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER" />
-   </bottom>
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DetallesController">
    <top>
-      <GridPane prefHeight="100.0" prefWidth="1122.0" style="-fx-background-color: #1A5989; -fx-border-color: black;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="557.0" />
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="118.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="306.0" minWidth="10.0" prefWidth="306.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-        </rowConstraints>
+      <GridPane prefHeight="112.0" prefWidth="1200.0" style="-fx-background-color: #171a21;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="924.0" minWidth="10.0" prefWidth="924.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="545.0" minWidth="10.0" prefWidth="109.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+            <ImageView fitHeight="80.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resourcess/logo.png" />
+               </image>
                <GridPane.margin>
-                  <Insets />
+                  <Insets left="20.0" />
                </GridPane.margin>
+            </ImageView>
+            
+            <HBox alignment="CENTER" prefHeight="111.0" prefWidth="924.0" spacing="20.0" GridPane.columnIndex="1">
                <children>
-                  <Label fx:id="labelUsuario" layoutX="6.0" layoutY="45.0" prefHeight="18.0" prefWidth="61.0" style="-fx-font-family: Cambria;" text="usuario" textAlignment="CENTER">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Label>
-                  <ImageView fitHeight="43.0" fitWidth="56.0" layoutX="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../resourcess/usuario.png" />
-                     </image>
-                  </ImageView>
+                  <Pane fx:id="panelHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#irAHome" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="67.0" layoutX="-1.0" layoutY="-1.0" onMouseClicked="#irAHome" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resourcess/home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="panelUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="62.0" prefWidth="69.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <Label fx:id="labelUsuario" layoutX="9.0" layoutY="53.0" prefHeight="18.0" prefWidth="68.0" style="-fx-font-family: Cambria; -fx-text-fill: #b8b6b4;" text="usuario" textAlignment="RIGHT" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="51.0" fitWidth="66.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resourcess/usuario.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="panelAñadir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#aniadir" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resourcess/cruz.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="panelBiblio" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#biblioteca" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resourcess/biblioteca.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="panelCerrarSesion11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logOut" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resourcess/logOut.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
                </children>
-            </Pane>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="91.0" style="-fx-background-radius: 15px; -fx-background-color: WHITE;" GridPane.hgrow="ALWAYS">
-               <GridPane.margin>
-                  <Insets left="80.0" />
-               </GridPane.margin>
-               <opaqueInsets>
-                  <Insets bottom="5.0" />
-               </opaqueInsets>
-               <children>
-                  <ImageView fitHeight="76.0" fitWidth="98.0" layoutX="-3.0" layoutY="-1.0">
-                     <image>
-                        <Image url="@../resourcess/logo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane fx:id="panelCerrarSesion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logOut" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white; -fx-background-radius: 15px;" GridPane.columnIndex="2">
-               <children>
-                  <ImageView fitHeight="67.0" fitWidth="72.0" layoutX="-4.0" layoutY="-1.0">
-                     <image>
-                        <Image url="@../resourcess/logOut.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <GridPane.margin>
-                  <Insets left="165.0" />
-               </GridPane.margin>
-            </Pane>
-            <Pane fx:id="panelCerrarSesion1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#irAHome" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: white;" GridPane.columnIndex="2">
-               <GridPane.margin>
-                  <Insets right="150.0" />
-               </GridPane.margin>
-               <children>
-                  <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../resourcess/home.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Pane>
+            </HBox>
+            
+            <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="486.0" spacing="10.0" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </top>
-   <right>
-      <GridPane prefHeight="657.0" prefWidth="41.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="41.0" minWidth="0.0" prefWidth="38.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-   </right>
+   
    <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="270.0" prefWidth="340.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="333.0" minWidth="120.0" prefWidth="314.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="-Infinity" prefWidth="174.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="531.0" minHeight="10.0" prefHeight="431.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="351.0" minHeight="10.0" prefHeight="187.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="261.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ImageView fx:id="caratulaJuego" fitHeight="226.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
-               <GridPane.margin>
-                  <Insets top="90.0" />
-               </GridPane.margin>
-            </ImageView>
-            <Label text="Plataforma" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="150.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-            </Label>
-            <Label text="Titulo" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets top="50.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-            </Label>
-            <Label prefHeight="20.0" prefWidth="165.0" text="Fecha Lanzamiento" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets top="50.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="tituloJuego" prefHeight="17.0" prefWidth="342.0" text="Titulo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-               <padding>
-                  <Insets top="50.0" />
-               </padding>
-            </Label>
-            <Label fx:id="plataformaJuego" prefHeight="102.0" prefWidth="332.0" text="Titulo" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="150.0" />
-               </GridPane.margin>
-               <padding>
-                  <Insets right="30.0" />
-               </padding></Label>
-            <Label fx:id="fechaLanzamiento" prefHeight="75.0" prefWidth="332.0" text="Titulo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets top="50.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-            </Label>
-            <Label text="Descripcion" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-               <GridPane.margin>
-                  <Insets bottom="20.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" onMouseClicked="#guardar" style="-fx-border-style: solid;" text="Guardar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="nota" text="nota" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="100.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Nota" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font name="Cambria" size="15.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="100.0" />
-               </GridPane.margin>
-            </Label>
-            <ScrollPane fitToWidth="true" prefHeight="187.0" prefWidth="352.0" GridPane.rowIndex="1">
-   <content>
-      <Label fx:id="textDescripcion" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textAlignment="JUSTIFY" wrapText="true">
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
-      </Label>
-   </content>
-   <GridPane.margin>
-      <Insets left="30.0" />
-   </GridPane.margin>
-</ScrollPane>
-         </children>
-      </GridPane>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: #1b2838;">
+         <content>
+            <GridPane prefHeight="639.0" prefWidth="1185.0" style="-fx-background-color: #1b2838; -fx-padding: 20;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="300.0" prefWidth="350.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="800.0" minWidth="400.0" prefWidth="600.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               
+               <!-- Columna izquierda - Carátula y botón -->
+               <VBox alignment="TOP_CENTER" spacing="20.0" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <ImageView fx:id="caratulaJuego" fitHeight="350.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+               </VBox>
+               
+               <!-- Columna derecha - Detalles del juego -->
+               <VBox alignment="TOP_LEFT" prefHeight="362.0" prefWidth="800.0" spacing="15.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                  <Label fx:id="tituloJuego" style="-fx-text-fill: #e5e5e5; -fx-font-size: 32px; -fx-font-weight: bold;" text="Título del Juego" />
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <Label style="-fx-text-fill: #66c0f4; -fx-font-size: 16px;" text="Plataforma:" />
+                     <Label fx:id="plataformaJuego" style="-fx-text-fill: #e5e5e5; -fx-font-size: 16px;" text="PC" />
+                  </HBox>
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <Label style="-fx-text-fill: #66c0f4; -fx-font-size: 16px;" text="Fecha de Lanzamiento:" />
+                     <Label fx:id="fechaLanzamiento" style="-fx-text-fill: #e5e5e5; -fx-font-size: 16px;" text="01/01/2023" />
+                  </HBox>
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <Label style="-fx-text-fill: #66c0f4; -fx-font-size: 16px;" text="Nota:" />
+                     <Label fx:id="nota" style="-fx-text-fill: #e5e5e5; -fx-font-size: 16px;" text="9.5/10" />
+                  </HBox>
+               </VBox>
+               
+                  <VBox alignment="TOP_LEFT" prefHeight="113.0" prefWidth="800.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label style="-fx-text-fill: #66c0f4; -fx-font-size: 20px; -fx-font-weight: bold;" text="Descripción" />
+                  <ScrollPane fitToWidth="true" maxHeight="211.0" prefHeight="211.0" prefWidth="800.0" style="-fx-background-color: transparent;">
+                     <content>
+                        <Label fx:id="textDescripcion" lineSpacing="2.0" style="-fx-font-size: 14px;" text="aaa" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </content>
+                  </ScrollPane>
+               </VBox>
+            </GridPane>
+         </content>
+      </ScrollPane>
    </center>
+   
+   <bottom>
+      <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #171a21;" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

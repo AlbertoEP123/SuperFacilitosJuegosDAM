@@ -54,7 +54,7 @@ public class LogInController {
 
         if (loginSuccess) {
         	Metodos.mostrarMensajeConfirmacion("Te has logueado "+username);
-            Metodos.cambiarEscena(event, "/view/Home.fxml", "home");
+            Metodos.cambiarEscena(event, "/view/Home2.fxml", "Home2");
         } else {
             Metodos.mostrarMensajeError("Usuario o contraseña incorrectos.");
         }
